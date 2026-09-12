@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T08:20:04Z",
+  "dump": "data/extracted/instrumented.csv",
+  "verification": {
+    "ok": true,
+    "n": 71348,
+    "unique_pc": 351,
+    "nonzero_pc": 71348,
+    "ghr_matches": 71347,
+    "ghr_mismatches": 0,
+    "taken_frac": 0.6471099400123339,
+    "notes": [
+      "GHR update rule held for all consecutive rows"
+    ]
+  },
+  "fabricated": false
+}

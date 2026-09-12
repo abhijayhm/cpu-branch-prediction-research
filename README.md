@@ -55,8 +55,8 @@ make baseline
 # 4. Freeze splits, extract features, train, export, hybrid
 make splits
 make extract
-make train ARCH=nn_a
-make export-int8 ARCH=nn_a
+make train ARCH=nn_c
+make export-int8 ARCH=nn_c
 make champsim-build PREDICTOR=nn_frozen
 make nn
 make hybrid

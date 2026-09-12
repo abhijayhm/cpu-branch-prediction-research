@@ -55,6 +55,10 @@ study. It is not a results table.
   after INT8 quantization (up to scale rounding).
 - Training gate: validation accuracy must be > 0.5 (coin-flip random).
   Majority-class accuracy is reported separately and is **not** the gate.
+- Cross-workload val (train `654.roms`, val `649.fotonik3d`) needs SGD +
+  weight decay; Adam overfits. NN-C and NN-B pass with `--cap 100000`;
+  NN-A (Dense16) did not beat random in our runs.
+- Default export/sim model: `models/export/nn_c_int8.bin` (perceptron).
 
 ## Hybrid / online
 
@@ -88,6 +92,11 @@ study. It is not a results table.
 
 `make accept` reads artifacts only. Failed or un-run items stay `pass: false`
 with an explicit detail string. No placeholder numbers.
+
+## Build note (g++)
+
+Cloud images may default `/usr/bin/c++` to clang without `libstdc++`.
+The Makefile exports `CC=gcc` and `CXX=g++` for ChampSim/vcpkg builds.
 
 ## Known deviations / leftover work
 

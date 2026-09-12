@@ -55,7 +55,11 @@ def main() -> int:
     baseline = None
     for p in sorted((ROOT / "results" / "parsed").glob("latest_bimodal.json")):
         baseline = json.loads(p.read_text())
-    train = load_json("results/parsed/train_nn_a.json") or load_json("results/parsed/train_nn_c.json")
+    train = (
+        load_json("results/parsed/train_nn_c.json")
+        or load_json("results/parsed/train_nn_b.json")
+        or load_json("results/parsed/train_nn_a.json")
+    )
     inst = load_json("results/parsed/instrumentation_verify.json")
     splits = load_json("data/splits/spec_v1.json")
     export = list((ROOT / "models" / "export").glob("*_int8.bin")) if (ROOT / "models" / "export").exists() else []
