@@ -322,6 +322,66 @@ Keeps `anba_hybrid` intact for A/B comparison.
 - Summary: `results/parsed/residual_matrix_summary.json` with
   `deltas_vs_bimodal` and `deltas_vs_anba_hybrid` (`fabricated: false`).
 
+### Residual dataset stats (instrumentation cap 100k rows/file)
+
+Mean bimodal disagreement in source dumps: **12.27%** of rows
+(`predicted != taken`). After 15% agreement mix:
+
+| Split | Trace | Source rows | Disagree % | Output rows |
+| --- | --- | ---: | ---: | ---: |
+| train | bwaves-3699B | 42427 | 12.99 | 6484 |
+| train | cactuBSSN-4248B | 35331 | 12.60 | 5235 |
+| val | deepsjeng-928B | 45789 | 11.23 | 6047 |
+
+Full stats: `results/parsed/residual_dataset_stats.json`.
+
+### Offline val (residual curriculum, SGD)
+
+Best arch selected by val (not hardcoded): **NN-B** (`val_acc=0.5727`).
+NN-C did **not** beat random on residual data.
+
+| Model | Train acc | Val acc | Beat random |
+| --- | ---: | ---: | --- |
+| NN-A | 0.5953 | 0.5480 | yes |
+| NN-B | 0.6612 | **0.5727** | yes |
+| NN-C | 0.6150 | 0.4745 | no |
+
+Export: `models/export/nn_residual_int8.bin` (NN-B).
+
+### Residual test matrix (WARMUP=1e5, SIM=2e5)
+
+**Bimodal baseline on held-out hard test**
+
+| Trace | Acc % | IPC | MPKI |
+| --- | ---: | ---: | ---: |
+| roms | 80.48 | 1.507 | 31.63 |
+| exchange2 | 84.04 | 1.676 | 21.50 |
+
+**Deltas vs bimodal**
+
+| Trace | Predictor | Δ acc % | Δ IPC | Δ MPKI |
+| --- | --- | ---: | ---: | ---: |
+| roms | anba_online | −0.66 | −0.019 | +1.07 |
+| roms | anba_hybrid | −4.90 | −0.140 | +7.94 |
+| roms | **anba_residual_hybrid** | **0.00** | **0.000** | **0.00** |
+| roms | nn_frozen (residual) | −19.32 | −0.445 | +31.31 |
+| exchange2 | anba_online | +0.21 | +0.008 | −0.28 |
+| exchange2 | anba_hybrid | −7.39 | −0.223 | +9.96 |
+| exchange2 | **anba_residual_hybrid** | **0.00** | **0.000** | **0.00** |
+| exchange2 | nn_frozen (residual) | −30.55 | −0.753 | +41.14 |
+
+**Deltas vs old `anba_hybrid` (hard-domain NN-C)**
+
+| Trace | Predictor | Δ acc % | Δ IPC |
+| --- | --- | ---: | ---: |
+| roms | anba_residual_hybrid | +4.90 | +0.140 |
+| exchange2 | anba_residual_hybrid | +7.39 | +0.223 |
+
+The safer gate (`ANBA_NN_MARGIN=8`) prevents harmful NN overrides on uncertain
+branches: `anba_residual_hybrid` matches bimodal on both held-out traces while
+recovering the full regression of `anba_hybrid`. `nn_frozen` with residual
+weights still regresses (expected — no bimodal backbone).
+
 ## Known deviations / leftover work
 
 - Full SPEC matrix and championship-length windows: not run unless logs exist.

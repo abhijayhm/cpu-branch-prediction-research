@@ -1,0 +1,312 @@
+{
+  "name": "spec_residual_v1",
+  "seed": 20260915,
+  "unit": "workload",
+  "created_utc": "2026-09-12T09:48:06Z",
+  "source_catalog": "data/metadata/traces.csv",
+  "source_doi": "10.5281/zenodo.10960004",
+  "parent_split": "data/splits/spec_hard_domain_v1.json",
+  "rules": [
+    "Same workload-level train/val/test traces as spec_hard_domain_v1.",
+    "Never train or build residual CSVs from test traces.",
+    "Residual CSVs emphasize bimodal mispredictions (predicted != taken).",
+    "Agreement rows are mixed in at a calibrated fraction (default 15%).",
+    "Supervised target remains true taken (not flip-of-bimodal)."
+  ],
+  "residual_curriculum": {
+    "agreement_fraction_default": 0.15,
+    "emphasis": "predicted != taken",
+    "target_label": "taken",
+    "data_dir": "data/extracted/residual",
+    "builder": "tools/build_residual_dataset.py"
+  },
+  "residual_subset": {
+    "workloads_considered": {
+      "pool": [
+        "654.roms",
+        "648.exchange2",
+        "603.bwaves",
+        "607.cactuBSSN",
+        "631.deepsjeng"
+      ],
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "workloads": {
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "traces": {
+      "train": [
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1021B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz"
+      ]
+    },
+    "full_workload_traces": {
+      "train": [
+        "603.bwaves_s-1080B.champsimtrace.xz",
+        "603.bwaves_s-1740B.champsimtrace.xz",
+        "603.bwaves_s-2609B.champsimtrace.xz",
+        "603.bwaves_s-2931B.champsimtrace.xz",
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "603.bwaves_s-5359B.champsimtrace.xz",
+        "603.bwaves_s-891B.champsimtrace.xz",
+        "607.cactuBSSN_s-2421B.champsimtrace.xz",
+        "607.cactuBSSN_s-3477B.champsimtrace.xz",
+        "607.cactuBSSN_s-4004B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1007B.champsimtrace.xz",
+        "654.roms_s-1021B.champsimtrace.xz",
+        "654.roms_s-1070B.champsimtrace.xz",
+        "654.roms_s-1390B.champsimtrace.xz",
+        "654.roms_s-1613B.champsimtrace.xz",
+        "654.roms_s-293B.champsimtrace.xz",
+        "654.roms_s-294B.champsimtrace.xz",
+        "654.roms_s-523B.champsimtrace.xz",
+        "654.roms_s-842B.champsimtrace.xz",
+        "648.exchange2_s-1227B.champsimtrace.xz",
+        "648.exchange2_s-1247B.champsimtrace.xz",
+        "648.exchange2_s-1511B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz",
+        "648.exchange2_s-1712B.champsimtrace.xz",
+        "648.exchange2_s-210B.champsimtrace.xz",
+        "648.exchange2_s-353B.champsimtrace.xz",
+        "648.exchange2_s-387B.champsimtrace.xz",
+        "648.exchange2_s-584B.champsimtrace.xz",
+        "648.exchange2_s-72B.champsimtrace.xz"
+      ]
+    },
+    "bimodal_probe_acc_pct": {
+      "603.bwaves_s-3699B.champsimtrace.xz": 87.22,
+      "607.cactuBSSN_s-4248B.champsimtrace.xz": 87.45,
+      "631.deepsjeng_s-928B.champsimtrace.xz": 89.71,
+      "654.roms_s-1021B.champsimtrace.xz": 80.48,
+      "648.exchange2_s-1699B.champsimtrace.xz": 84.04
+    }
+  },
+  "hard_domain_subset": {
+    "workloads_considered": {
+      "pool": [
+        "654.roms",
+        "648.exchange2",
+        "603.bwaves",
+        "607.cactuBSSN",
+        "631.deepsjeng"
+      ],
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "workloads": {
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "traces": {
+      "train": [
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1021B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz"
+      ]
+    },
+    "full_workload_traces": {
+      "train": [
+        "603.bwaves_s-1080B.champsimtrace.xz",
+        "603.bwaves_s-1740B.champsimtrace.xz",
+        "603.bwaves_s-2609B.champsimtrace.xz",
+        "603.bwaves_s-2931B.champsimtrace.xz",
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "603.bwaves_s-5359B.champsimtrace.xz",
+        "603.bwaves_s-891B.champsimtrace.xz",
+        "607.cactuBSSN_s-2421B.champsimtrace.xz",
+        "607.cactuBSSN_s-3477B.champsimtrace.xz",
+        "607.cactuBSSN_s-4004B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1007B.champsimtrace.xz",
+        "654.roms_s-1021B.champsimtrace.xz",
+        "654.roms_s-1070B.champsimtrace.xz",
+        "654.roms_s-1390B.champsimtrace.xz",
+        "654.roms_s-1613B.champsimtrace.xz",
+        "654.roms_s-293B.champsimtrace.xz",
+        "654.roms_s-294B.champsimtrace.xz",
+        "654.roms_s-523B.champsimtrace.xz",
+        "654.roms_s-842B.champsimtrace.xz",
+        "648.exchange2_s-1227B.champsimtrace.xz",
+        "648.exchange2_s-1247B.champsimtrace.xz",
+        "648.exchange2_s-1511B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz",
+        "648.exchange2_s-1712B.champsimtrace.xz",
+        "648.exchange2_s-210B.champsimtrace.xz",
+        "648.exchange2_s-353B.champsimtrace.xz",
+        "648.exchange2_s-387B.champsimtrace.xz",
+        "648.exchange2_s-584B.champsimtrace.xz",
+        "648.exchange2_s-72B.champsimtrace.xz"
+      ]
+    },
+    "bimodal_probe_acc_pct": {
+      "603.bwaves_s-3699B.champsimtrace.xz": 87.22,
+      "607.cactuBSSN_s-4248B.champsimtrace.xz": 87.45,
+      "631.deepsjeng_s-928B.champsimtrace.xz": 89.71,
+      "654.roms_s-1021B.champsimtrace.xz": 80.48,
+      "648.exchange2_s-1699B.champsimtrace.xz": 84.04
+    }
+  },
+  "small_subset": {
+    "workloads_considered": {
+      "pool": [
+        "654.roms",
+        "648.exchange2",
+        "603.bwaves",
+        "607.cactuBSSN",
+        "631.deepsjeng"
+      ],
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "workloads": {
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "traces": {
+      "train": [
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1021B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz"
+      ]
+    },
+    "full_workload_traces": {
+      "train": [
+        "603.bwaves_s-1080B.champsimtrace.xz",
+        "603.bwaves_s-1740B.champsimtrace.xz",
+        "603.bwaves_s-2609B.champsimtrace.xz",
+        "603.bwaves_s-2931B.champsimtrace.xz",
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "603.bwaves_s-5359B.champsimtrace.xz",
+        "603.bwaves_s-891B.champsimtrace.xz",
+        "607.cactuBSSN_s-2421B.champsimtrace.xz",
+        "607.cactuBSSN_s-3477B.champsimtrace.xz",
+        "607.cactuBSSN_s-4004B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1007B.champsimtrace.xz",
+        "654.roms_s-1021B.champsimtrace.xz",
+        "654.roms_s-1070B.champsimtrace.xz",
+        "654.roms_s-1390B.champsimtrace.xz",
+        "654.roms_s-1613B.champsimtrace.xz",
+        "654.roms_s-293B.champsimtrace.xz",
+        "654.roms_s-294B.champsimtrace.xz",
+        "654.roms_s-523B.champsimtrace.xz",
+        "654.roms_s-842B.champsimtrace.xz",
+        "648.exchange2_s-1227B.champsimtrace.xz",
+        "648.exchange2_s-1247B.champsimtrace.xz",
+        "648.exchange2_s-1511B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz",
+        "648.exchange2_s-1712B.champsimtrace.xz",
+        "648.exchange2_s-210B.champsimtrace.xz",
+        "648.exchange2_s-353B.champsimtrace.xz",
+        "648.exchange2_s-387B.champsimtrace.xz",
+        "648.exchange2_s-584B.champsimtrace.xz",
+        "648.exchange2_s-72B.champsimtrace.xz"
+      ]
+    },
+    "bimodal_probe_acc_pct": {
+      "603.bwaves_s-3699B.champsimtrace.xz": 87.22,
+      "607.cactuBSSN_s-4248B.champsimtrace.xz": 87.45,
+      "631.deepsjeng_s-928B.champsimtrace.xz": 89.71,
+      "654.roms_s-1021B.champsimtrace.xz": 80.48,
+      "648.exchange2_s-1699B.champsimtrace.xz": 84.04
+    }
+  },
+  "bimodal_probe": {
+    "warmup": 100000,
+    "sim": 200000,
+    "source": "results/parsed/bimodal_probe.json",
+    "threshold_pct": 90.0
+  },
+  "dataset_note": "Residual training rows are a mix of bimodal disagreements and sampled agreements. Labels are always the true taken bit."
+}
