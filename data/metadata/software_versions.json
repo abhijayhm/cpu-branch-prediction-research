@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-12T00:00:00Z",
+  "champsim": {
+    "url": "https://github.com/ChampSim/ChampSim",
+    "ref": "master",
+    "commit": "410cee62d9c429c043ea611325ce00e6c303be2a",
+    "commit_date_utc": "2026-09-04T22:07:22Z",
+    "commit_title": "Merge pull request #722 from abejgonzalez/patch-1 — Fix strict weak ordering comparator in ChampSim DRAM channel",
+    "local_path": "champsim/ChampSim",
+    "pin_method": "git clone + checkout of exact commit; not vendored in this repo"
+  },
+  "traces": {
+    "source": "https://zenodo.org/records/10960004",
+    "doi": "10.5281/zenodo.10960004",
+    "title": "SPEC CPU 2017 ChampSim Traces",
+    "catalog": "data/metadata/traces.csv"
+  },
+  "splits": {
+    "file": "data/splits/spec_v1.json",
+    "seed": 20260912,
+    "unit": "workload (SPEC benchmark), never instruction-level"
+  }
+}

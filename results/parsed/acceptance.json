@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T08:12:08Z",
+  "criteria": {
+    "A1": {
+      "pass": true,
+      "detail": "scaffold files present"
+    },
+    "A2": {
+      "pass": true,
+      "detail": "env files present (conda/docker/license)"
+    },
+    "A3": {
+      "pass": true,
+      "detail": "pin=410cee62d9c429c043ea611325ce00e6c303be2a local=not cloned"
+    },
+    "A4": {
+      "pass": false,
+      "detail": "catalog=95 downloaded=0 sha256_filled=0"
+    },
+    "A5": {
+      "pass": false,
+      "detail": "bimodal_bin=False default_bin=False"
+    },
+    "A6": {
+      "pass": false,
+      "detail": "{\"metrics\": \"unavailable\"}"
+    },
+    "A7": {
+      "pass": false,
+      "detail": "not run"
+    },
+    "A8": {
+      "pass": true,
+      "detail": "seed=20260912 unit=workload"
+    },
+    "A9": {
+      "pass": false,
+      "detail": "val_acc=unavailable beat_random=unavailable"
+    },
+    "A10": {
+      "pass": false,
+      "detail": "int8_export=False nn_bin=False"
+    },
+    "A11": {
+      "pass": false,
+      "detail": "hybrid_bin=False notes=True"
+    }
+  },
+  "passed": 4,
+  "total": 11,
+  "fabricated": false
+}
