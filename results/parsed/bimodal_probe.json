@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T08:54:06Z",
+  "warmup": 100000,
+  "sim": 200000,
+  "n_traces": 10,
+  "rows": [
+    {
+      "trace": "603.bwaves_s-3699B.champsimtrace.xz",
+      "workload": "603.bwaves",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.957,
+      "branch_accuracy_pct": 87.22,
+      "branch_mpki": 17.87,
+      "parse_ok": true
+    },
+    {
+      "trace": "603.bwaves_s-5359B.champsimtrace.xz",
+      "workload": "603.bwaves",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.938,
+      "branch_accuracy_pct": 87.35,
+      "branch_mpki": 17.8,
+      "parse_ok": true
+    },
+    {
+      "trace": "605.mcf_s-1554B.champsimtrace.xz",
+      "workload": "605.mcf",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.1191,
+      "branch_accuracy_pct": 99.16,
+      "branch_mpki": 1.595,
+      "parse_ok": true
+    },
+    {
+      "trace": "607.cactuBSSN_s-4248B.champsimtrace.xz",
+      "workload": "607.cactuBSSN",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.547,
+      "branch_accuracy_pct": 87.45,
+      "branch_mpki": 14.74,
+      "parse_ok": true
+    },
+    {
+      "trace": "631.deepsjeng_s-928B.champsimtrace.xz",
+      "workload": "631.deepsjeng",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.9523,
+      "branch_accuracy_pct": 89.71,
+      "branch_mpki": 15.68,
+      "parse_ok": true
+    },
+    {
+      "trace": "638.imagick_s-4128B.champsimtrace.xz",
+      "workload": "638.imagick",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.733,
+      "branch_accuracy_pct": 98.59,
+      "branch_mpki": 2.71,
+      "parse_ok": true
+    },
+    {
+      "trace": "644.nab_s-12521B.champsimtrace.xz",
+      "workload": "644.nab",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.669,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.04,
+      "parse_ok": true
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "workload": "648.exchange2",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "parse_ok": true
+    },
+    {
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "workload": "649.fotonik3d",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.796,
+      "branch_accuracy_pct": 95.22,
+      "branch_mpki": 11.35,
+      "parse_ok": true
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "workload": "654.roms",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "parse_ok": true
+    }
+  ],
+  "ranked_by_bimodal_acc_asc": [
+    "654.roms_s-1021B.champsimtrace.xz",
+    "648.exchange2_s-1699B.champsimtrace.xz",
+    "603.bwaves_s-3699B.champsimtrace.xz",
+    "603.bwaves_s-5359B.champsimtrace.xz",
+    "607.cactuBSSN_s-4248B.champsimtrace.xz",
+    "631.deepsjeng_s-928B.champsimtrace.xz",
+    "649.fotonik3d_s-1B.champsimtrace.xz",
+    "638.imagick_s-4128B.champsimtrace.xz",
+    "605.mcf_s-1554B.champsimtrace.xz",
+    "644.nab_s-12521B.champsimtrace.xz"
+  ],
+  "fabricated": false
+}

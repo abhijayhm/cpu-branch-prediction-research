@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T085520Z",
+  "predictor": "bimodal",
+  "trace": "607.cactuBSSN_s-4248B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_bimodal",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/607.cactuBSSN_s-4248B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/bimodal_607.cactuBSSN_s-4248B.champsimtrace.xz_20260912T085520Z.log",
+  "metrics": {
+    "ipc": 1.547,
+    "instructions": 200002,
+    "cycles": 129259,
+    "branch_accuracy_pct": 87.45,
+    "branch_mpki": 14.74
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

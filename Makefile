@@ -16,8 +16,8 @@ export CC := gcc
 export CXX := g++
 
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
-	traces catalog splits baseline parse instrument extract train export-int8 \
-	nn hybrid online smoke matrix reproduce accept clean-results
+	traces catalog splits hard-splits baseline parse instrument extract train export-int8 \
+	nn hybrid online smoke matrix hard-matrix reproduce accept clean-results
 
 help:
 	@echo "ANBA targets:"
@@ -32,6 +32,8 @@ help:
 	@echo "  make train ARCH=nn_a  train on frozen train split only"
 	@echo "  make export-int8      write models/export/*_int8.bin"
 	@echo "  make matrix           run predictors on all downloaded traces"
+	@echo "  make hard-splits      freeze data/splits/spec_hard_v1.json"
+	@echo "  make hard-matrix      run predictors on hard-eval traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -84,6 +86,9 @@ parse:
 splits:
 	$(PY) $(ROOT)/tools/make_splits.py
 
+hard-splits:
+	$(PY) $(ROOT)/tools/make_hard_splits.py
+
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)
 
@@ -128,6 +133,9 @@ smoke: baseline
 
 matrix:
 	bash $(ROOT)/experiments/matrix.sh
+
+hard-matrix:
+	bash $(ROOT)/experiments/hard_matrix.sh
 
 reproduce: env catalog traces splits champsim-pin
 	@echo "=== reproduce: env/catalog/traces/splits/pin ==="

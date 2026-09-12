@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T085514Z",
+  "predictor": "anba_online",
+  "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_anba_online",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/anba_online_648.exchange2_s-1699B.champsimtrace.xz_20260912T085514Z.log",
+  "metrics": {
+    "ipc": 1.683,
+    "instructions": 200000,
+    "cycles": 118821,
+    "branch_accuracy_pct": 84.23,
+    "branch_mpki": 21.25
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

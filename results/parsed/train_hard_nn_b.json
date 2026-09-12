@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T08:54:50Z",
+  "arch": "nn_b",
+  "model_name": "nn_b_dense32_8",
+  "seed": 20260912,
+  "splits": "data/splits/spec_hard_v1.json",
+  "train_files": [
+    "649.fotonik3d_s-1B.csv",
+    "638.imagick_s-4128B.csv",
+    "644.nab_s-12521B.csv"
+  ],
+  "val_files": [
+    "631.deepsjeng_s-928B.csv"
+  ],
+  "test_files_used": [],
+  "n_train": 300000,
+  "n_val": 100000,
+  "train_acc": 0.81288,
+  "val_acc": 0.52003,
+  "random_acc": 0.5,
+  "val_majority_acc": 0.54953,
+  "beat_random": true,
+  "fabricated": false
+}
