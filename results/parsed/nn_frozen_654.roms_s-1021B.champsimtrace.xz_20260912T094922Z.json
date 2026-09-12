@@ -1,23 +1,23 @@
 {
   "schema_version": 1,
-  "generated_utc": "20260912T094928Z",
+  "generated_utc": "20260912T094922Z",
   "predictor": "nn_frozen",
-  "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+  "trace": "654.roms_s-1021B.champsimtrace.xz",
   "warmup_instructions": 100000,
   "simulation_instructions": 200000,
   "command": [
     "/workspace/champsim/ChampSim/bin/champsim_nn_frozen",
     "--warmup-instructions=100000",
     "--simulation-instructions=200000",
-    "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
+    "/workspace/data/traces/654.roms_s-1021B.champsimtrace.xz"
   ],
-  "log_path": "/workspace/results/raw/nn_frozen_648.exchange2_s-1699B.champsimtrace.xz_20260912T094928Z.log",
+  "log_path": "/workspace/results/raw/nn_frozen_654.roms_s-1021B.champsimtrace.xz_20260912T094922Z.log",
   "metrics": {
-    "ipc": 0.9228,
+    "ipc": 1.062,
     "instructions": 200001,
-    "cycles": 216731,
-    "branch_accuracy_pct": 53.49,
-    "branch_mpki": 62.64
+    "cycles": 188333,
+    "branch_accuracy_pct": 61.16,
+    "branch_mpki": 62.94
   },
   "parse_ok": true,
   "notes": [],

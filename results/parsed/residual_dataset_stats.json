@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T09:48:37Z",
+  "splits": "data/splits/spec_residual_v1.json",
+  "input_dir": "data/extracted",
+  "out_dir": "data/extracted/residual",
+  "agreement_fraction_target": 0.15,
+  "cap_per_file": 100000,
+  "seed": 20260915,
+  "curriculum": "Emphasize bimodal mispredictions (predicted != taken) with a calibrated agreement mix (15% target) so training is not dominated by rare disagreement events only.",
+  "files": [
+    {
+      "split": "train",
+      "trace": "603.bwaves_s-3699B.champsimtrace.xz",
+      "output": "data/extracted/residual/603.bwaves_s-3699B.csv",
+      "source": "/workspace/data/extracted/603.bwaves_s-3699B.csv",
+      "total_rows": 42427,
+      "disagreement_rows": 5511,
+      "agreement_rows": 36916,
+      "disagreement_pct": 12.99,
+      "disagreement_rows_used": 5511,
+      "agreement_rows_used": 973,
+      "agreement_fraction_target": 0.15,
+      "agreement_fraction_actual": 0.1501,
+      "output_rows": 6484
+    },
+    {
+      "split": "train",
+      "trace": "607.cactuBSSN_s-4248B.champsimtrace.xz",
+      "output": "data/extracted/residual/607.cactuBSSN_s-4248B.csv",
+      "source": "/workspace/data/extracted/607.cactuBSSN_s-4248B.csv",
+      "total_rows": 35331,
+      "disagreement_rows": 4450,
+      "agreement_rows": 30881,
+      "disagreement_pct": 12.6,
+      "disagreement_rows_used": 4450,
+      "agreement_rows_used": 785,
+      "agreement_fraction_target": 0.15,
+      "agreement_fraction_actual": 0.15,
+      "output_rows": 5235
+    },
+    {
+      "split": "val",
+      "trace": "631.deepsjeng_s-928B.champsimtrace.xz",
+      "output": "data/extracted/residual/631.deepsjeng_s-928B.csv",
+      "source": "/workspace/data/extracted/631.deepsjeng_s-928B.csv",
+      "total_rows": 45789,
+      "disagreement_rows": 5140,
+      "agreement_rows": 40649,
+      "disagreement_pct": 11.23,
+      "disagreement_rows_used": 5140,
+      "agreement_rows_used": 907,
+      "agreement_fraction_target": 0.15,
+      "agreement_fraction_actual": 0.15,
+      "output_rows": 6047
+    }
+  ],
+  "totals": {
+    "output_rows": 17766,
+    "disagreement_rows_in_source": 15101,
+    "mean_disagreement_pct_in_source": 12.27
+  },
+  "fabricated": false
+}

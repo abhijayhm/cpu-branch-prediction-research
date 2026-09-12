@@ -1,8 +1,10 @@
 #ifndef ANBA_INT8_H
 #define ANBA_INT8_H
 
+#include <cmath>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <string>
 #include <vector>
@@ -108,11 +110,11 @@ struct Model {
     return true;
   }
 
-  // Hidden activations: sign of int32 accumulator (ternary ±1, 0 -> -1).
-  bool predict(const int8_t* x) const
+  // Final-layer INT8 accumulator (signed). 0 when model not loaded.
+  int32_t final_accumulator(const int8_t* x) const
   {
     if (!loaded || layers.empty()) {
-      return false;
+      return 0;
     }
     std::vector<int8_t> cur(N_FEATURES);
     std::memcpy(cur.data(), x, N_FEATURES);
@@ -129,14 +131,30 @@ struct Model {
         acc[o] = s;
       }
       if (li + 1 == layers.size()) {
-        return acc[0] >= 0;
+        return acc[0];
       }
       cur.resize(layer.out);
       for (uint32_t o = 0; o < layer.out; o++) {
         cur[o] = acc[o] >= 0 ? int8_t{1} : int8_t{-1};
       }
     }
-    return false;
+    return 0;
+  }
+
+  // Hidden activations: sign of int32 accumulator (ternary ±1, 0 -> -1).
+  bool predict(const int8_t* x) const { return final_accumulator(x) >= 0; }
+
+  // High-confidence prediction: returns prediction only if |accumulator| >= margin.
+  bool predict_if_confident(const int8_t* x, int32_t margin, bool* confident) const
+  {
+    const int32_t acc = final_accumulator(x);
+    if (confident != nullptr) {
+      *confident = std::abs(acc) >= margin;
+    }
+    if (std::abs(acc) < margin) {
+      return acc >= 0;
+    }
+    return acc >= 0;
   }
 };
 

@@ -1,0 +1,399 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T09:49:29Z",
+  "split": "data/splits/spec_residual_v1.json",
+  "test_traces": [
+    "648.exchange2_s-1699B.champsimtrace.xz",
+    "654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "warmup": 100000,
+  "sim": 200000,
+  "nn_margin_default": 8,
+  "residual_model": "models/export/nn_residual_int8.bin",
+  "n_runs": 10,
+  "predictors": [
+    "bimodal",
+    "anba_hybrid",
+    "anba_online",
+    "anba_residual_hybrid",
+    "nn_frozen"
+  ],
+  "rows": [
+    {
+      "predictor": "anba_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.453,
+      "branch_accuracy_pct": 76.65,
+      "branch_mpki": 31.46,
+      "log_path": "/workspace/results/raw/anba_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T094924Z.log"
+    },
+    {
+      "predictor": "anba_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.367,
+      "branch_accuracy_pct": 75.58,
+      "branch_mpki": 39.57,
+      "log_path": "/workspace/results/raw/anba_hybrid_654.roms_s-1021B.champsimtrace.xz_20260912T094919Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.684,
+      "branch_accuracy_pct": 84.25,
+      "branch_mpki": 21.22,
+      "log_path": "/workspace/results/raw/anba_online_648.exchange2_s-1699B.champsimtrace.xz_20260912T094925Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.488,
+      "branch_accuracy_pct": 79.82,
+      "branch_mpki": 32.7,
+      "log_path": "/workspace/results/raw/anba_online_654.roms_s-1021B.champsimtrace.xz_20260912T094920Z.log"
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "log_path": "/workspace/results/raw/anba_residual_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T094926Z.log"
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "log_path": "/workspace/results/raw/anba_residual_hybrid_654.roms_s-1021B.champsimtrace.xz_20260912T094921Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T094923Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "log_path": "/workspace/results/raw/bimodal_654.roms_s-1021B.champsimtrace.xz_20260912T094918Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.9228,
+      "branch_accuracy_pct": 53.49,
+      "branch_mpki": 62.64,
+      "log_path": "/workspace/results/raw/nn_frozen_648.exchange2_s-1699B.champsimtrace.xz_20260912T094928Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.062,
+      "branch_accuracy_pct": 61.16,
+      "branch_mpki": 62.94,
+      "log_path": "/workspace/results/raw/nn_frozen_654.roms_s-1021B.champsimtrace.xz_20260912T094922Z.log"
+    }
+  ],
+  "deltas_vs_bimodal": [
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": -0.223,
+      "delta_branch_accuracy_pct": -7.39,
+      "delta_branch_mpki": 9.96
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": -0.14,
+      "delta_branch_accuracy_pct": -4.9,
+      "delta_branch_mpki": 7.94
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "baseline": "bimodal",
+      "delta_ipc": 0.008,
+      "delta_branch_accuracy_pct": 0.21,
+      "delta_branch_mpki": -0.28
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "baseline": "bimodal",
+      "delta_ipc": -0.019,
+      "delta_branch_accuracy_pct": -0.66,
+      "delta_branch_mpki": 1.07
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "baseline": "bimodal",
+      "delta_ipc": -0.7532,
+      "delta_branch_accuracy_pct": -30.55,
+      "delta_branch_mpki": 41.14
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "baseline": "bimodal",
+      "delta_ipc": -0.445,
+      "delta_branch_accuracy_pct": -19.32,
+      "delta_branch_mpki": 31.31
+    }
+  ],
+  "deltas_vs_anba_hybrid": [
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.231,
+      "delta_branch_accuracy_pct": 7.6,
+      "delta_branch_mpki": -10.24
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.121,
+      "delta_branch_accuracy_pct": 4.24,
+      "delta_branch_mpki": -6.87
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.223,
+      "delta_branch_accuracy_pct": 7.39,
+      "delta_branch_mpki": -9.96
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.14,
+      "delta_branch_accuracy_pct": 4.9,
+      "delta_branch_mpki": -7.94
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.223,
+      "delta_branch_accuracy_pct": 7.39,
+      "delta_branch_mpki": -9.96
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "baseline": "anba_hybrid",
+      "delta_ipc": 0.14,
+      "delta_branch_accuracy_pct": 4.9,
+      "delta_branch_mpki": -7.94
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "baseline": "anba_hybrid",
+      "delta_ipc": -0.5302,
+      "delta_branch_accuracy_pct": -23.16,
+      "delta_branch_mpki": 31.18
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "baseline": "anba_hybrid",
+      "delta_ipc": -0.305,
+      "delta_branch_accuracy_pct": -14.42,
+      "delta_branch_mpki": 23.37
+    }
+  ],
+  "offline_train_summary": {
+    "schema_version": 1,
+    "generated_utc": "2026-09-12T09:48:43Z",
+    "best_arch": "nn_b",
+    "best_val_acc": 0.5726806680998843,
+    "export_path": "models/export/nn_residual_int8.bin",
+    "arch_reports": [
+      {
+        "schema_version": 1,
+        "generated_utc": "2026-09-12T09:48:41Z",
+        "dataset": "residual",
+        "splits": "/workspace/data/splits/spec_residual_v1.json",
+        "data_dir": "/workspace/data/extracted/residual",
+        "train_files": [
+          "603.bwaves_s-3699B.csv",
+          "607.cactuBSSN_s-4248B.csv"
+        ],
+        "val_files": [
+          "631.deepsjeng_s-928B.csv"
+        ],
+        "fabricated": false,
+        "arch": "nn_a",
+        "model_name": "nn_a_dense16",
+        "n_train": 11719,
+        "n_val": 6047,
+        "train_acc": 0.595272634183804,
+        "val_acc": 0.548040350587068,
+        "random_acc": 0.5,
+        "beat_random": true
+      },
+      {
+        "schema_version": 1,
+        "generated_utc": "2026-09-12T09:48:41Z",
+        "dataset": "residual",
+        "splits": "/workspace/data/splits/spec_residual_v1.json",
+        "data_dir": "/workspace/data/extracted/residual",
+        "train_files": [
+          "603.bwaves_s-3699B.csv",
+          "607.cactuBSSN_s-4248B.csv"
+        ],
+        "val_files": [
+          "631.deepsjeng_s-928B.csv"
+        ],
+        "fabricated": false,
+        "arch": "nn_b",
+        "model_name": "nn_b_dense32_8",
+        "n_train": 11719,
+        "n_val": 6047,
+        "train_acc": 0.6612338936769349,
+        "val_acc": 0.5726806680998843,
+        "random_acc": 0.5,
+        "beat_random": true
+      },
+      {
+        "schema_version": 1,
+        "generated_utc": "2026-09-12T09:48:41Z",
+        "dataset": "residual",
+        "splits": "/workspace/data/splits/spec_residual_v1.json",
+        "data_dir": "/workspace/data/extracted/residual",
+        "train_files": [
+          "603.bwaves_s-3699B.csv",
+          "607.cactuBSSN_s-4248B.csv"
+        ],
+        "val_files": [
+          "631.deepsjeng_s-928B.csv"
+        ],
+        "fabricated": false,
+        "arch": "nn_c",
+        "model_name": "nn_c_perceptron",
+        "n_train": 11719,
+        "n_val": 6047,
+        "train_acc": 0.6149842136701084,
+        "val_acc": 0.4744501405655697,
+        "random_acc": 0.5,
+        "beat_random": false
+      }
+    ],
+    "fabricated": false
+  },
+  "residual_dataset_stats": {
+    "schema_version": 1,
+    "generated_utc": "2026-09-12T09:48:37Z",
+    "splits": "data/splits/spec_residual_v1.json",
+    "input_dir": "data/extracted",
+    "out_dir": "data/extracted/residual",
+    "agreement_fraction_target": 0.15,
+    "cap_per_file": 100000,
+    "seed": 20260915,
+    "curriculum": "Emphasize bimodal mispredictions (predicted != taken) with a calibrated agreement mix (15% target) so training is not dominated by rare disagreement events only.",
+    "files": [
+      {
+        "split": "train",
+        "trace": "603.bwaves_s-3699B.champsimtrace.xz",
+        "output": "data/extracted/residual/603.bwaves_s-3699B.csv",
+        "source": "/workspace/data/extracted/603.bwaves_s-3699B.csv",
+        "total_rows": 42427,
+        "disagreement_rows": 5511,
+        "agreement_rows": 36916,
+        "disagreement_pct": 12.99,
+        "disagreement_rows_used": 5511,
+        "agreement_rows_used": 973,
+        "agreement_fraction_target": 0.15,
+        "agreement_fraction_actual": 0.1501,
+        "output_rows": 6484
+      },
+      {
+        "split": "train",
+        "trace": "607.cactuBSSN_s-4248B.champsimtrace.xz",
+        "output": "data/extracted/residual/607.cactuBSSN_s-4248B.csv",
+        "source": "/workspace/data/extracted/607.cactuBSSN_s-4248B.csv",
+        "total_rows": 35331,
+        "disagreement_rows": 4450,
+        "agreement_rows": 30881,
+        "disagreement_pct": 12.6,
+        "disagreement_rows_used": 4450,
+        "agreement_rows_used": 785,
+        "agreement_fraction_target": 0.15,
+        "agreement_fraction_actual": 0.15,
+        "output_rows": 5235
+      },
+      {
+        "split": "val",
+        "trace": "631.deepsjeng_s-928B.champsimtrace.xz",
+        "output": "data/extracted/residual/631.deepsjeng_s-928B.csv",
+        "source": "/workspace/data/extracted/631.deepsjeng_s-928B.csv",
+        "total_rows": 45789,
+        "disagreement_rows": 5140,
+        "agreement_rows": 40649,
+        "disagreement_pct": 11.23,
+        "disagreement_rows_used": 5140,
+        "agreement_rows_used": 907,
+        "agreement_fraction_target": 0.15,
+        "agreement_fraction_actual": 0.15,
+        "output_rows": 6047
+      }
+    ],
+    "totals": {
+      "output_rows": 17766,
+      "disagreement_rows_in_source": 15101,
+      "mean_disagreement_pct_in_source": 12.27
+    },
+    "fabricated": false
+  },
+  "fabricated": false
+}

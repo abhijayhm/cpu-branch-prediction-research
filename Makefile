@@ -16,8 +16,9 @@ export CC := gcc
 export CXX := g++
 
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
-	traces catalog splits hard-splits hard-domain-splits baseline parse instrument extract train export-int8 \
-	nn hybrid online smoke matrix hard-matrix hard-domain-matrix hard-domain-train reproduce accept clean-results
+	traces catalog splits hard-splits hard-domain-splits residual-splits baseline parse instrument extract train export-int8 \
+	nn hybrid online residual-hybrid smoke matrix hard-matrix hard-domain-matrix hard-domain-train \
+	residual-instrument residual-dataset residual-train residual-matrix reproduce accept clean-results
 
 help:
 	@echo "ANBA targets:"
@@ -37,6 +38,9 @@ help:
 	@echo "  make hard-matrix        run predictors on hard-eval traces (easy-train NN)"
 	@echo "  make hard-domain-train  instrument+train NN-A/B/C on hard-domain split"
 	@echo "  make hard-domain-matrix run predictors on hard-domain held-out test traces"
+	@echo "  make residual-splits    freeze data/splits/spec_residual_v1.json"
+	@echo "  make residual-train     instrument+build residual dataset+train+export"
+	@echo "  make residual-matrix    eval residual hybrid on held-out hard test traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -123,6 +127,44 @@ hard-domain-train: hard-domain-splits hard-domain-instrument
 
 hard-domain-matrix:
 	bash $(ROOT)/experiments/hard_domain_matrix.sh
+
+RESIDUAL_SPLIT := $(ROOT)/data/splits/spec_residual_v1.json
+RESIDUAL_MODEL := $(ROOT)/models/export/nn_residual_int8.bin
+RESIDUAL_INSTRUMENT_TRACES := $(HARD_DOMAIN_TRAIN_TRACES) $(HARD_DOMAIN_VAL_TRACES)
+
+residual-splits:
+	$(PY) $(ROOT)/tools/make_residual_splits.py
+
+residual-instrument: residual-splits
+	$(MAKE) champsim-build PREDICTOR=instrumented
+	@for tr in $(RESIDUAL_INSTRUMENT_TRACES); do \
+		test -f "$$tr" || { echo "missing $$tr; download hard traces first"; exit 1; }; \
+		stem=$$(basename "$$tr" .champsimtrace.xz); \
+		mkdir -p $(ROOT)/data/extracted; \
+		echo "=== instrument $$stem ==="; \
+		ANBA_INSTRUMENT_OUT=$(ROOT)/data/extracted/$$stem.csv \
+		ANBA_INSTRUMENT_CAP=100000 \
+		$(PY) $(ROOT)/tools/run_sim.py \
+			--bin $(CS)/bin/champsim_instrumented \
+			--trace "$$tr" --predictor instrumented --warmup $(WARMUP) --sim $(SIM); \
+	done
+
+residual-dataset: residual-instrument
+	$(PY) $(ROOT)/tools/build_residual_dataset.py --splits $(RESIDUAL_SPLIT)
+
+residual-train: residual-dataset
+	$(PY) $(ROOT)/ml/train_residual.py --splits $(RESIDUAL_SPLIT)
+
+residual-hybrid:
+	$(MAKE) champsim-build PREDICTOR=anba_residual_hybrid
+	ANBA_MODEL_PATH=$(RESIDUAL_MODEL) ANBA_NN_MARGIN=$${ANBA_NN_MARGIN:-8} \
+	$(PY) $(ROOT)/tools/run_sim.py \
+		--bin $(CS)/bin/champsim_anba_residual_hybrid \
+		--trace $(TRACE) --predictor anba_residual_hybrid --warmup $(WARMUP) --sim $(SIM) \
+		--extra-env ANBA_MODEL_PATH=$(RESIDUAL_MODEL) ANBA_NN_MARGIN=$${ANBA_NN_MARGIN:-8}
+
+residual-matrix:
+	bash $(ROOT)/experiments/residual_matrix.sh
 
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)

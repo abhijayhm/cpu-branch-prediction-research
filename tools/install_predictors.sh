@@ -7,7 +7,7 @@ if [[ ! -d "${DEST}" ]]; then
   echo "ChampSim not pinned; run make champsim-pin" >&2
   exit 1
 fi
-for pred in instrumented nn_frozen anba_hybrid anba_online; do
+for pred in instrumented nn_frozen anba_hybrid anba_online anba_residual_hybrid; do
   mkdir -p "${DEST}/${pred}"
   cp -f "${ROOT}/predictor/${pred}/"* "${DEST}/${pred}/"
 done

@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "generated_utc": "20260912T094923Z",
-  "predictor": "bimodal",
+  "generated_utc": "20260912T094926Z",
+  "predictor": "anba_residual_hybrid",
   "trace": "648.exchange2_s-1699B.champsimtrace.xz",
   "warmup_instructions": 100000,
   "simulation_instructions": 200000,
   "command": [
-    "/workspace/champsim/ChampSim/bin/champsim_bimodal",
+    "/workspace/champsim/ChampSim/bin/champsim_anba_residual_hybrid",
     "--warmup-instructions=100000",
     "--simulation-instructions=200000",
     "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
   ],
-  "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T094923Z.log",
+  "log_path": "/workspace/results/raw/anba_residual_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T094926Z.log",
   "metrics": {
     "ipc": 1.676,
     "instructions": 200000,
