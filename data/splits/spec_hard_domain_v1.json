@@ -1,0 +1,211 @@
+{
+  "name": "spec_hard_domain_v1",
+  "seed": 20260914,
+  "unit": "workload",
+  "created_utc": "2026-09-12T09:04:20Z",
+  "source_catalog": "data/metadata/traces.csv",
+  "source_doi": "10.5281/zenodo.10960004",
+  "parent_split": "data/splits/spec_hard_v1.json",
+  "rules": [
+    "Split is workload-level (SPEC benchmark), not instruction-level.",
+    "All simpoints of a workload share the same split.",
+    "Train/val/test workloads are all from the bimodal-weak pool (probe acc < ~90%).",
+    "Never train and test on the same trace/workload.",
+    "Dataset rows are all resolved branches with true outcomes (not failure-only)."
+  ],
+  "dataset_note": "Each instrumentation CSV row is a resolved branch with its true taken/not-taken outcome. Supervised learning already teaches the correct bit everywhere, including where bimodal and other heuristics fail.",
+  "bimodal_probe": {
+    "warmup": 100000,
+    "sim": 200000,
+    "source": "results/parsed/bimodal_probe.json",
+    "threshold_pct": 90.0
+  },
+  "hard_domain_subset": {
+    "workloads_considered": {
+      "pool": [
+        "654.roms",
+        "648.exchange2",
+        "603.bwaves",
+        "607.cactuBSSN",
+        "631.deepsjeng"
+      ],
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "workloads": {
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "traces": {
+      "train": [
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1021B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz"
+      ]
+    },
+    "full_workload_traces": {
+      "train": [
+        "603.bwaves_s-1080B.champsimtrace.xz",
+        "603.bwaves_s-1740B.champsimtrace.xz",
+        "603.bwaves_s-2609B.champsimtrace.xz",
+        "603.bwaves_s-2931B.champsimtrace.xz",
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "603.bwaves_s-5359B.champsimtrace.xz",
+        "603.bwaves_s-891B.champsimtrace.xz",
+        "607.cactuBSSN_s-2421B.champsimtrace.xz",
+        "607.cactuBSSN_s-3477B.champsimtrace.xz",
+        "607.cactuBSSN_s-4004B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1007B.champsimtrace.xz",
+        "654.roms_s-1021B.champsimtrace.xz",
+        "654.roms_s-1070B.champsimtrace.xz",
+        "654.roms_s-1390B.champsimtrace.xz",
+        "654.roms_s-1613B.champsimtrace.xz",
+        "654.roms_s-293B.champsimtrace.xz",
+        "654.roms_s-294B.champsimtrace.xz",
+        "654.roms_s-523B.champsimtrace.xz",
+        "654.roms_s-842B.champsimtrace.xz",
+        "648.exchange2_s-1227B.champsimtrace.xz",
+        "648.exchange2_s-1247B.champsimtrace.xz",
+        "648.exchange2_s-1511B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz",
+        "648.exchange2_s-1712B.champsimtrace.xz",
+        "648.exchange2_s-210B.champsimtrace.xz",
+        "648.exchange2_s-353B.champsimtrace.xz",
+        "648.exchange2_s-387B.champsimtrace.xz",
+        "648.exchange2_s-584B.champsimtrace.xz",
+        "648.exchange2_s-72B.champsimtrace.xz"
+      ]
+    },
+    "bimodal_probe_acc_pct": {
+      "603.bwaves_s-3699B.champsimtrace.xz": 87.22,
+      "607.cactuBSSN_s-4248B.champsimtrace.xz": 87.45,
+      "631.deepsjeng_s-928B.champsimtrace.xz": 89.71,
+      "654.roms_s-1021B.champsimtrace.xz": 80.48,
+      "648.exchange2_s-1699B.champsimtrace.xz": 84.04
+    }
+  },
+  "small_subset": {
+    "workloads_considered": {
+      "pool": [
+        "654.roms",
+        "648.exchange2",
+        "603.bwaves",
+        "607.cactuBSSN",
+        "631.deepsjeng"
+      ],
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "workloads": {
+      "train": [
+        "603.bwaves",
+        "607.cactuBSSN"
+      ],
+      "val": [
+        "631.deepsjeng"
+      ],
+      "test": [
+        "654.roms",
+        "648.exchange2"
+      ]
+    },
+    "traces": {
+      "train": [
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1021B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz"
+      ]
+    },
+    "full_workload_traces": {
+      "train": [
+        "603.bwaves_s-1080B.champsimtrace.xz",
+        "603.bwaves_s-1740B.champsimtrace.xz",
+        "603.bwaves_s-2609B.champsimtrace.xz",
+        "603.bwaves_s-2931B.champsimtrace.xz",
+        "603.bwaves_s-3699B.champsimtrace.xz",
+        "603.bwaves_s-5359B.champsimtrace.xz",
+        "603.bwaves_s-891B.champsimtrace.xz",
+        "607.cactuBSSN_s-2421B.champsimtrace.xz",
+        "607.cactuBSSN_s-3477B.champsimtrace.xz",
+        "607.cactuBSSN_s-4004B.champsimtrace.xz",
+        "607.cactuBSSN_s-4248B.champsimtrace.xz"
+      ],
+      "val": [
+        "631.deepsjeng_s-928B.champsimtrace.xz"
+      ],
+      "test": [
+        "654.roms_s-1007B.champsimtrace.xz",
+        "654.roms_s-1021B.champsimtrace.xz",
+        "654.roms_s-1070B.champsimtrace.xz",
+        "654.roms_s-1390B.champsimtrace.xz",
+        "654.roms_s-1613B.champsimtrace.xz",
+        "654.roms_s-293B.champsimtrace.xz",
+        "654.roms_s-294B.champsimtrace.xz",
+        "654.roms_s-523B.champsimtrace.xz",
+        "654.roms_s-842B.champsimtrace.xz",
+        "648.exchange2_s-1227B.champsimtrace.xz",
+        "648.exchange2_s-1247B.champsimtrace.xz",
+        "648.exchange2_s-1511B.champsimtrace.xz",
+        "648.exchange2_s-1699B.champsimtrace.xz",
+        "648.exchange2_s-1712B.champsimtrace.xz",
+        "648.exchange2_s-210B.champsimtrace.xz",
+        "648.exchange2_s-353B.champsimtrace.xz",
+        "648.exchange2_s-387B.champsimtrace.xz",
+        "648.exchange2_s-584B.champsimtrace.xz",
+        "648.exchange2_s-72B.champsimtrace.xz"
+      ]
+    },
+    "bimodal_probe_acc_pct": {
+      "603.bwaves_s-3699B.champsimtrace.xz": 87.22,
+      "607.cactuBSSN_s-4248B.champsimtrace.xz": 87.45,
+      "631.deepsjeng_s-928B.champsimtrace.xz": 89.71,
+      "654.roms_s-1021B.champsimtrace.xz": 80.48,
+      "648.exchange2_s-1699B.champsimtrace.xz": 84.04
+    }
+  }
+}

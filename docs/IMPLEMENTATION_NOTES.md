@@ -196,6 +196,80 @@ bimodal (cold-start + short window), while `anba_hybrid` and `nn_frozen` regress
 because the frozen NN was trained on easy workloads and hurts when the hybrid
 gate routes branches to it.
 
+## Hard-domain retrain (train hard → test held-out hard)
+
+Previous `spec_hard_v1` trains on **easy** workloads and evaluates on **hard**
+test traces. `spec_hard_domain_v1` trains on **hard** workloads and evaluates on
+**held-out hard** test traces only (trace-level split; never the same trace in
+train and test).
+
+### Dataset semantics
+
+Each instrumentation CSV row is a **resolved branch** with its true
+taken/not-taken outcome (`pc,history,taken,...`). Rows are **not** filtered to
+bimodal failures or mispredictions only. Supervised learning already teaches the
+correct outcome bit everywhere, including branches where bimodal and other
+heuristics fail.
+
+### Split (`data/splits/spec_hard_domain_v1.json`, seed **20260914**)
+
+Hard pool = bimodal probe acc &lt; ~90% (already downloaded for hard eval):
+
+| Workload | Simpoint | Bimodal acc % | Split |
+| --- | --- | ---: | --- |
+| `603.bwaves` | `603.bwaves_s-3699B` | 87.22 | **train** |
+| `607.cactuBSSN` | `607.cactuBSSN_s-4248B` | 87.45 | **train** |
+| `631.deepsjeng` | `631.deepsjeng_s-928B` | 89.71 | **val** |
+| `654.roms` | `654.roms_s-1021B` | 80.48 | **test** |
+| `648.exchange2` | `648.exchange2_s-1699B` | 84.04 | **test** |
+
+`spec_v1.json` and `spec_hard_v1.json` are unchanged. Generate with
+`make hard-domain-splits`.
+
+### Offline train/val (instrumentation cap 100k rows/file, SGD)
+
+Reports: `results/parsed/train_hard_domain_nn_*.json`. Val gate: acc &gt; 0.5.
+
+| Model | Train acc | Val acc | Beat random |
+| --- | ---: | ---: | --- |
+| NN-A | 0.8260 | 0.5775 | yes |
+| NN-B | 0.8130 | 0.6405 | yes |
+| NN-C | 0.7489 | 0.5488 | yes |
+
+Exported INT8: `models/export/nn_c_int8.bin` (NN-C, best val arch for C++ path).
+
+Pipeline: `make hard-domain-train` (instrument → train → export).
+
+### Hard-domain test matrix (WARMUP=1e5, SIM=2e5)
+
+Aggregated: `results/parsed/hard_domain_matrix_summary.json` (`fabricated: false`).
+Run: `make hard-domain-matrix`.
+
+**Bimodal baseline on held-out hard test**
+
+| Trace | Acc % | IPC | MPKI |
+| --- | ---: | ---: | ---: |
+| roms | 80.48 | 1.507 | 31.63 |
+| exchange2 | 84.04 | 1.676 | 21.50 |
+
+**Deltas vs bimodal (hard-domain-trained NN-C export)**
+
+| Trace | Predictor | Δ acc % | Δ IPC | Δ MPKI |
+| --- | --- | ---: | ---: | ---: |
+| roms | anba_online | −0.66 | −0.019 | +1.07 |
+| roms | anba_hybrid | −4.90 | −0.140 | +7.94 |
+| roms | nn_frozen | −19.67 | −0.466 | +31.86 |
+| exchange2 | anba_online | +0.21 | +0.008 | −0.28 |
+| exchange2 | anba_hybrid | −7.39 | −0.223 | +9.96 |
+| exchange2 | nn_frozen | −24.94 | −0.660 | +33.59 |
+
+**Contrast: easy-train→hard-test vs hard-train→hard-test (Δ acc vs bimodal)**
+
+Hard-domain training modestly improves hybrid/nn_frozen on roms and exchange2
+vs the easy-train export (e.g. roms `nn_frozen` Δ acc improves from −24.06 to
+−19.67), but **none beat bimodal** on these held-out traces. `anba_online`
+remains near bimodal (cold-start bimodal + online residual).
+
 ## Known deviations / leftover work
 
 - Full SPEC matrix and championship-length windows: not run unless logs exist.
@@ -203,7 +277,7 @@ gate routes branches to it.
 - ChampSim vcpkg bootstrap is host-dependent and not cached in-repo.
 - `nn_frozen` cross-workload sim numbers are expected to be poor; hybrid/online
   are the intended deployment modes.
-- Hard-eval hybrid regression is expected with easy-workload-trained NN-C; a
-  hard-domain retrain would be needed for hybrid to beat bimodal on these traces.
+- Hard-eval hybrid regression is expected with easy-workload-trained NN-C; see
+  **Hard-domain retrain** below for train-on-hard / test-on-held-out-hard results.
 - Paper-quality tables, energy models, and hardware-area estimates are out of
   scope for this prototype.

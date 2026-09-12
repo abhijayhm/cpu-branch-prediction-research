@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T091114Z",
+  "predictor": "anba_hybrid",
+  "trace": "654.roms_s-1021B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_anba_hybrid",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/anba_hybrid_654.roms_s-1021B.champsimtrace.xz_20260912T091114Z.log",
+  "metrics": {
+    "ipc": 1.367,
+    "instructions": 200001,
+    "cycles": 146337,
+    "branch_accuracy_pct": 75.58,
+    "branch_mpki": 39.57
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}
