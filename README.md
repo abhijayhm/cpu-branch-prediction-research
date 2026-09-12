@@ -161,3 +161,7 @@ See `docs/IMPLEMENTATION_NOTES.md` and `make accept`.
 
 MIT for ANBA scaffolding. ChampSim remains under its own license (Apache-2.0).
 SPEC traces remain under the Zenodo record terms / SPEC license constraints.
+
+## Research note
+
+Curated side-try writeup: [paper/ANBA_SIDE_TRY.md](paper/ANBA_SIDE_TRY.md)
