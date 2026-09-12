@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T081945Z",
+  "predictor": "nn_frozen",
+  "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_nn_frozen",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/649.fotonik3d_s-1B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/nn_frozen_649.fotonik3d_s-1B.champsimtrace.xz_20260912T081945Z.log",
+  "metrics": {
+    "ipc": 0.7677,
+    "instructions": 200000,
+    "cycles": 260533,
+    "branch_accuracy_pct": 69.44,
+    "branch_mpki": 72.48
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

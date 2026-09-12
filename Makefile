@@ -7,10 +7,13 @@ PREDICTOR ?= bimodal
 WARMUP ?= 100000
 SIM ?= 200000
 TRACE ?= $(ROOT)/data/traces/649.fotonik3d_s-1B.champsimtrace.xz
-MODEL ?= $(ROOT)/models/export/nn_a_int8.bin
-ARCH ?= nn_a
+MODEL ?= $(ROOT)/models/export/nn_c_int8.bin
+ARCH ?= nn_c
 PY ?= python3
 NPROC ?= 2
+# Default /usr/bin/c++ may be clang without libstdc++ symlink; use g++ for ChampSim/vcpkg.
+export CC := gcc
+export CXX := g++
 
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
 	traces catalog splits baseline parse instrument extract train export-int8 \

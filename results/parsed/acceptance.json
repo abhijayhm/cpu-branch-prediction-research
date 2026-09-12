@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T08:12:08Z",
+  "generated_utc": "2026-09-12T08:20:04Z",
   "criteria": {
     "A1": {
       "pass": true,
@@ -12,42 +12,44 @@
     },
     "A3": {
       "pass": true,
-      "detail": "pin=410cee62d9c429c043ea611325ce00e6c303be2a local=not cloned"
+      "detail": "pin=410cee62d9c429c043ea611325ce00e6c303be2a local=410cee62d9c429c043ea611325ce00e6c303be2a"
     },
     "A4": {
-      "pass": false,
-      "detail": "catalog=95 downloaded=0 sha256_filled=0"
+      "pass": true,
+      "detail": "catalog=95 downloaded=3 sha256_filled=3"
     },
     "A5": {
-      "pass": false,
-      "detail": "bimodal_bin=False default_bin=False"
+      "pass": true,
+      "detail": "bimodal_bin=True default_bin=False"
     },
     "A6": {
-      "pass": false,
-      "detail": "{\"metrics\": \"unavailable\"}"
+      "pass": true,
+      "detail": "{\"branch_accuracy_pct\": 95.22, \"branch_mpki\": 11.35, \"cycles\": 111337, \"instructions\": 200002, \"ipc\": 1.796}"
     },
     "A7": {
-      "pass": false,
-      "detail": "not run"
+      "pass": true,
+      "detail": [
+        "GHR update rule held for all consecutive rows"
+      ]
     },
     "A8": {
       "pass": true,
       "detail": "seed=20260912 unit=workload"
     },
     "A9": {
-      "pass": false,
-      "detail": "val_acc=unavailable beat_random=unavailable"
+      "pass": true,
+      "detail": "val_acc=0.53476 beat_random=True"
     },
     "A10": {
-      "pass": false,
-      "detail": "int8_export=False nn_bin=False"
+      "pass": true,
+      "detail": "int8_export=True nn_bin=True"
     },
     "A11": {
-      "pass": false,
-      "detail": "hybrid_bin=False notes=True"
+      "pass": true,
+      "detail": "hybrid_bin=True notes=True"
     }
   },
-  "passed": 4,
+  "passed": 11,
   "total": 11,
   "fabricated": false
 }

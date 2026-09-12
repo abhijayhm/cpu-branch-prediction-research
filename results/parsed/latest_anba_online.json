@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T081958Z",
+  "predictor": "anba_online",
+  "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_anba_online",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/649.fotonik3d_s-1B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/anba_online_649.fotonik3d_s-1B.champsimtrace.xz_20260912T081958Z.log",
+  "metrics": {
+    "ipc": 1.891,
+    "instructions": 200002,
+    "cycles": 105760,
+    "branch_accuracy_pct": 96.12,
+    "branch_mpki": 9.21
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

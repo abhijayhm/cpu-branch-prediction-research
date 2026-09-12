@@ -61,6 +61,9 @@ def main() -> int:
     parser.add_argument("--lr", type=float, default=1e-2)
     parser.add_argument("--cap", type=int, default=200_000, help="max rows per CSV")
     parser.add_argument("--seed", type=int, default=20260912)
+    parser.add_argument("--weight-decay", type=float, default=1e-2)
+    parser.add_argument("--patience", type=int, default=5, help="early-stop epochs without val improvement")
+    parser.add_argument("--optimizer", choices=("adam", "sgd"), default=None)
     args = parser.parse_args()
 
     try:
@@ -106,11 +109,18 @@ def main() -> int:
     model = REGISTRY[args.arch](x_train.shape[1])
     device = torch.device("cpu")
     model.to(device)
-    opt = torch.optim.Adam(model.parameters(), lr=args.lr)
+    opt_name = args.optimizer or ("sgd" if args.arch in ("nn_c", "perceptron") else "adam")
+    if opt_name == "sgd":
+        opt = torch.optim.SGD(model.parameters(), lr=args.lr, weight_decay=args.weight_decay, momentum=0.0)
+    else:
+        opt = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     loss_fn = nn.BCEWithLogitsLoss()
     ds = TensorDataset(torch.from_numpy(x_train), torch.from_numpy(y_train.astype(np.float32)))
     loader = DataLoader(ds, batch_size=args.batch, shuffle=True)
 
+    best_val = -1.0
+    best_state = None
+    stale = 0
     for epoch in range(args.epochs):
         model.train()
         total = 0.0
@@ -129,6 +139,17 @@ def main() -> int:
             val_pred = (val_logits > 0).numpy().astype(np.int64)
             val_acc = float((val_pred == y_val).mean())
         print(f"epoch {epoch+1}/{args.epochs} train_loss={total/max(n,1):.4f} val_acc={val_acc:.4f}")
+        if val_acc > best_val:
+            best_val = val_acc
+            best_state = {k: v.detach().clone() for k, v in model.state_dict().items()}
+            stale = 0
+        else:
+            stale += 1
+            if stale >= args.patience:
+                print(f"early stop at epoch {epoch+1} best_val={best_val:.4f}")
+                break
+    if best_state is not None:
+        model.load_state_dict(best_state)
 
     model.eval()
     with torch.no_grad():
