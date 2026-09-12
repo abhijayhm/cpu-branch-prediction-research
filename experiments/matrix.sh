@@ -17,8 +17,9 @@ while IFS= read -r -d '' tr; do
     echo "=== ${pred} $(basename "${tr}") ==="
     python3 "${ROOT}/tools/run_sim.py" --bin "${bin}" --trace "${tr}" \
       --predictor "${pred}" --warmup "${WARMUP}" --sim "${SIM}" \
-      --extra-env "ANBA_MODEL_PATH=${ROOT}/models/export/nn_a_int8.bin" \
+      --extra-env "ANBA_MODEL_PATH=${ROOT}/models/export/nn_c_int8.bin" \
       || echo "run failed for ${pred} $(basename "${tr}") (not fabricating a result)"
   done
 done < <(find "${ROOT}/data/traces" -name '*.champsimtrace.xz' -print0)
+python3 "${ROOT}/tools/summarize_matrix.py"
 python3 "${ROOT}/tools/acceptance.py"

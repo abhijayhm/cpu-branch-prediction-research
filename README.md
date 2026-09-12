@@ -63,8 +63,15 @@ make hybrid
 make accept
 ```
 
-`make reproduce` walks the implemented pipeline and writes
-`results/parsed/acceptance.json`.
+`make reproduce` walks the implemented pipeline end-to-end on a clean clone
+(catalog, small traces, vcpkg bootstrap, all predictors, train/export, matrix)
+and writes `results/parsed/acceptance.json` plus `matrix_summary.json`.
+
+```bash
+make reproduce   # ~10–20 min first time (vcpkg + five ChampSim binaries)
+make accept      # re-check A1–A11 from artifacts only
+make matrix      # re-run sim matrix on downloaded traces
+```
 
 ## Predictors
 
@@ -106,6 +113,45 @@ live Zenodo API. Do not invent additional traces.
 Short default windows (`WARMUP=100000`, `SIM=200000`) are for a working
 prototype, not a championship-length result. Override on the make command
 line for longer runs.
+
+## Measured metrics (smoke window)
+
+All numbers below are from real ChampSim runs (`WARMUP=1e5`, `SIM=2e5`) on
+official traces. Test split `648.exchange2` is simulated in the matrix but
+**never** used for training.
+
+### Cross-workload NN training (frozen splits)
+
+Train `654.roms_s-1021B`, validate `649.fotonik3d_s-1B`, cap 100k branches,
+SGD + weight decay, seed `20260912`:
+
+| Model | Val accuracy | Beats random (0.5)? |
+| --- | ---: | --- |
+| NN-A Dense16 | 0.593 | yes |
+| NN-C perceptron | 0.599 | yes |
+
+Prior NN-A failure with Adam (`val_acc≈0.49`) is documented in
+`docs/IMPLEMENTATION_NOTES.md`; fixed by defaulting all arches to SGD.
+
+### Simulation matrix (3 small traces × 5 predictors)
+
+Regenerate with `make matrix`; committed snapshot in
+`results/parsed/matrix_summary.json` (`WARMUP=1e5`, `SIM=2e5`, model
+`nn_c_int8.bin` for neural predictors):
+
+| Trace | Predictor | IPC | Branch acc % | MPKI |
+| --- | --- | ---: | ---: | ---: |
+| 649.fotonik3d_s-1B | bimodal | 1.796 | 95.22 | 11.35 |
+| 649.fotonik3d_s-1B | anba_hybrid | 1.806 | 95.09 | 11.65 |
+| 649.fotonik3d_s-1B | anba_online | 1.890 | 96.11 | 9.24 |
+| 654.roms_s-1021B | bimodal | 1.507 | 80.48 | 31.63 |
+| 654.roms_s-1021B | anba_online | 1.489 | 79.78 | 32.76 |
+| 648.exchange2_s-1699B (test) | bimodal | 1.676 | 84.04 | 21.50 |
+| 648.exchange2_s-1699B (test) | anba_online | 1.684 | 84.27 | 21.20 |
+
+Frozen `nn_frozen` alone is weak cross-workload (trained on roms, evaluated
+elsewhere); hybrid/online recover via the bimodal gate. Full 15-row table is
+in `matrix_summary.json`.
 
 ## Acceptance (A1–A11)
 

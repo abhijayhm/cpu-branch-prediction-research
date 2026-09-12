@@ -17,7 +17,7 @@ export CXX := g++
 
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
 	traces catalog splits baseline parse instrument extract train export-int8 \
-	nn hybrid online smoke reproduce accept clean-results
+	nn hybrid online smoke matrix reproduce accept clean-results
 
 help:
 	@echo "ANBA targets:"
@@ -31,6 +31,7 @@ help:
 	@echo "  make extract          dump (pc,history,taken) from TRACE"
 	@echo "  make train ARCH=nn_a  train on frozen train split only"
 	@echo "  make export-int8      write models/export/*_int8.bin"
+	@echo "  make matrix           run predictors on all downloaded traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -125,16 +126,29 @@ online:
 
 smoke: baseline
 
-reproduce: catalog traces splits champsim-pin
-	@echo "=== reproduce: catalog/traces/splits/pin attempted ==="
-	@if [[ ! -d $(CS)/vcpkg ]]; then echo "ChampSim pin incomplete"; fi
-	-$(MAKE) champsim-deps
-	-$(MAKE) champsim-build PREDICTOR=bimodal
-	-test -f $(TRACE) && $(MAKE) baseline TRACE=$(TRACE)
-	-test -f $(TRACE) && $(MAKE) extract TRACE=$(TRACE)
-	-test -f $(TRACE) && $(MAKE) champsim-build PREDICTOR=instrumented && $(MAKE) instrument TRACE=$(TRACE)
-	-$(PY) $(ROOT)/ml/train.py --arch $(ARCH) || true
-	-test -f $(ROOT)/models/$(ARCH).pt && $(MAKE) export-int8 ARCH=$(ARCH)
+matrix:
+	bash $(ROOT)/experiments/matrix.sh
+
+reproduce: env catalog traces splits champsim-pin
+	@echo "=== reproduce: env/catalog/traces/splits/pin ==="
+	@if [[ ! -d $(CS)/.git ]]; then echo "ChampSim pin failed"; exit 1; fi
+	$(MAKE) champsim-deps || { echo "vcpkg bootstrap failed; see champsim/ChampSim/vcpkg"; exit 1; }
+	$(MAKE) champsim-build PREDICTOR=bimodal
+	$(MAKE) champsim-build PREDICTOR=instrumented
+	$(MAKE) champsim-build PREDICTOR=nn_frozen
+	$(MAKE) champsim-build PREDICTOR=anba_hybrid
+	$(MAKE) champsim-build PREDICTOR=anba_online
+	@for tr in $(ROOT)/data/traces/654.roms_s-1021B.champsimtrace.xz \
+		$(ROOT)/data/traces/649.fotonik3d_s-1B.champsimtrace.xz; do \
+		test -f "$$tr" && $(MAKE) extract TRACE="$$tr" || echo "skip extract $$tr"; \
+	done
+	@test -f $(ROOT)/data/traces/649.fotonik3d_s-1B.champsimtrace.xz && \
+		$(MAKE) instrument TRACE=$(ROOT)/data/traces/649.fotonik3d_s-1B.champsimtrace.xz
+	-$(PY) $(ROOT)/ml/train.py --arch nn_a || echo "nn_a train did not beat random (documented)"
+	-$(PY) $(ROOT)/ml/train.py --arch nn_c
+	-test -f $(ROOT)/models/nn_c.pt && $(MAKE) export-int8 ARCH=nn_c
+	-test -f $(ROOT)/models/nn_a.pt && $(MAKE) export-int8 ARCH=nn_a || true
+	-bash $(ROOT)/experiments/matrix.sh
 	$(PY) $(ROOT)/tools/acceptance.py
 
 accept:

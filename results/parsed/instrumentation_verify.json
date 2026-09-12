@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T08:20:04Z",
-  "dump": "data/extracted/instrumented.csv",
+  "generated_utc": "2026-09-12T08:29:13Z",
+  "dump": "/workspace/data/extracted/instrumented.csv",
   "verification": {
     "ok": true,
     "n": 71348,

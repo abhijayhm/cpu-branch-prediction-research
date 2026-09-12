@@ -59,7 +59,7 @@ def main() -> int:
     parser.add_argument("--epochs", type=int, default=8)
     parser.add_argument("--batch", type=int, default=2048)
     parser.add_argument("--lr", type=float, default=1e-2)
-    parser.add_argument("--cap", type=int, default=200_000, help="max rows per CSV")
+    parser.add_argument("--cap", type=int, default=100_000, help="max rows per CSV")
     parser.add_argument("--seed", type=int, default=20260912)
     parser.add_argument("--weight-decay", type=float, default=1e-2)
     parser.add_argument("--patience", type=int, default=5, help="early-stop epochs without val improvement")
@@ -109,7 +109,9 @@ def main() -> int:
     model = REGISTRY[args.arch](x_train.shape[1])
     device = torch.device("cpu")
     model.to(device)
-    opt_name = args.optimizer or ("sgd" if args.arch in ("nn_c", "perceptron") else "adam")
+    # Cross-workload val (roms→fotonik3d) needs SGD+weight decay for all tiny nets;
+    # Adam overfits on NN-A/NN-B hidden layers (see docs/IMPLEMENTATION_NOTES.md).
+    opt_name = args.optimizer or "sgd"
     if opt_name == "sgd":
         opt = torch.optim.SGD(model.parameters(), lr=args.lr, weight_decay=args.weight_decay, momentum=0.0)
     else:

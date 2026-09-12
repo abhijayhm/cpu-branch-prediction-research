@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T08:19:05Z",
+  "generated_utc": "2026-09-12T08:24:28Z",
   "arch": "nn_a",
   "model_name": "nn_a_dense16",
   "seed": 20260912,
@@ -14,10 +14,10 @@
   "test_files_used": [],
   "n_train": 100000,
   "n_val": 100000,
-  "train_acc": 0.65045,
-  "val_acc": 0.49257,
+  "train_acc": 0.56755,
+  "val_acc": 0.59281,
   "random_acc": 0.5,
   "val_majority_acc": 0.56309,
-  "beat_random": false,
+  "beat_random": true,
   "fabricated": false
 }

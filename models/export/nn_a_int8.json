@@ -1,0 +1,29 @@
+{
+  "path": "/workspace/models/export/nn_a_int8.bin",
+  "arch": "nn_a",
+  "arch_id": 0,
+  "n_features": 32,
+  "n_layers": 2,
+  "layers": [
+    {
+      "in": 32,
+      "out": 16,
+      "scale": 0.0014054557000558207,
+      "weight_minmax": [
+        -0.17766450345516205,
+        0.17849287390708923
+      ]
+    },
+    {
+      "in": 16,
+      "out": 1,
+      "scale": 0.0019127016696404283,
+      "weight_minmax": [
+        -0.2335931956768036,
+        0.2429131120443344
+      ]
+    }
+  ],
+  "note": "C++ hidden activations are sign(); export matches that only approximately vs Tanh train.",
+  "fabricated": false
+}
