@@ -270,6 +270,58 @@ vs the easy-train export (e.g. roms `nn_frozen` Δ acc improves from −24.06 to
 −19.67), but **none beat bimodal** on these held-out traces. `anba_online`
 remains near bimodal (cold-start bimodal + online residual).
 
+## Residual specialist + safer hybrid gate
+
+### Curriculum (disagreement-focused dataset)
+
+- Split: `data/splits/spec_residual_v1.json` (seed **20260915**). Same
+  workload-level train/val/test traces as `spec_hard_domain_v1`; never builds
+  residual CSVs from test traces.
+- Builder: `tools/build_residual_dataset.py` reads instrumented dumps
+  (`pc,history,taken,branch_type,predicted`) and writes
+  `data/extracted/residual/{stem}.csv`.
+- **Emphasis:** rows where `predicted != taken` (bimodal mispredictions).
+- **Agreement mix:** default **15%** of output rows are `predicted == taken` so
+  training is not dominated by rare disagreement events only.
+- **Target label:** true `taken` (not flip-of-bimodal). Stats:
+  `results/parsed/residual_dataset_stats.json`.
+- Features: standard `pack_features` (32 bits PC+GHR). Bimodal `predicted` is
+  **not** appended as an extra feature (keeps Python/C++ packing identical).
+
+### Residual training + export
+
+- Trainer: `ml/train_residual.py` trains NN-A/B/C on residual CSVs, val gate
+  acc > 0.5, picks **best val arch** (not hardcoded).
+- Export: `models/export/nn_residual_int8.bin` (+ sidecar JSON).
+- Reports: `results/parsed/train_residual_nn_*.json`,
+  `results/parsed/train_residual_summary.json`.
+- Pipeline: `make residual-train` (instrument → build dataset → train → export).
+
+### Safer hybrid gate (`anba_residual_hybrid`)
+
+Keeps `anba_hybrid` intact for A/B comparison.
+
+| 2-bit state | Bimodal | NN consulted? | Override rule |
+| --- | --- | --- | --- |
+| `00` / `11` | confident | no | bimodal |
+| `01` / `10` | uncertain | yes | override **only** if \|INT8 accumulator\| ≥ margin |
+| (margin not met) | uncertain | yes | keep bimodal |
+
+- Default margin: `ANBA_NN_MARGIN=8` (INT8 accumulator units, same scale as
+  `anba_online` residual threshold).
+- Model path: `ANBA_MODEL_PATH=models/export/nn_residual_int8.bin`.
+- Build/run: `make residual-hybrid TRACE=...`.
+
+### Residual eval matrix
+
+- Script: `experiments/residual_matrix.sh` / `make residual-matrix`.
+- Windows: WARMUP=1e5, SIM=2e5 (same as hard-domain).
+- Held-out hard test traces from `spec_residual_v1`.
+- Predictors: bimodal, anba_hybrid (hard-domain NN-C), anba_online,
+  anba_residual_hybrid (residual export), nn_frozen (residual weights).
+- Summary: `results/parsed/residual_matrix_summary.json` with
+  `deltas_vs_bimodal` and `deltas_vs_anba_hybrid` (`fabricated: false`).
+
 ## Known deviations / leftover work
 
 - Full SPEC matrix and championship-length windows: not run unless logs exist.
