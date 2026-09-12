@@ -117,6 +117,85 @@ Clean-clone flow (real downloads/builds; several minutes):
 `results/parsed/matrix_summary.json` aggregates real sim metrics when matrix
 runs complete. Failed steps abort `reproduce` except NN-A train (documented).
 
+## Hard workloads (bimodal-weak eval)
+
+Probe: `python3 tools/bimodal_probe.py` (WARMUP=1e5, SIM=2e5, same as matrix).
+Full probe table: `results/parsed/bimodal_probe.json`.
+
+### Why these traces are “hard”
+
+Compared to the easy reference `649.fotonik3d` (bimodal acc **95.22%**), the
+following downloaded simpoints have materially weaker bimodal branch prediction
+(acc **&lt; 90%**):
+
+| Trace | Workload | Bimodal acc % | Bimodal IPC | Bimodal MPKI |
+| --- | --- | ---: | ---: | ---: |
+| `654.roms_s-1021B` | FP (ocean) | 80.48 | 1.507 | 31.63 |
+| `648.exchange2_s-1699B` | INT (finance) | 84.04 | 1.676 | 21.50 |
+| `603.bwaves_s-3699B` | FP (fluid) | 87.22 | 1.957 | 17.87 |
+| `607.cactuBSSN_s-4248B` | FP (relativity) | 87.45 | 1.547 | 14.74 |
+
+`631.deepsjeng` (89.71%) was probed but kept as **validation only** (borderline).
+`605.mcf`, `638.imagick`, `644.nab` probed **&gt; 98%** bimodal acc — used as
+easy train workloads, not hard eval.
+
+### Split and retrain
+
+- New split: `data/splits/spec_hard_v1.json` (seed **20260913**). `spec_v1.json`
+  is unchanged.
+- **Train** (easy): `649.fotonik3d`, `638.imagick`, `644.nab` — never includes
+  hard test workloads.
+- **Val**: `631.deepsjeng`.
+- **Test (hard eval)**: `654.roms`, `648.exchange2`, `603.bwaves`, `607.cactuBSSN`.
+- Retrain was **required**: hard test workloads are outside the `spec_v1` small
+  train domain (`654.roms` only). All NNs retrained on `spec_hard_v1` train CSVs;
+  val gate passed (&gt; 0.5 random). Reports: `results/parsed/train_hard_nn_*.json`.
+- Exported INT8: `models/export/nn_c_int8.bin` (rebuilt from hard-split NN-C).
+
+### Hard matrix results (WARMUP=1e5, SIM=2e5)
+
+Aggregated: `results/parsed/hard_matrix_summary.json` (`fabricated: false`).
+Run: `make hard-matrix` or `experiments/hard_matrix.sh`.
+
+**Bimodal baseline on hard set**
+
+| Trace | Acc % | IPC | MPKI |
+| --- | ---: | ---: | ---: |
+| roms | 80.48 | 1.507 | 31.63 |
+| exchange2 | 84.04 | 1.676 | 21.50 |
+| bwaves | 87.22 | 1.957 | 17.87 |
+| cactuBSSN | 87.45 | 1.547 | 14.74 |
+
+**Deltas vs bimodal (same traces, hard-split NN-C export)**
+
+| Trace | Predictor | Δ acc % | Δ IPC | Δ MPKI |
+| --- | --- | ---: | ---: | ---: |
+| roms | anba_online | −0.90 | −0.026 | +1.45 |
+| roms | anba_hybrid | −6.32 | −0.165 | +10.23 |
+| roms | nn_frozen | −24.06 | −0.531 | +38.98 |
+| exchange2 | anba_online | +0.19 | +0.007 | −0.25 |
+| exchange2 | anba_hybrid | −7.35 | −0.225 | +9.90 |
+| exchange2 | nn_frozen | −26.96 | −0.682 | +36.33 |
+| bwaves | anba_online | −0.06 | −0.002 | +0.07 |
+| bwaves | anba_hybrid | −5.75 | −0.227 | +7.97 |
+| bwaves | nn_frozen | −33.54 | −0.834 | +46.72 |
+| cactuBSSN | anba_online | 0.00 | 0.000 | 0.00 |
+| cactuBSSN | anba_hybrid | −12.45 | −0.192 | +14.63 |
+| cactuBSSN | nn_frozen | −49.80 | −0.735 | +58.50 |
+
+**Offline val accuracy after retrain (`spec_hard_v1`, cap 100k rows/file)**
+
+| Model | Val acc | Beat random |
+| --- | ---: | --- |
+| NN-A | 0.5294 | yes |
+| NN-B | 0.5200 | yes |
+| NN-C | 0.5298 | yes |
+
+On these hard workloads, **bimodal remains competitive**: `anba_online` tracks
+bimodal (cold-start + short window), while `anba_hybrid` and `nn_frozen` regress
+because the frozen NN was trained on easy workloads and hurts when the hybrid
+gate routes branches to it.
+
 ## Known deviations / leftover work
 
 - Full SPEC matrix and championship-length windows: not run unless logs exist.
@@ -124,5 +203,7 @@ runs complete. Failed steps abort `reproduce` except NN-A train (documented).
 - ChampSim vcpkg bootstrap is host-dependent and not cached in-repo.
 - `nn_frozen` cross-workload sim numbers are expected to be poor; hybrid/online
   are the intended deployment modes.
+- Hard-eval hybrid regression is expected with easy-workload-trained NN-C; a
+  hard-domain retrain would be needed for hybrid to beat bimodal on these traces.
 - Paper-quality tables, energy models, and hardware-area estimates are out of
   scope for this prototype.

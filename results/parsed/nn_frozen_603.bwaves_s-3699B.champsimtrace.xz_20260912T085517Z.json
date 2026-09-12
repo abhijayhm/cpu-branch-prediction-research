@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T085517Z",
+  "predictor": "nn_frozen",
+  "trace": "603.bwaves_s-3699B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_nn_frozen",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/603.bwaves_s-3699B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/nn_frozen_603.bwaves_s-3699B.champsimtrace.xz_20260912T085517Z.log",
+  "metrics": {
+    "ipc": 1.123,
+    "instructions": 200002,
+    "cycles": 178113,
+    "branch_accuracy_pct": 53.68,
+    "branch_mpki": 64.59
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}
