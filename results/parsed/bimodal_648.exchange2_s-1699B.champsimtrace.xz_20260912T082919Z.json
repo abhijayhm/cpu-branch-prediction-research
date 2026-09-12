@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T082919Z",
+  "predictor": "bimodal",
+  "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_bimodal",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T082919Z.log",
+  "metrics": {
+    "ipc": 1.676,
+    "instructions": 200000,
+    "cycles": 119364,
+    "branch_accuracy_pct": 84.04,
+    "branch_mpki": 21.5
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

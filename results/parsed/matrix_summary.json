@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T08:33:24Z",
+  "n_runs": 15,
+  "predictors": [
+    "bimodal",
+    "instrumented",
+    "nn_frozen",
+    "anba_hybrid",
+    "anba_online"
+  ],
+  "rows": [
+    {
+      "predictor": "anba_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.469,
+      "branch_accuracy_pct": 77.05,
+      "branch_mpki": 30.92,
+      "log_path": "/workspace/results/raw/anba_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T082923Z.log"
+    },
+    {
+      "predictor": "anba_hybrid",
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.806,
+      "branch_accuracy_pct": 95.09,
+      "branch_mpki": 11.65,
+      "log_path": "/workspace/results/raw/anba_hybrid_649.fotonik3d_s-1B.champsimtrace.xz_20260912T082930Z.log"
+    },
+    {
+      "predictor": "anba_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.376,
+      "branch_accuracy_pct": 75.84,
+      "branch_mpki": 39.15,
+      "log_path": "/workspace/results/raw/anba_hybrid_654.roms_s-1021B.champsimtrace.xz_20260912T082917Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.684,
+      "branch_accuracy_pct": 84.27,
+      "branch_mpki": 21.2,
+      "log_path": "/workspace/results/raw/anba_online_648.exchange2_s-1699B.champsimtrace.xz_20260912T082924Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.89,
+      "branch_accuracy_pct": 96.11,
+      "branch_mpki": 9.235,
+      "log_path": "/workspace/results/raw/anba_online_649.fotonik3d_s-1B.champsimtrace.xz_20260912T082931Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.489,
+      "branch_accuracy_pct": 79.78,
+      "branch_mpki": 32.76,
+      "log_path": "/workspace/results/raw/anba_online_654.roms_s-1021B.champsimtrace.xz_20260912T082918Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T082919Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.796,
+      "branch_accuracy_pct": 95.22,
+      "branch_mpki": 11.35,
+      "log_path": "/workspace/results/raw/bimodal_649.fotonik3d_s-1B.champsimtrace.xz_20260912T082926Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "log_path": "/workspace/results/raw/bimodal_654.roms_s-1021B.champsimtrace.xz_20260912T082913Z.log"
+    },
+    {
+      "predictor": "instrumented",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "log_path": "/workspace/results/raw/instrumented_648.exchange2_s-1699B.champsimtrace.xz_20260912T082920Z.log"
+    },
+    {
+      "predictor": "instrumented",
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.796,
+      "branch_accuracy_pct": 95.22,
+      "branch_mpki": 11.35,
+      "log_path": "/workspace/results/raw/instrumented_649.fotonik3d_s-1B.champsimtrace.xz_20260912T082927Z.log"
+    },
+    {
+      "predictor": "instrumented",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "log_path": "/workspace/results/raw/instrumented_654.roms_s-1021B.champsimtrace.xz_20260912T082914Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.126,
+      "branch_accuracy_pct": 63.99,
+      "branch_mpki": 48.5,
+      "log_path": "/workspace/results/raw/nn_frozen_648.exchange2_s-1699B.champsimtrace.xz_20260912T082922Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "649.fotonik3d_s-1B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.7672,
+      "branch_accuracy_pct": 70.66,
+      "branch_mpki": 69.58,
+      "log_path": "/workspace/results/raw/nn_frozen_649.fotonik3d_s-1B.champsimtrace.xz_20260912T082928Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.035,
+      "branch_accuracy_pct": 59.88,
+      "branch_mpki": 65.0,
+      "log_path": "/workspace/results/raw/nn_frozen_654.roms_s-1021B.champsimtrace.xz_20260912T082915Z.log"
+    }
+  ],
+  "fabricated": false
+}

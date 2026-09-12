@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20260912T082914Z",
+  "predictor": "instrumented",
+  "trace": "654.roms_s-1021B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_instrumented",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/instrumented_654.roms_s-1021B.champsimtrace.xz_20260912T082914Z.log",
+  "metrics": {
+    "ipc": 1.507,
+    "instructions": 200001,
+    "cycles": 132728,
+    "branch_accuracy_pct": 80.48,
+    "branch_mpki": 31.63
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

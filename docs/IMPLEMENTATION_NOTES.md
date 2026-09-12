@@ -56,8 +56,10 @@ study. It is not a results table.
 - Training gate: validation accuracy must be > 0.5 (coin-flip random).
   Majority-class accuracy is reported separately and is **not** the gate.
 - Cross-workload val (train `654.roms`, val `649.fotonik3d`) needs SGD +
-  weight decay; Adam overfits. NN-C and NN-B pass with `--cap 100000`;
-  NN-A (Dense16) did not beat random in our runs.
+  weight decay for all tiny nets; Adam overfits on hidden layers. With SGD
+  (default since 2026-09-12), NN-A/NN-B/NN-C all beat random at `--cap 100000`.
+- Prior NN-A failure (`val_acc≈0.49` with Adam) is recorded in git history;
+  root cause was optimizer choice, not the Dense16 architecture itself.
 - Default export/sim model: `models/export/nn_c_int8.bin` (perceptron).
 
 ## Hybrid / online
@@ -98,10 +100,29 @@ with an explicit detail string. No placeholder numbers.
 Cloud images may default `/usr/bin/c++` to clang without `libstdc++`.
 The Makefile exports `CC=gcc` and `CXX=g++` for ChampSim/vcpkg builds.
 
+## Reproduce path (`make reproduce`)
+
+Clean-clone flow (real downloads/builds; several minutes):
+
+1. `make env` — pip install `requirements.txt` (PyTorch train/export only).
+2. `make catalog` + `make traces` — Zenodo metadata + small preset (3 traces).
+3. `make splits` — frozen `data/splits/spec_v1.json` (no-op if present).
+4. `make champsim-pin` + `make champsim-deps` — clone pinned ChampSim + vcpkg.
+5. Build all ANBA predictors (bimodal, instrumented, nn_frozen, hybrid, online).
+6. Extract train/val branch CSVs (`654.roms`, `649.fotonik3d` only; test trace
+   `648.exchange2` is downloaded for sim matrix but never used for training).
+7. Train NN-A (may fail loudly) and NN-C; export INT8 when checkpoints exist.
+8. `experiments/matrix.sh` on every downloaded trace; `make accept`.
+
+`results/parsed/matrix_summary.json` aggregates real sim metrics when matrix
+runs complete. Failed steps abort `reproduce` except NN-A train (documented).
+
 ## Known deviations / leftover work
 
 - Full SPEC matrix and championship-length windows: not run unless logs exist.
 - Tanh (train) vs sign (C++ hidden): documented above.
 - ChampSim vcpkg bootstrap is host-dependent and not cached in-repo.
+- `nn_frozen` cross-workload sim numbers are expected to be poor; hybrid/online
+  are the intended deployment modes.
 - Paper-quality tables, energy models, and hardware-area estimates are out of
   scope for this prototype.
