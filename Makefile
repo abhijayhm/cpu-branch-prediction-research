@@ -16,8 +16,8 @@ export CC := gcc
 export CXX := g++
 
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
-	traces catalog splits hard-splits baseline parse instrument extract train export-int8 \
-	nn hybrid online smoke matrix hard-matrix reproduce accept clean-results
+	traces catalog splits hard-splits hard-domain-splits baseline parse instrument extract train export-int8 \
+	nn hybrid online smoke matrix hard-matrix hard-domain-matrix hard-domain-train reproduce accept clean-results
 
 help:
 	@echo "ANBA targets:"
@@ -32,8 +32,11 @@ help:
 	@echo "  make train ARCH=nn_a  train on frozen train split only"
 	@echo "  make export-int8      write models/export/*_int8.bin"
 	@echo "  make matrix           run predictors on all downloaded traces"
-	@echo "  make hard-splits      freeze data/splits/spec_hard_v1.json"
-	@echo "  make hard-matrix      run predictors on hard-eval traces"
+	@echo "  make hard-splits        freeze data/splits/spec_hard_v1.json"
+	@echo "  make hard-domain-splits freeze data/splits/spec_hard_domain_v1.json"
+	@echo "  make hard-matrix        run predictors on hard-eval traces (easy-train NN)"
+	@echo "  make hard-domain-train  instrument+train NN-A/B/C on hard-domain split"
+	@echo "  make hard-domain-matrix run predictors on hard-domain held-out test traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -88,6 +91,38 @@ splits:
 
 hard-splits:
 	$(PY) $(ROOT)/tools/make_hard_splits.py
+
+hard-domain-splits:
+	$(PY) $(ROOT)/tools/make_hard_domain_splits.py
+
+HARD_DOMAIN_SPLIT := $(ROOT)/data/splits/spec_hard_domain_v1.json
+HARD_DOMAIN_TRAIN_TRACES := $(ROOT)/data/traces/603.bwaves_s-3699B.champsimtrace.xz \
+	$(ROOT)/data/traces/607.cactuBSSN_s-4248B.champsimtrace.xz
+HARD_DOMAIN_VAL_TRACES := $(ROOT)/data/traces/631.deepsjeng_s-928B.champsimtrace.xz
+
+hard-domain-instrument:
+	$(MAKE) champsim-build PREDICTOR=instrumented
+	@for tr in $(HARD_DOMAIN_TRAIN_TRACES) $(HARD_DOMAIN_VAL_TRACES); do \
+		test -f "$$tr" || { echo "missing $$tr; download hard traces first"; exit 1; }; \
+		stem=$$(basename "$$tr" .champsimtrace.xz); \
+		mkdir -p $(ROOT)/data/extracted; \
+		echo "=== instrument $$stem ==="; \
+		ANBA_INSTRUMENT_OUT=$(ROOT)/data/extracted/$$stem.csv \
+		ANBA_INSTRUMENT_CAP=100000 \
+		$(PY) $(ROOT)/tools/run_sim.py \
+			--bin $(CS)/bin/champsim_instrumented \
+			--trace "$$tr" --predictor instrumented --warmup $(WARMUP) --sim $(SIM); \
+	done
+
+hard-domain-train: hard-domain-splits hard-domain-instrument
+	@for arch in nn_a nn_b nn_c; do \
+		$(PY) $(ROOT)/ml/train.py --arch $$arch \
+			--splits $(HARD_DOMAIN_SPLIT) --report-tag hard_domain || exit 1; \
+	done
+	$(MAKE) export-int8 ARCH=nn_c
+
+hard-domain-matrix:
+	bash $(ROOT)/experiments/hard_domain_matrix.sh
 
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)

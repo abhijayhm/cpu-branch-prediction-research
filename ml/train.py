@@ -64,6 +64,11 @@ def main() -> int:
     parser.add_argument("--weight-decay", type=float, default=1e-2)
     parser.add_argument("--patience", type=int, default=5, help="early-stop epochs without val improvement")
     parser.add_argument("--optimizer", choices=("adam", "sgd"), default=None)
+    parser.add_argument(
+        "--report-tag",
+        default="",
+        help="optional prefix for results/parsed/train_<tag>_<arch>.json (e.g. hard_domain)",
+    )
     args = parser.parse_args()
 
     try:
@@ -184,7 +189,8 @@ def main() -> int:
     }
     out_dir = ROOT / "results" / "parsed"
     out_dir.mkdir(parents=True, exist_ok=True)
-    report_path = out_dir / f"train_{args.arch}.json"
+    report_name = f"train_{args.report_tag}_{args.arch}.json" if args.report_tag else f"train_{args.arch}.json"
+    report_path = out_dir / report_name
     report_path.write_text(json.dumps(report, indent=2) + "\n")
     ckpt = ROOT / "models" / f"{args.arch}.pt"
     ckpt.parent.mkdir(parents=True, exist_ok=True)

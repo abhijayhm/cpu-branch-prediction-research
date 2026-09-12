@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T09:10:55Z",
+  "arch": "nn_a",
+  "model_name": "nn_a_dense16",
+  "seed": 20260912,
+  "splits": "/workspace/data/splits/spec_hard_domain_v1.json",
+  "train_files": [
+    "603.bwaves_s-3699B.csv",
+    "607.cactuBSSN_s-4248B.csv"
+  ],
+  "val_files": [
+    "631.deepsjeng_s-928B.csv"
+  ],
+  "test_files_used": [],
+  "n_train": 77758,
+  "n_val": 45789,
+  "train_acc": 0.8259986110753877,
+  "val_acc": 0.5774749393959248,
+  "random_acc": 0.5,
+  "val_majority_acc": 0.6583677302408876,
+  "beat_random": true,
+  "fabricated": false
+}

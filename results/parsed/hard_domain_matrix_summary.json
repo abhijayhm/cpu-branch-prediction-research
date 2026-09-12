@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-09-12T09:11:21Z",
+  "split": "data/splits/spec_hard_domain_v1.json",
+  "train_workloads": [
+    "603.bwaves",
+    "607.cactuBSSN"
+  ],
+  "val_workloads": [
+    "631.deepsjeng"
+  ],
+  "test_traces": [
+    "648.exchange2_s-1699B.champsimtrace.xz",
+    "654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "warmup": 100000,
+  "sim": 200000,
+  "n_runs": 8,
+  "predictors": [
+    "bimodal",
+    "nn_frozen",
+    "anba_hybrid",
+    "anba_online"
+  ],
+  "rows": [
+    {
+      "predictor": "anba_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.453,
+      "branch_accuracy_pct": 76.65,
+      "branch_mpki": 31.46,
+      "log_path": "/workspace/results/raw/anba_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T091119Z.log"
+    },
+    {
+      "predictor": "anba_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.367,
+      "branch_accuracy_pct": 75.58,
+      "branch_mpki": 39.57,
+      "log_path": "/workspace/results/raw/anba_hybrid_654.roms_s-1021B.champsimtrace.xz_20260912T091114Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.684,
+      "branch_accuracy_pct": 84.25,
+      "branch_mpki": 21.22,
+      "log_path": "/workspace/results/raw/anba_online_648.exchange2_s-1699B.champsimtrace.xz_20260912T091120Z.log"
+    },
+    {
+      "predictor": "anba_online",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.488,
+      "branch_accuracy_pct": 79.82,
+      "branch_mpki": 32.7,
+      "log_path": "/workspace/results/raw/anba_online_654.roms_s-1021B.champsimtrace.xz_20260912T091115Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T091116Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "log_path": "/workspace/results/raw/bimodal_654.roms_s-1021B.champsimtrace.xz_20260912T091112Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.016,
+      "branch_accuracy_pct": 59.1,
+      "branch_mpki": 55.09,
+      "log_path": "/workspace/results/raw/nn_frozen_648.exchange2_s-1699B.champsimtrace.xz_20260912T091117Z.log"
+    },
+    {
+      "predictor": "nn_frozen",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.041,
+      "branch_accuracy_pct": 60.81,
+      "branch_mpki": 63.49,
+      "log_path": "/workspace/results/raw/nn_frozen_654.roms_s-1021B.champsimtrace.xz_20260912T091113Z.log"
+    }
+  ],
+  "deltas_vs_bimodal": [
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "delta_ipc": -0.223,
+      "delta_branch_accuracy_pct": -7.39,
+      "delta_branch_mpki": 9.96
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "delta_ipc": -0.14,
+      "delta_branch_accuracy_pct": -4.9,
+      "delta_branch_mpki": 7.94
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "delta_ipc": 0.008,
+      "delta_branch_accuracy_pct": 0.21,
+      "delta_branch_mpki": -0.28
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "delta_ipc": -0.019,
+      "delta_branch_accuracy_pct": -0.66,
+      "delta_branch_mpki": 1.07
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "delta_ipc": -0.66,
+      "delta_branch_accuracy_pct": -24.94,
+      "delta_branch_mpki": 33.59
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "delta_ipc": -0.466,
+      "delta_branch_accuracy_pct": -19.67,
+      "delta_branch_mpki": 31.86
+    }
+  ],
+  "offline_train_reports": [
+    {
+      "schema_version": 1,
+      "generated_utc": "2026-09-12T09:10:55Z",
+      "arch": "nn_a",
+      "model_name": "nn_a_dense16",
+      "seed": 20260912,
+      "splits": "/workspace/data/splits/spec_hard_domain_v1.json",
+      "train_files": [
+        "603.bwaves_s-3699B.csv",
+        "607.cactuBSSN_s-4248B.csv"
+      ],
+      "val_files": [
+        "631.deepsjeng_s-928B.csv"
+      ],
+      "test_files_used": [],
+      "n_train": 77758,
+      "n_val": 45789,
+      "train_acc": 0.8259986110753877,
+      "val_acc": 0.5774749393959248,
+      "random_acc": 0.5,
+      "val_majority_acc": 0.6583677302408876,
+      "beat_random": true,
+      "fabricated": false
+    },
+    {
+      "schema_version": 1,
+      "generated_utc": "2026-09-12T09:11:01Z",
+      "arch": "nn_b",
+      "model_name": "nn_b_dense32_8",
+      "seed": 20260912,
+      "splits": "/workspace/data/splits/spec_hard_domain_v1.json",
+      "train_files": [
+        "603.bwaves_s-3699B.csv",
+        "607.cactuBSSN_s-4248B.csv"
+      ],
+      "val_files": [
+        "631.deepsjeng_s-928B.csv"
+      ],
+      "test_files_used": [],
+      "n_train": 77758,
+      "n_val": 45789,
+      "train_acc": 0.8130095938681551,
+      "val_acc": 0.6405250169254625,
+      "random_acc": 0.5,
+      "val_majority_acc": 0.6583677302408876,
+      "beat_random": true,
+      "fabricated": false
+    },
+    {
+      "schema_version": 1,
+      "generated_utc": "2026-09-12T09:11:05Z",
+      "arch": "nn_c",
+      "model_name": "nn_c_perceptron",
+      "seed": 20260912,
+      "splits": "/workspace/data/splits/spec_hard_domain_v1.json",
+      "train_files": [
+        "603.bwaves_s-3699B.csv",
+        "607.cactuBSSN_s-4248B.csv"
+      ],
+      "val_files": [
+        "631.deepsjeng_s-928B.csv"
+      ],
+      "test_files_used": [],
+      "n_train": 77758,
+      "n_val": 45789,
+      "train_acc": 0.7488747138558091,
+      "val_acc": 0.5487562515014524,
+      "random_acc": 0.5,
+      "val_majority_acc": 0.6583677302408876,
+      "beat_random": true,
+      "fabricated": false
+    }
+  ],
+  "contrast_easy_train_vs_hard_domain_train": [
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "easy_train_delta_acc_pct": -7.35,
+      "hard_domain_delta_acc_pct": -7.39,
+      "acc_pct_improvement_vs_easy_train": -0.04,
+      "easy_train_delta_ipc": -0.225,
+      "hard_domain_delta_ipc": -0.223,
+      "ipc_improvement_vs_easy_train": 0.002
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_hybrid",
+      "easy_train_delta_acc_pct": -6.32,
+      "hard_domain_delta_acc_pct": -4.9,
+      "acc_pct_improvement_vs_easy_train": 1.42,
+      "easy_train_delta_ipc": -0.165,
+      "hard_domain_delta_ipc": -0.14,
+      "ipc_improvement_vs_easy_train": 0.025
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "easy_train_delta_acc_pct": 0.19,
+      "hard_domain_delta_acc_pct": 0.21,
+      "acc_pct_improvement_vs_easy_train": 0.02,
+      "easy_train_delta_ipc": 0.007,
+      "hard_domain_delta_ipc": 0.008,
+      "ipc_improvement_vs_easy_train": 0.001
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online",
+      "easy_train_delta_acc_pct": -0.9,
+      "hard_domain_delta_acc_pct": -0.66,
+      "acc_pct_improvement_vs_easy_train": 0.24,
+      "easy_train_delta_ipc": -0.026,
+      "hard_domain_delta_ipc": -0.019,
+      "ipc_improvement_vs_easy_train": 0.007
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "easy_train_delta_acc_pct": -26.96,
+      "hard_domain_delta_acc_pct": -24.94,
+      "acc_pct_improvement_vs_easy_train": 2.02,
+      "easy_train_delta_ipc": -0.6819,
+      "hard_domain_delta_ipc": -0.66,
+      "ipc_improvement_vs_easy_train": 0.0219
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "nn_frozen",
+      "easy_train_delta_acc_pct": -24.06,
+      "hard_domain_delta_acc_pct": -19.67,
+      "acc_pct_improvement_vs_easy_train": 4.39,
+      "easy_train_delta_ipc": -0.5314,
+      "hard_domain_delta_ipc": -0.466,
+      "ipc_improvement_vs_easy_train": 0.0654
+    }
+  ],
+  "fabricated": false
+}
