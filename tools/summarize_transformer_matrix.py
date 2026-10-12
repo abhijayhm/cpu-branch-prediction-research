@@ -17,6 +17,11 @@ PREDS = (
     "nn_transformer_frozen",
     "anba_transformer_hybrid",
 )
+MATRIX_PREDS = (
+    "bimodal",
+    "anba_residual_hybrid",
+    "anba_transformer_hybrid",
+)
 RUN_RE = re.compile(
     r"^(?P<pred>bimodal|anba_residual_hybrid|nn_transformer_frozen|anba_transformer_hybrid)_"
     r"(?P<trace>.+)\.champsimtrace\.xz_\d{8}T\d{6}Z\.json$"
@@ -113,6 +118,8 @@ def main() -> int:
             {
                 "predictor": pred,
                 "trace": trace,
+                "warmup": doc.get("warmup_instructions"),
+                "sim": doc.get("simulation_instructions"),
                 "ipc": metrics.get("ipc"),
                 "branch_accuracy_pct": metrics.get("branch_accuracy_pct"),
                 "branch_mpki": metrics.get("branch_mpki"),
@@ -137,8 +144,9 @@ def main() -> int:
             "nn_transformer_frozen_10k_20k_roms_sec": 34,
             "full_matrix_frozen_skipped": "Use experiments/transformer_matrix_smoke.sh for frozen-only reduced window.",
         },
-        "predictors": list(PREDS),
-        "rows": rows,
+        "predictors": list(MATRIX_PREDS),
+        "rows": [r for r in rows if r["predictor"] in MATRIX_PREDS],
+        "all_rows": rows,
         "deltas_vs_bimodal": delta_table(rows, "bimodal"),
         "offline_train_nn_t": train_nn_t,
         "fabricated": False,

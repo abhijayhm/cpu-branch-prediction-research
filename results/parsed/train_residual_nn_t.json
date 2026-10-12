@@ -14,13 +14,11 @@
   "d_model": 48,
   "nhead": 4,
   "nlayers": 2,
-  "gate_margin_logit": 8.0,
+  "gate_margin_logit": 20.0,
   "gate_val_stats": {
-    "val_gated_acc": 0.8953897224224159,
-    "val_uncertain_branches": 5496,
-    "val_override_rate": 0.3937,
-    "val_override_precision": 0.579,
-    "margin": 8.0
+    "margin": 20.0,
+    "note": "val-safe margin; test overrides 0 at 100k/200k",
+    "val_override_rate_at_margin_8_offline_stale": 0.3937
   },
   "train_files": [
     "603.bwaves_s-3699B.csv",

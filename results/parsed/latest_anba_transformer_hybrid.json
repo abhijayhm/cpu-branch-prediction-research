@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "20261012T091615Z",
+  "generated_utc": "20261012T095003Z",
   "predictor": "anba_transformer_hybrid",
   "trace": "648.exchange2_s-1699B.champsimtrace.xz",
   "warmup_instructions": 100000,
@@ -11,7 +11,7 @@
     "--simulation-instructions=200000",
     "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
   ],
-  "log_path": "/workspace/results/raw/anba_transformer_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T091615Z.log",
+  "log_path": "/workspace/results/raw/anba_transformer_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T095003Z.log",
   "metrics": {
     "ipc": 1.676,
     "instructions": 200000,

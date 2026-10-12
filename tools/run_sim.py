@@ -44,7 +44,12 @@ def main() -> int:
         f"--simulation-instructions={args.sim}",
         str(args.trace),
     ]
-    env = dict(**{k: v for k, v in [e.split("=", 1) for e in args.extra_env]})
+    env: dict[str, str] = {}
+    for entry in args.extra_env:
+        for part in entry.split():
+            if "=" in part:
+                k, v = part.split("=", 1)
+                env[k] = v
     print(" ".join(cmd), file=sys.stderr)
     proc = subprocess.run(cmd, cwd=str(ROOT), capture_output=True, text=True, env={**dict(**{k: v for k, v in __import__("os").environ.items()}), **env})
     log_path.write_text(proc.stdout + "\n--- STDERR ---\n" + proc.stderr)

@@ -3,10 +3,16 @@
 #include <cmath>
 #include <cstdio>
 
+#include "anba_gate_stats.h"
+
 void anba_transformer_hybrid::initialize_branch_predictor()
 {
+  anba_gate::ensure_registered();
   const char* path = std::getenv("ANBA_MODEL_PATH");
   nn_ready = model.load(path);
+  if (!nn_ready) {
+    std::fprintf(stderr, "ANBA_TRANSFORMER_LOAD failed path=%s\n", path ? path : "(null)");
+  }
   nn_margin = model.margin;
   if (const char* m = std::getenv("ANBA_NN_MARGIN")) {
     nn_margin = static_cast<float>(std::strtod(m, nullptr));
@@ -58,10 +64,13 @@ void anba_transformer_hybrid::last_branch_result(
   (void)branch_type;
   if (last_uncertain) {
     stat_uncertain++;
+    anba_gate::counters().uncertain++;
     if (last_override) {
       stat_override++;
+      anba_gate::counters().override_n++;
       if (last_nn_pred == taken) {
         stat_override_correct++;
+        anba_gate::counters().override_correct++;
       }
     }
   }
@@ -77,16 +86,4 @@ void anba_transformer_hybrid::last_branch_result(
   }
 }
 
-anba_transformer_hybrid::~anba_transformer_hybrid()
-{
-  if (stat_uncertain > 0) {
-    const double prec = stat_override > 0 ? static_cast<double>(stat_override_correct) / static_cast<double>(stat_override)
-                                        : 0.0;
-    const double rate = static_cast<double>(stat_override) / static_cast<double>(stat_uncertain);
-    std::fprintf(
-        stderr,
-        "ANBA_GATE_STATS uncertain=%llu override=%llu override_correct=%llu override_rate=%.4f override_precision=%.4f\n",
-        static_cast<unsigned long long>(stat_uncertain), static_cast<unsigned long long>(stat_override),
-        static_cast<unsigned long long>(stat_override_correct), rate, prec);
-  }
-}
+anba_transformer_hybrid::~anba_transformer_hybrid() = default;

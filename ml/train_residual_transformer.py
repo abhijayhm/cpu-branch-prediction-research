@@ -68,7 +68,7 @@ def simulate_bimodal_uncertain(pc: np.ndarray, taken: np.ndarray) -> tuple[np.nd
     uncertain = np.zeros(len(pc), dtype=bool)
     for i, (p, t) in enumerate(zip(pc, taken)):
         h = int(p) % 16381
-        ctr = table.get(h, 2)  # weak taken start (2 of 3 max for 2-bit 0..3)
+        ctr = table.get(h, 0)  # matches ChampSim fwcounter default (0)
         preds[i] = 1 if ctr > 1 else 0
         uncertain[i] = ctr not in (0, 3)
         ctr = max(0, min(3, ctr + (1 if t else -1)))

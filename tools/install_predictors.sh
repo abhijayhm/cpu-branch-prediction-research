@@ -13,4 +13,5 @@ for pred in instrumented nn_frozen anba_hybrid anba_online anba_residual_hybrid 
 done
 cp -f "${ROOT}/predictor/common/anba_int8.h" "${ROOT}/champsim/ChampSim/inc/anba_int8.h"
 cp -f "${ROOT}/predictor/common/anba_transformer.h" "${ROOT}/champsim/ChampSim/inc/anba_transformer.h"
+cp -f "${ROOT}/predictor/common/anba_gate_stats.h" "${ROOT}/champsim/ChampSim/inc/anba_gate_stats.h"
 echo "installed predictors into ${DEST} and inc/anba_*.h"
