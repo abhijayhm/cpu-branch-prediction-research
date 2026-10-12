@@ -46,6 +46,7 @@ help:
 	@echo "  make transformer-matrix eval NN-T on held-out hard test traces"
 	@echo "  make unseen-screen      bimodal screen unseen SPEC candidates (weak bimodal)"
 	@echo "  make unseen-matrix      generalization matrix on screened unseen traces"
+	@echo "  make online-repeating   K-epoch online learner + aggregate matrix"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -185,6 +186,9 @@ unseen-screen:
 
 unseen-matrix:
 	bash $(ROOT)/experiments/unseen_programs_matrix.sh
+
+online-repeating:
+	bash $(ROOT)/experiments/online_repeating_matrix.sh
 
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)

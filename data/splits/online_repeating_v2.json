@@ -1,0 +1,50 @@
+{
+  "name": "online_repeating_v2",
+  "epochs": 5,
+  "warmup": 100000,
+  "sim": 500000,
+  "persist_state": true,
+  "val_trace": "631.deepsjeng_s-928B.champsimtrace.xz",
+  "test_traces": [
+    "641.leela_s-334B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "657.xz_s-56B.champsimtrace.xz",
+    "600.perlbench_s-1273B.champsimtrace.xz",
+    "654.roms_s-1021B.champsimtrace.xz",
+    "648.exchange2_s-1699B.champsimtrace.xz"
+  ],
+  "hyperparam_grid": {
+    "ANBA_CHOOSER_HIGH": [
+      6,
+      8,
+      10
+    ],
+    "ANBA_MODEL_MARGIN": [
+      8,
+      12,
+      16
+    ],
+    "ANBA_CHOOSER_LOW": [
+      2,
+      3
+    ],
+    "ANBA_LEARN_SHIFT": [
+      0,
+      1
+    ]
+  },
+  "tuned_params": {
+    "ANBA_CHOOSER_HIGH": 6,
+    "ANBA_MODEL_MARGIN": 8,
+    "ANBA_CHOOSER_LOW": 3,
+    "ANBA_LEARN_SHIFT": 0
+  },
+  "predictors": [
+    "bimodal",
+    "gshare_repeat",
+    "hashed_perceptron",
+    "anba_gshare_online",
+    "anba_online_repeat_chooser",
+    "anba_online_repeat_vote"
+  ]
+}

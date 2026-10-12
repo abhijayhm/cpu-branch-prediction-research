@@ -1,0 +1,338 @@
+{
+  "val_trace": "631.deepsjeng_s-928B.champsimtrace.xz",
+  "grid_results": [
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.36,
+      "delta_vs_gshare": 0.1799999999999926
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "6",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.37,
+      "delta_vs_gshare": 0.18999999999999773
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "8",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.34,
+      "delta_vs_gshare": 0.1599999999999966
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "8",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "12",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "2",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "0",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    },
+    {
+      "ANBA_CHOOSER_HIGH": "10",
+      "ANBA_MODEL_MARGIN": "16",
+      "ANBA_CHOOSER_LOW": "3",
+      "ANBA_LEARN_SHIFT": "1",
+      "gshare_ep2": 92.18,
+      "hybrid_ep2": 92.33,
+      "delta_vs_gshare": 0.14999999999999147
+    }
+  ],
+  "best": {
+    "ANBA_CHOOSER_HIGH": "6",
+    "ANBA_MODEL_MARGIN": "8",
+    "ANBA_CHOOSER_LOW": "3",
+    "ANBA_LEARN_SHIFT": "0",
+    "gshare_ep2": 92.18,
+    "hybrid_ep2": 92.37,
+    "delta_vs_gshare": 0.18999999999999773
+  }
+}
