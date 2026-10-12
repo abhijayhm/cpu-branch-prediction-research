@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T09:48:41Z",
+  "generated_utc": "2026-10-12T08:58:02Z",
   "dataset": "residual",
   "splits": "/workspace/data/splits/spec_residual_v1.json",
   "data_dir": "/workspace/data/extracted/residual",
@@ -16,8 +16,8 @@
   "model_name": "nn_a_dense16",
   "n_train": 11719,
   "n_val": 6047,
-  "train_acc": 0.595272634183804,
-  "val_acc": 0.548040350587068,
+  "train_acc": 0.5934806724123218,
+  "val_acc": 0.5435753266082355,
   "random_acc": 0.5,
   "beat_random": true
 }

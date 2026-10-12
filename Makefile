@@ -18,7 +18,8 @@ export CXX := g++
 .PHONY: help scaffold env champsim-pin champsim-deps champsim-build champsim \
 	traces catalog splits hard-splits hard-domain-splits residual-splits baseline parse instrument extract train export-int8 \
 	nn hybrid online residual-hybrid smoke matrix hard-matrix hard-domain-matrix hard-domain-train \
-	residual-instrument residual-dataset residual-train residual-matrix reproduce accept clean-results
+	residual-instrument residual-dataset residual-train residual-matrix \
+	transformer-train transformer-matrix reproduce accept clean-results
 
 help:
 	@echo "ANBA targets:"
@@ -41,6 +42,8 @@ help:
 	@echo "  make residual-splits    freeze data/splits/spec_residual_v1.json"
 	@echo "  make residual-train     instrument+build residual dataset+train+export"
 	@echo "  make residual-matrix    eval residual hybrid on held-out hard test traces"
+	@echo "  make transformer-train  train NN-T on residual curriculum + export"
+	@echo "  make transformer-matrix eval NN-T on held-out hard test traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -165,6 +168,15 @@ residual-hybrid:
 
 residual-matrix:
 	bash $(ROOT)/experiments/residual_matrix.sh
+
+TRANSFORMER_MODEL := $(ROOT)/models/export/nn_transformer.bin
+
+transformer-train: residual-instrument
+	$(PY) $(ROOT)/ml/train_residual_transformer.py --splits $(RESIDUAL_SPLIT)
+
+transformer-matrix:
+	bash $(ROOT)/experiments/transformer_matrix.sh
+	-$(PY) $(ROOT)/tools/make_transformer_chart.py
 
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)

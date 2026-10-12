@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-12T09:27:31Z",
+  "split": "data/splits/spec_residual_v1.json",
+  "test_traces": [
+    "648.exchange2_s-1699B.champsimtrace.xz",
+    "654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "timing_notes": {
+    "anba_transformer_hybrid_100k_200k_roms_sec": 12,
+    "nn_transformer_frozen_100k_200k_roms_sec": ">240 (aborted)",
+    "nn_transformer_frozen_10k_20k_roms_sec": 34,
+    "full_matrix_frozen_skipped": "Use experiments/transformer_matrix_smoke.sh for frozen-only reduced window."
+  },
+  "predictors": [
+    "bimodal",
+    "anba_residual_hybrid",
+    "nn_transformer_frozen",
+    "anba_transformer_hybrid"
+  ],
+  "rows": [
+    {
+      "predictor": "anba_residual_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/anba_residual_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T091036Z.log"
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/anba_residual_hybrid_654.roms_s-1021B.champsimtrace.xz_20261012T091627Z.log"
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/anba_transformer_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T091615Z.log"
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/anba_transformer_hybrid_654.roms_s-1021B.champsimtrace.xz_20261012T091035Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/bimodal_648.exchange2_s-1699B.champsimtrace.xz_20260912T094923Z.log"
+    },
+    {
+      "predictor": "bimodal",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/bimodal_654.roms_s-1021B.champsimtrace.xz_20260912T094918Z.log"
+    },
+    {
+      "predictor": "nn_transformer_frozen",
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "ipc": 0.4187,
+      "branch_accuracy_pct": 56.93,
+      "branch_mpki": 70.5,
+      "gate_stats": null,
+      "log_path": "/workspace/results/raw/nn_transformer_frozen_654.roms_s-1021B.champsimtrace.xz_20261012T092623Z.log"
+    }
+  ],
+  "deltas_vs_bimodal": [
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_transformer_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_transformer_hybrid",
+      "baseline": "bimodal",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "delta_branch_mpki": 0.0
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "nn_transformer_frozen",
+      "baseline": "bimodal",
+      "delta_ipc": -1.0883,
+      "delta_branch_accuracy_pct": -23.55,
+      "delta_branch_mpki": 38.87
+    }
+  ],
+  "offline_train_nn_t": {
+    "schema_version": 1,
+    "generated_utc": "2026-10-12T09:00:04Z",
+    "dataset": "residual_ordered",
+    "arch": "nn_t",
+    "model_name": "nn_t_causal",
+    "n_train": 11719,
+    "n_val": 6047,
+    "train_acc": 0.9934294735045652,
+    "val_acc": 0.59699024309575,
+    "random_acc": 0.5,
+    "beat_random": true,
+    "seq_len": 64,
+    "d_model": 48,
+    "nhead": 4,
+    "nlayers": 2,
+    "gate_margin_logit": 8.0,
+    "gate_val_stats": {
+      "val_gated_acc": 0.8953897224224159,
+      "val_uncertain_branches": 5496,
+      "val_override_rate": 0.3937,
+      "val_override_precision": 0.579,
+      "margin": 8.0
+    },
+    "train_files": [
+      "603.bwaves_s-3699B.csv",
+      "607.cactuBSSN_s-4248B.csv"
+    ],
+    "val_files": [
+      "631.deepsjeng_s-928B.csv"
+    ],
+    "fabricated": false
+  },
+  "fabricated": false
+}

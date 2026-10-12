@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20261012T092623Z",
+  "predictor": "nn_transformer_frozen",
+  "trace": "654.roms_s-1021B.champsimtrace.xz",
+  "warmup_instructions": 10000,
+  "simulation_instructions": 20000,
+  "command": [
+    "champsim/ChampSim/bin/champsim_nn_transformer_frozen",
+    "--warmup-instructions=10000",
+    "--simulation-instructions=20000",
+    "data/traces/654.roms_s-1021B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/nn_transformer_frozen_654.roms_s-1021B.champsimtrace.xz_20261012T092623Z.log",
+  "metrics": {
+    "ipc": 0.4187,
+    "instructions": 20000,
+    "cycles": 47771,
+    "branch_accuracy_pct": 56.93,
+    "branch_mpki": 70.5
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

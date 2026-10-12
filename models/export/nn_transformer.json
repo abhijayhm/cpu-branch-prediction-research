@@ -1,0 +1,193 @@
+{
+  "path": "/workspace/models/export/nn_transformer.bin",
+  "arch": "nn_t",
+  "arch_id": 3,
+  "seq_len": 64,
+  "d_model": 48,
+  "nhead": 4,
+  "nlayers": 2,
+  "vocab_size": 6144,
+  "margin": 8.0,
+  "tensors": [
+    {
+      "name": "embed.weight",
+      "shape": [
+        6144,
+        48
+      ]
+    },
+    {
+      "name": "pos_embed.weight",
+      "shape": [
+        64,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.self_attn.in_proj_weight",
+      "shape": [
+        144,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.self_attn.in_proj_bias",
+      "shape": [
+        144
+      ]
+    },
+    {
+      "name": "encoder.layers.0.self_attn.out_proj.weight",
+      "shape": [
+        48,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.self_attn.out_proj.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.linear1.weight",
+      "shape": [
+        96,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.linear1.bias",
+      "shape": [
+        96
+      ]
+    },
+    {
+      "name": "encoder.layers.0.linear2.weight",
+      "shape": [
+        48,
+        96
+      ]
+    },
+    {
+      "name": "encoder.layers.0.linear2.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.norm1.weight",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.norm1.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.norm2.weight",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.0.norm2.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.self_attn.in_proj_weight",
+      "shape": [
+        144,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.self_attn.in_proj_bias",
+      "shape": [
+        144
+      ]
+    },
+    {
+      "name": "encoder.layers.1.self_attn.out_proj.weight",
+      "shape": [
+        48,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.self_attn.out_proj.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.linear1.weight",
+      "shape": [
+        96,
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.linear1.bias",
+      "shape": [
+        96
+      ]
+    },
+    {
+      "name": "encoder.layers.1.linear2.weight",
+      "shape": [
+        48,
+        96
+      ]
+    },
+    {
+      "name": "encoder.layers.1.linear2.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.norm1.weight",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.norm1.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.norm2.weight",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "encoder.layers.1.norm2.bias",
+      "shape": [
+        48
+      ]
+    },
+    {
+      "name": "head.weight",
+      "shape": [
+        1,
+        48
+      ]
+    },
+    {
+      "name": "head.bias",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "fabricated": false
+}

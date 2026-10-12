@@ -131,3 +131,24 @@ Artifacts: `results/parsed/*_summary.json` (`fabricated: false`).
 
 This note is a **side-try**: a small neural failover idea, stress-tested quickly with ChampSim, Cursor cloud agents, and a coordinating assistant. The scientific win so far is methodological — **gating beats vibes**. The product win is still a chase.
 
+---
+
+## Mini transformer try
+
+**NN-T:** 2-layer causal transformer (seq_len=64, d_model=48, 4 heads) over tokenized recent branches (11-bit PC hash + taken; current branch uses PC-only token). Trained on the **same residual curriculum** as the MLP specialist (ordered instrumented traces; labels = true `taken`; val margin tuned only on `631.deepsjeng`).
+
+**Offline val (not test):** val row accuracy **59.7%**; gated val replay accuracy **89.5%**; tuned logit margin **8.0** (override rate **39.4%**, precision **57.9%** on uncertain val branches). Artifact: `results/parsed/train_residual_nn_t.json`.
+
+**Held-out hard test (warmup 100k / sim 200k):**
+
+| Trace | Bimodal | Residual + gate | NN-T + gate | Δ acc vs bimodal (NN-T+gate) | Δ IPC |
+|---|---:|---:|---:|---:|---:|
+| `654.roms` | 80.48% / 1.507 | 80.48% / 1.507 | 80.48% / 1.507 | 0.00 pp | 0.000 |
+| `648.exchange2` | 84.04% / 1.676 | 84.04% / 1.676 | 84.04% / 1.676 | 0.00 pp | 0.000 |
+
+**NN-T frozen alone** at full windows was **not** completed in reasonable time (≈4+ min/trace vs ≈12 s for gated hybrid on roms); smoke runs use smaller windows and are **not** in the table above.
+
+![NN-T deltas vs bimodal](figures/nn_t_hard_accuracy_delta.png)
+
+**Honest read:** NN-T + gate **matches** bimodal on these hard held-out shorts — same as the residual MLP + gate. No measured IPC gain; no claim that the transformer beats the tiny MLP specialist on test.
+

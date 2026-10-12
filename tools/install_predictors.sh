@@ -7,9 +7,10 @@ if [[ ! -d "${DEST}" ]]; then
   echo "ChampSim not pinned; run make champsim-pin" >&2
   exit 1
 fi
-for pred in instrumented nn_frozen anba_hybrid anba_online anba_residual_hybrid; do
+for pred in instrumented nn_frozen anba_hybrid anba_online anba_residual_hybrid nn_transformer_frozen anba_transformer_hybrid; do
   mkdir -p "${DEST}/${pred}"
   cp -f "${ROOT}/predictor/${pred}/"* "${DEST}/${pred}/"
 done
 cp -f "${ROOT}/predictor/common/anba_int8.h" "${ROOT}/champsim/ChampSim/inc/anba_int8.h"
-echo "installed predictors into ${DEST} and inc/anba_int8.h"
+cp -f "${ROOT}/predictor/common/anba_transformer.h" "${ROOT}/champsim/ChampSim/inc/anba_transformer.h"
+echo "installed predictors into ${DEST} and inc/anba_*.h"
