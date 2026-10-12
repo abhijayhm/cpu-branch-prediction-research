@@ -114,44 +114,54 @@ Short default windows (`WARMUP=100000`, `SIM=200000`) are for a working
 prototype, not a championship-length result. Override on the make command
 line for longer runs.
 
-## Measured metrics (smoke window)
+## Findings
 
-All numbers below are from real ChampSim runs (`WARMUP=1e5`, `SIM=2e5`) on
-official traces. Test split `648.exchange2` is simulated in the matrix but
-**never** used for training.
+Full narrative (all phases, bugs, charts): **[paper/ANBA_SIDE_TRY.md](paper/ANBA_SIDE_TRY.md)**.  
+Every headline number below is from committed `results/parsed/*` with `fabricated: false`.
 
-### Cross-workload NN training (frozen splits)
+### Headline (measured)
 
-Train `654.roms_s-1021B`, validate `649.fotonik3d_s-1B`, cap 100k branches,
-SGD + weight decay, seed `20260912`:
+| Question | Answer |
+| --- | --- |
+| Gated **residual MLP** or **NN-T** vs **bimodal** on hard held-out (`roms`, `exchange2`) | **Tie** — **0.00 pp**, **0 IPC** |
+| **Ungated** hybrid on uncertain branches | **~−5 to −7 pp** vs bimodal |
+| Frozen specialists on **unseen** SPEC traces | **Lose** unless gate margin is high enough to never override (then tie) |
+| **gshare-hybrid** (`anba_gshare_online`) vs **gshare** (online v2, 100k/500k) | **+0.09 pp** on `641.leela` only; **0.00** on gcc; **no IPC win** (≤0.002 vs gshare) |
+| vs **hashed_perceptron** (same v2 matrix) | **hashed_perceptron ahead** by **+0.04 to +3.55 pp** on every v2 test trace |
+| **Bimodal-only** baselines | **Too weak** — gshare leads bimodal by up to **~11.5 pp** on hard traces in repeating-task runs |
 
-| Model | Val accuracy | Beats random (0.5)? |
-| --- | ---: | --- |
-| NN-A Dense16 | 0.593 | yes |
-| NN-C perceptron | 0.599 | yes |
+### Online v2 — Δ branch accuracy vs **gshare** (pp, epoch 5)
 
-Prior NN-A failure with Adam (`val_acc≈0.49`) is documented in
-`docs/IMPLEMENTATION_NOTES.md`; fixed by defaulting all arches to SGD.
+| Trace | hashed_perceptron | gshare-hybrid | bimodal (≈ vs gshare) |
+| --- | ---: | ---: | ---: |
+| `641.leela` | +3.55 | **+0.09** | −0.88 |
+| `602.gcc` | +0.04 | 0.00 | −5.21 |
+| `657.xz` | +2.08 | 0.00 | −1.04 |
+| `600.perlbench` | +0.54 | −0.02 | −0.25 |
+| `654.roms` | +2.37 | −1.98 | −15.80 |
+| `648.exchange2` | +2.61 | −1.00 | −11.78 |
 
-### Simulation matrix (3 small traces × 5 predictors)
+Source: `results/parsed/online_repeating_v2_summary.json`.
 
-Regenerate with `make matrix`; committed snapshot in
-`results/parsed/matrix_summary.json` (`WARMUP=1e5`, `SIM=2e5`, model
-`nn_c_int8.bin` for neural predictors):
+### Lessons
 
-| Trace | Predictor | IPC | Branch acc % | MPKI |
-| --- | --- | ---: | ---: | ---: |
-| 649.fotonik3d_s-1B | bimodal | 1.796 | 95.22 | 11.35 |
-| 649.fotonik3d_s-1B | anba_hybrid | 1.806 | 95.09 | 11.65 |
-| 649.fotonik3d_s-1B | anba_online | 1.890 | 96.11 | 9.24 |
-| 654.roms_s-1021B | bimodal | 1.507 | 80.48 | 31.63 |
-| 654.roms_s-1021B | anba_online | 1.489 | 79.78 | 32.76 |
-| 648.exchange2_s-1699B (test) | bimodal | 1.676 | 84.04 | 21.50 |
-| 648.exchange2_s-1699B (test) | anba_online | 1.684 | 84.27 | 21.20 |
+1. **Gate** uncertain branches; ungated neural override is unsafe.  
+2. Compare against **gshare** / **hashed_perceptron**, not bimodal alone.  
+3. **NN-T** did not beat the residual MLP on test; both **tie bimodal** when gated.  
+4. **Vote** aggregate had a **combined-vs-model_pred** bug (fixed); design still fails on gcc.  
+5. Next experiment (not run): online corrector on **hashed_perceptron** — expect **tenths of a pp** at best if anything.
 
-Frozen `nn_frozen` alone is weak cross-workload (trained on roms, evaluated
-elsewhere); hybrid/online recover via the bimodal gate. Full 15-row table is
-in `matrix_summary.json`.
+### Reproduce main result bundles
+
+```bash
+make residual-matrix                    # gated residual vs bimodal (hard test)
+bash experiments/transformer_matrix.sh # NN-T + gate
+bash experiments/unseen_programs_matrix.sh
+bash experiments/online_repeating_v2.sh  # gshare / hashed_perc / hybrid
+python3 -m unittest tests/test_online_vote_aggregate.py
+```
+
+Bootstrap smoke matrix (3 traces, early prototype): `make matrix` → `results/parsed/matrix_summary.json`.
 
 ## Acceptance (A1–A11)
 
@@ -164,4 +174,4 @@ SPEC traces remain under the Zenodo record terms / SPEC license constraints.
 
 ## Research note
 
-Curated side-try writeup: [paper/ANBA_SIDE_TRY.md](paper/ANBA_SIDE_TRY.md)
+Consolidated findings: [paper/ANBA_SIDE_TRY.md](paper/ANBA_SIDE_TRY.md) (figures under `paper/figures/`).
