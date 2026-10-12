@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-12T10:23:54Z",
+  "split": "data/splits/spec_unseen_v1.json",
+  "selected_traces": [
+    "600.perlbench_s-1273B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "641.leela_s-334B.champsimtrace.xz",
+    "657.xz_s-56B.champsimtrace.xz"
+  ],
+  "bimodal_screen": {
+    "schema_version": 1,
+    "generated_utc": "2026-10-12T10:22:43Z",
+    "split": "data/splits/spec_unseen_v1.json",
+    "warmup": 50000,
+    "sim": 50000,
+    "pick_n": 4,
+    "rows": [
+      {
+        "trace": "657.xz_s-56B.champsimtrace.xz",
+        "workload": "657.xz",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 2.095,
+        "branch_accuracy_pct": 96.81,
+        "branch_mpki": 0.64,
+        "parse_ok": true
+      },
+      {
+        "trace": "623.xalancbmk_s-592B.champsimtrace.xz",
+        "workload": "623.xalancbmk",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 1.521,
+        "branch_accuracy_pct": 98.92,
+        "branch_mpki": 3.98,
+        "parse_ok": true
+      },
+      {
+        "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+        "workload": "600.perlbench",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 2.15,
+        "branch_accuracy_pct": 98.13,
+        "branch_mpki": 2.54,
+        "parse_ok": true
+      },
+      {
+        "trace": "605.mcf_s-1554B.champsimtrace.xz",
+        "workload": "605.mcf",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 0.132,
+        "branch_accuracy_pct": 100.0,
+        "branch_mpki": 0.0,
+        "parse_ok": true
+      },
+      {
+        "trace": "625.x264_s-20B.champsimtrace.xz",
+        "workload": "625.x264",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 1.791,
+        "branch_accuracy_pct": 99.72,
+        "branch_mpki": 0.06,
+        "parse_ok": true
+      },
+      {
+        "trace": "641.leela_s-334B.champsimtrace.xz",
+        "workload": "641.leela",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 0.881,
+        "branch_accuracy_pct": 85.03,
+        "branch_mpki": 24.92,
+        "parse_ok": true
+      },
+      {
+        "trace": "602.gcc_s-734B.champsimtrace.xz",
+        "workload": "602.gcc",
+        "warmup": 50000,
+        "sim": 50000,
+        "ipc": 0.4004,
+        "branch_accuracy_pct": 94.62,
+        "branch_mpki": 12.66,
+        "parse_ok": true
+      },
+      {
+        "trace": "620.omnetpp_s-874B.champsimtrace.xz",
+        "parse_ok": false,
+        "error": "missing trace"
+      }
+    ],
+    "ranked_by_bimodal_weakness": [
+      "641.leela_s-334B.champsimtrace.xz",
+      "602.gcc_s-734B.champsimtrace.xz",
+      "657.xz_s-56B.champsimtrace.xz",
+      "600.perlbench_s-1273B.champsimtrace.xz",
+      "623.xalancbmk_s-592B.champsimtrace.xz",
+      "625.x264_s-20B.champsimtrace.xz",
+      "605.mcf_s-1554B.champsimtrace.xz"
+    ],
+    "selected_traces": [
+      "641.leela_s-334B.champsimtrace.xz",
+      "602.gcc_s-734B.champsimtrace.xz",
+      "657.xz_s-56B.champsimtrace.xz",
+      "600.perlbench_s-1273B.champsimtrace.xz"
+    ],
+    "fabricated": false
+  },
+  "rows": [
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 20,
+      "label": "anba_residual_hybrid_m20",
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 20,
+      "label": "anba_residual_hybrid_m20",
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 20,
+      "label": "anba_residual_hybrid_m20",
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 20,
+      "label": "anba_residual_hybrid_m20",
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 8,
+      "label": "anba_residual_hybrid_m8",
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.595,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 479,
+        "override_correct": 340,
+        "override_rate": 0.4953,
+        "override_precision": 0.7098
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 8,
+      "label": "anba_residual_hybrid_m8",
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3820,
+        "override_correct": 3758,
+        "override_rate": 0.9992,
+        "override_precision": 0.9838
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 8,
+      "label": "anba_residual_hybrid_m8",
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 85.97,
+      "branch_mpki": 24.61,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6399,
+        "override_correct": 3106,
+        "override_rate": 0.9416,
+        "override_precision": 0.4854
+      }
+    },
+    {
+      "predictor": "anba_residual_hybrid",
+      "margin": 8,
+      "label": "anba_residual_hybrid_m8",
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 199,
+        "override_correct": 133,
+        "override_rate": 1.0,
+        "override_precision": 0.6683
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 20,
+      "label": "anba_transformer_hybrid_m20",
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 20,
+      "label": "anba_transformer_hybrid_m20",
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 20,
+      "label": "anba_transformer_hybrid_m20",
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 20,
+      "label": "anba_transformer_hybrid_m20",
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 8,
+      "label": "anba_transformer_hybrid_m8",
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.054,
+      "branch_accuracy_pct": 97.9,
+      "branch_mpki": 2.86,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 152,
+        "override_correct": 144,
+        "override_rate": 0.1572,
+        "override_precision": 0.9474
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 8,
+      "label": "anba_transformer_hybrid_m8",
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.46,
+      "branch_mpki": 24.95,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3749,
+        "override_correct": 35,
+        "override_rate": 0.9806,
+        "override_precision": 0.0093
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 8,
+      "label": "anba_transformer_hybrid_m8",
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.139,
+      "branch_accuracy_pct": 86.95,
+      "branch_mpki": 22.9,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 2918,
+        "override_correct": 1790,
+        "override_rate": 0.4293,
+        "override_precision": 0.6134
+      }
+    },
+    {
+      "predictor": "anba_transformer_hybrid",
+      "margin": 8,
+      "label": "anba_transformer_hybrid_m8",
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 66,
+        "override_correct": 66,
+        "override_rate": 0.3317,
+        "override_precision": 1.0
+      }
+    },
+    {
+      "predictor": "bimodal",
+      "margin": null,
+      "label": "bimodal",
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "gate_stats": null
+    },
+    {
+      "predictor": "bimodal",
+      "margin": null,
+      "label": "bimodal",
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "gate_stats": null
+    },
+    {
+      "predictor": "bimodal",
+      "margin": null,
+      "label": "bimodal",
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "gate_stats": null
+    },
+    {
+      "predictor": "bimodal",
+      "margin": null,
+      "label": "bimodal",
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 100000,
+      "sim": 200000,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "gate_stats": null
+    }
+  ],
+  "deltas_vs_bimodal": [
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m20",
+      "delta_ipc": 0.004,
+      "delta_branch_accuracy_pct": 0.26,
+      "override_rate": 0.4891,
+      "override_precision": 0.7125
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": -0.02,
+      "override_rate": 0.9987,
+      "override_precision": 0.9838
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m20",
+      "delta_ipc": -0.037,
+      "delta_branch_accuracy_pct": -1.2,
+      "override_rate": 0.8952,
+      "override_precision": 0.4824
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": -1.03,
+      "override_rate": 0.9899,
+      "override_precision": 0.665
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m8",
+      "delta_ipc": 0.004,
+      "delta_branch_accuracy_pct": 0.26,
+      "override_rate": 0.4953,
+      "override_precision": 0.7098
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m8",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": -0.02,
+      "override_rate": 0.9992,
+      "override_precision": 0.9838
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m8",
+      "delta_ipc": -0.037,
+      "delta_branch_accuracy_pct": -1.24,
+      "override_rate": 0.9416,
+      "override_precision": 0.4854
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "label": "anba_residual_hybrid_m8",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": -1.03,
+      "override_rate": 1.0,
+      "override_precision": 0.6683
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "override_rate": 0.0,
+      "override_precision": 0.0
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "override_rate": 0.0,
+      "override_precision": 0.0
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "override_rate": 0.0,
+      "override_precision": 0.0
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m20",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "override_rate": 0.0,
+      "override_precision": 0.0
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m8",
+      "delta_ipc": 0.002,
+      "delta_branch_accuracy_pct": 0.07,
+      "override_rate": 0.1572,
+      "override_precision": 0.9474
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m8",
+      "delta_ipc": -0.0676,
+      "delta_branch_accuracy_pct": -5.23,
+      "override_rate": 0.9806,
+      "override_precision": 0.0093
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m8",
+      "delta_ipc": -0.008,
+      "delta_branch_accuracy_pct": -0.26,
+      "override_rate": 0.4293,
+      "override_precision": 0.6134
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "label": "anba_transformer_hybrid_m8",
+      "delta_ipc": 0.0,
+      "delta_branch_accuracy_pct": 0.0,
+      "override_rate": 0.3317,
+      "override_precision": 1.0
+    }
+  ],
+  "fabricated": false
+}

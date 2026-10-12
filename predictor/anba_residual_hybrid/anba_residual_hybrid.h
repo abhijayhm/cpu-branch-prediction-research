@@ -27,6 +27,9 @@ class anba_residual_hybrid : champsim::modules::branch_predictor
   uint32_t ghist = 0;
   bool nn_ready = false;
   int32_t nn_margin = DEFAULT_NN_MARGIN;
+  bool last_uncertain = false;
+  bool last_override = false;
+  bool last_nn_pred = false;
 
   [[nodiscard]] static constexpr auto hash(champsim::address ip) { return ip.to<unsigned long>() % PRIME; }
 
@@ -36,6 +39,7 @@ public:
   void initialize_branch_predictor();
   bool predict_branch(champsim::address ip);
   void last_branch_result(champsim::address ip, champsim::address branch_target, bool taken, uint8_t branch_type);
+  ~anba_residual_hybrid();
 };
 
 #endif

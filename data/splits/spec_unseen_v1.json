@@ -1,0 +1,53 @@
+{
+  "name": "spec_unseen_v1",
+  "created_utc": "2026-10-12T00:00:00Z",
+  "rules": [
+    "Workloads never used in ANBA residual / hard-domain train, val, or test (603, 607, 631, 654, 648).",
+    "Also exclude easy-only NN-A train workloads from spec_hard_v1 (649, 638, 644) for clearer generalization.",
+    "Screen candidates with bimodal-only short window; keep worst 3-4 by lowest accuracy / highest MPKI.",
+    "Full matrix uses frozen exports (no retrain) at warmup 100k / sim 200k."
+  ],
+  "excluded_workloads": [
+    "603.bwaves",
+    "607.cactuBSSN",
+    "631.deepsjeng",
+    "654.roms",
+    "648.exchange2",
+    "649.fotonik3d",
+    "638.imagick",
+    "644.nab"
+  ],
+  "screening": {
+    "warmup": 50000,
+    "sim": 50000,
+    "pick_n": 4,
+    "rank": "branch_accuracy_pct_asc_then_mpki_desc"
+  },
+  "evaluation": {
+    "warmup": 100000,
+    "sim": 200000,
+    "margins": [
+      8,
+      20
+    ],
+    "residual_model": "models/export/nn_residual_int8.bin",
+    "transformer_model": "models/export/nn_transformer.bin"
+  },
+  "candidate_traces": [
+    "657.xz_s-56B.champsimtrace.xz",
+    "623.xalancbmk_s-592B.champsimtrace.xz",
+    "600.perlbench_s-1273B.champsimtrace.xz",
+    "605.mcf_s-1554B.champsimtrace.xz",
+    "625.x264_s-20B.champsimtrace.xz",
+    "641.leela_s-334B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "620.omnetpp_s-874B.champsimtrace.xz"
+  ],
+  "selected_traces": [
+    "641.leela_s-334B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "657.xz_s-56B.champsimtrace.xz",
+    "600.perlbench_s-1273B.champsimtrace.xz"
+  ],
+  "screening_results_path": "results/parsed/unseen_bimodal_screen.json"
+}

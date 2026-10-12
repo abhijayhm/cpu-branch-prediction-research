@@ -24,6 +24,11 @@ def main() -> int:
     parser.add_argument("--warmup", type=int, default=100_000)
     parser.add_argument("--sim", type=int, default=200_000)
     parser.add_argument("--extra-env", action="append", default=[])
+    parser.add_argument(
+        "--run-tag",
+        default="",
+        help="Optional tag (e.g. margin8) inserted in parsed/log filenames for matrix variants",
+    )
     args = parser.parse_args()
 
     if not args.bin.exists():
@@ -36,7 +41,8 @@ def main() -> int:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     raw_dir = ROOT / "results" / "raw"
     raw_dir.mkdir(parents=True, exist_ok=True)
-    log_path = raw_dir / f"{args.predictor}_{args.trace.name}_{stamp}.log"
+    tag_part = f"{args.run_tag}_" if args.run_tag else ""
+    log_path = raw_dir / f"{args.predictor}_{tag_part}{args.trace.name}_{stamp}.log"
 
     cmd = [
         str(args.bin),
@@ -63,6 +69,7 @@ def main() -> int:
         "schema_version": 1,
         "generated_utc": stamp,
         "predictor": args.predictor,
+        "run_tag": args.run_tag or None,
         "trace": args.trace.name,
         "warmup_instructions": args.warmup,
         "simulation_instructions": args.sim,
@@ -81,7 +88,7 @@ def main() -> int:
         "notes": parsed["notes"],
         "fabricated": False,
     }
-    parsed_path = ROOT / "results" / "parsed" / f"{args.predictor}_{args.trace.name}_{stamp}.json"
+    parsed_path = ROOT / "results" / "parsed" / f"{args.predictor}_{tag_part}{args.trace.name}_{stamp}.json"
     parsed_path.parent.mkdir(parents=True, exist_ok=True)
     parsed_path.write_text(json.dumps(record, indent=2) + "\n")
     latest = ROOT / "results" / "parsed" / f"latest_{args.predictor}.json"
