@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "20260912T094926Z",
+  "generated_utc": "20261012T095002Z",
   "predictor": "anba_residual_hybrid",
   "trace": "648.exchange2_s-1699B.champsimtrace.xz",
   "warmup_instructions": 100000,
@@ -11,13 +11,13 @@
     "--simulation-instructions=200000",
     "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
   ],
-  "log_path": "/workspace/results/raw/anba_residual_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20260912T094926Z.log",
+  "log_path": "/workspace/results/raw/anba_residual_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T095002Z.log",
   "metrics": {
-    "ipc": 1.676,
+    "ipc": 1.455,
     "instructions": 200000,
-    "cycles": 119364,
-    "branch_accuracy_pct": 84.04,
-    "branch_mpki": 21.5
+    "cycles": 137459,
+    "branch_accuracy_pct": 77.08,
+    "branch_mpki": 30.88
   },
   "parse_ok": true,
   "notes": [],

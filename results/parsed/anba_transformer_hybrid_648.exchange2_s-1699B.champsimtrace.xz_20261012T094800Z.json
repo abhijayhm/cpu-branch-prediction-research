@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_utc": "20261012T094800Z",
+  "predictor": "anba_transformer_hybrid",
+  "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+  "warmup_instructions": 100000,
+  "simulation_instructions": 200000,
+  "command": [
+    "/workspace/champsim/ChampSim/bin/champsim_anba_transformer_hybrid",
+    "--warmup-instructions=100000",
+    "--simulation-instructions=200000",
+    "/workspace/data/traces/648.exchange2_s-1699B.champsimtrace.xz"
+  ],
+  "log_path": "/workspace/results/raw/anba_transformer_hybrid_648.exchange2_s-1699B.champsimtrace.xz_20261012T094800Z.log",
+  "metrics": {
+    "ipc": 1.611,
+    "instructions": 200000,
+    "cycles": 124147,
+    "branch_accuracy_pct": 81.88,
+    "branch_mpki": 24.41
+  },
+  "parse_ok": true,
+  "notes": [],
+  "fabricated": false
+}

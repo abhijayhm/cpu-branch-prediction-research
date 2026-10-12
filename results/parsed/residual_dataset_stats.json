@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T09:48:37Z",
+  "generated_utc": "2026-10-12T08:57:57Z",
   "splits": "data/splits/spec_residual_v1.json",
   "input_dir": "data/extracted",
   "out_dir": "data/extracted/residual",

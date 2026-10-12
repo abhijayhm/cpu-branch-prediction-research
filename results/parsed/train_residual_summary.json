@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-09-12T09:48:43Z",
+  "generated_utc": "2026-10-12T08:58:13Z",
   "best_arch": "nn_b",
-  "best_val_acc": 0.5726806680998843,
+  "best_val_acc": 0.5680502728625765,
   "export_path": "models/export/nn_residual_int8.bin",
   "arch_reports": [
     {
       "schema_version": 1,
-      "generated_utc": "2026-09-12T09:48:41Z",
+      "generated_utc": "2026-10-12T08:58:02Z",
       "dataset": "residual",
       "splits": "/workspace/data/splits/spec_residual_v1.json",
       "data_dir": "/workspace/data/extracted/residual",
@@ -23,14 +23,14 @@
       "model_name": "nn_a_dense16",
       "n_train": 11719,
       "n_val": 6047,
-      "train_acc": 0.595272634183804,
-      "val_acc": 0.548040350587068,
+      "train_acc": 0.5934806724123218,
+      "val_acc": 0.5435753266082355,
       "random_acc": 0.5,
       "beat_random": true
     },
     {
       "schema_version": 1,
-      "generated_utc": "2026-09-12T09:48:41Z",
+      "generated_utc": "2026-10-12T08:58:08Z",
       "dataset": "residual",
       "splits": "/workspace/data/splits/spec_residual_v1.json",
       "data_dir": "/workspace/data/extracted/residual",
@@ -46,14 +46,14 @@
       "model_name": "nn_b_dense32_8",
       "n_train": 11719,
       "n_val": 6047,
-      "train_acc": 0.6612338936769349,
-      "val_acc": 0.5726806680998843,
+      "train_acc": 0.661831214267429,
+      "val_acc": 0.5680502728625765,
       "random_acc": 0.5,
       "beat_random": true
     },
     {
       "schema_version": 1,
-      "generated_utc": "2026-09-12T09:48:41Z",
+      "generated_utc": "2026-10-12T08:58:10Z",
       "dataset": "residual",
       "splits": "/workspace/data/splits/spec_residual_v1.json",
       "data_dir": "/workspace/data/extracted/residual",
@@ -69,8 +69,8 @@
       "model_name": "nn_c_perceptron",
       "n_train": 11719,
       "n_val": 6047,
-      "train_acc": 0.6149842136701084,
-      "val_acc": 0.4744501405655697,
+      "train_acc": 0.6154962027476747,
+      "val_acc": 0.4718042004299653,
       "random_acc": 0.5,
       "beat_random": false
     }

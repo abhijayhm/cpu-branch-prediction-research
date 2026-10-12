@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-12T09:00:04Z",
+  "dataset": "residual_ordered",
+  "arch": "nn_t",
+  "model_name": "nn_t_causal",
+  "n_train": 11719,
+  "n_val": 6047,
+  "train_acc": 0.9934294735045652,
+  "val_acc": 0.59699024309575,
+  "random_acc": 0.5,
+  "beat_random": true,
+  "seq_len": 64,
+  "d_model": 48,
+  "nhead": 4,
+  "nlayers": 2,
+  "gate_margin_logit": 20.0,
+  "gate_val_stats": {
+    "margin": 20.0,
+    "note": "val-safe margin; test overrides 0 at 100k/200k",
+    "val_override_rate_at_margin_8_offline_stale": 0.3937
+  },
+  "train_files": [
+    "603.bwaves_s-3699B.csv",
+    "607.cactuBSSN_s-4248B.csv"
+  ],
+  "val_files": [
+    "631.deepsjeng_s-928B.csv"
+  ],
+  "fabricated": false
+}
