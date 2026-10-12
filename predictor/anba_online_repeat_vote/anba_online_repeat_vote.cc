@@ -67,10 +67,11 @@ bool anba_online_repeat_vote::predict_branch(champsim::address ip)
   // Bimodal weak confidence: 01 -> -1, 10 -> +1 toward taken side
   int32_t bim_vote = static_cast<int32_t>(v) - static_cast<int32_t>(ctr.maximum) / 2;
   const int32_t combined = bim_vote * 4 + macc / 2;
-  const bool model_pred = macc >= 0;
-  if (std::abs(macc) >= MODEL_MARGIN && std::abs(combined) >= VOTE_MARGIN && (combined >= 0) != last_bim_pred) {
+  const bool vote_taken = combined >= 0;
+  // Use the combined vote direction when overriding (not raw model_pred alone).
+  if (std::abs(macc) >= MODEL_MARGIN && std::abs(combined) >= VOTE_MARGIN && vote_taken != last_bim_pred) {
     last_override = true;
-    last_pred = model_pred;
+    last_pred = vote_taken;
     return last_pred;
   }
   last_pred = last_bim_pred;

@@ -211,3 +211,36 @@ Artifacts: `results/parsed/online_repeating_summary.json`, `online_repeating_run
 
 **Honest read:** Repeating the **same** short window does **not** produce a visible learning curve once epoch-1 online training saturates. **gshare** is the strong classic reference on these runs. **Online failed-only + chooser** is a small, safe nudge (≤0.4 pp) on some traces but **does not** close gaps on hard held-out code. **Vote** and **frozen residual** remain unsafe without domain match. No IPC win measured.
 
+---
+
+## Online repeating v2 (persistent gshare + hybrid corrector)
+
+**Scenario (v2):** **K=5** replays with **warmup 100k / sim 500k** per epoch. **No predictor reset** between epochs for `gshare_repeat`, `anba_gshare_online`, and legacy online chooser/vote checkpoints (`ANBA_PERSIST_STATE=1`, checkpoint v2). **Bimodal** and **hashed_perceptron** still reset each subprocess (ChampSim default). **Hyperparameters** for `anba_gshare_online` (chooser high/low, model margin, learn shift) are swept on **val only** (`631.deepsjeng`, epochs 1–2); test traces are untouched.
+
+**Hybrid (`anba_gshare_online`):** 14-bit **gshare** base; **64-feature** online perceptron (16 PC + 16 per-PC local + 32 global bits) trained **only on gshare mispredictions**; per-PC chooser + **hysteresis**; overrides only when chooser trust is high and `|macc| ≥ margin`.
+
+**Vote bug (root cause):** `anba_online_repeat_vote` gated overrides on **`combined = bim_vote·4 + macc/2`** but returned **`model_pred = (macc ≥ 0)`**. When truncating `macc/2` disagrees with the combined sign (e.g. weak bimodal + small negative `macc`), overrides flipped against the intended vote. Symptom on metrics: **Δ acc vs gshare ≈ 2·(Δ bimodal vs gshare)** (e.g. gcc **−10.46 pp** vs gshare with bimodal **−5.21 pp**). Fixed to **`last_pred = vote_taken`**. Unit test: `tests/test_online_vote_aggregate.py`. **After fix, vote is still harmful** on hard traces (≈99% override rate, &lt;1% precision on gcc) — the aggregate design is unsafe; the bug fix only aligns the override direction with the gate.
+
+![v2 Δ acc vs gshare](figures/online_repeating_v2_delta_gshare.png)
+
+**Δ branch accuracy vs gshare (pp), epoch 1 / epoch 5** (flat curves: deterministic replay + saturated online state):
+
+| Trace | hashed_perc | hybrid | ol_chooser | ol_vote (fixed) |
+|---|---:|---:|---:|---:|
+| `641.leela` | +3.55 / +3.55 | **+0.09 / +0.09** | −1.07 / −1.07 | −2.98 / −2.98 |
+| `602.gcc` | +0.04 / +0.04 | **0.00 / 0.00** | −5.21 / −5.21 | −10.46 / −10.46 |
+| `657.xz` | +2.08 / +2.08 | 0.00 / 0.00 | −1.04 / −1.04 | −4.16 / −4.16 |
+| `600.perlbench` | +0.54 / +0.54 | −0.02 / −0.02 | −0.26 / −0.26 | −0.41 / −0.41 |
+| `654.roms` | +2.37 / +2.37 | −1.98 / −1.98 | −16.29 / −16.29 | −24.28 / −24.28 |
+| `648.exchange2` | +2.61 / +2.61 | −1.00 / −1.00 | −12.26 / −12.26 | −21.14 / −21.14 |
+
+**Δ vs bimodal (final epoch, hybrid):** leela **+0.97 pp**, gcc **+5.21 pp** (ties gshare), perlbench **+0.23 pp**; roms/exchange2 still far below bimodal because **gshare** itself wins there. **IPC:** hybrid matches gshare within **≤0.002** on all traces (no measurable IPC win).
+
+**Only gshare beat:** **`641.leela` +0.09 pp** accuracy (IPC tied at 1.20). Val tune best: **+0.19 pp** vs persistent gshare on deepsjeng epoch 2 (`ANBA_CHOOSER_HIGH=6`, `LOW=3`, `MARGIN=8`, `LEARN_SHIFT=0`).
+
+**Hybrid telemetry (epoch 5):** override rate **≈0.3–1.0%** of branches when `|macc|≥margin`; override precision **68–92%** on leela/gcc/perlbench, lower on roms/exchange2.
+
+Artifacts: `results/parsed/online_repeating_v2_summary.json`, `online_repeating_v2_runs.jsonl`, `online_tune_val.json` (`fabricated: false`).
+
+**Verdict (3 lines):** (1) Persistent replay + gshare-base hybrid **does not hurt gcc** (ties gshare) and **edges gshare on leela by +0.09 pp** only. (2) **hashed_perceptron** remains much stronger on several traces but was not tuned online here. (3) **Bimodal+vote** stays broken at scale even after the combined-vote fix; use chooser or gshare-hybrid, not vote.
+
