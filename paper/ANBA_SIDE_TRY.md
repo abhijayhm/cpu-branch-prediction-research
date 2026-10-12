@@ -1,200 +1,124 @@
-# Adaptive Neural Branch Assistance (ANBA)
+# Adaptive Neural Branch Assistance (ANBA) — findings
 
-### A short ChampSim side-try: tiny neural failover for uncertain branches  
-**Status:** fun research incident / workshop-style note — not a claim that we beat modern CPUs  
-**Repo:** https://github.com/abhijayhm/cpu-branch-prediction-research  
-**Author framing:** built with heavy Cursor cloud-agent help + Grok Bot coordination, minimal babysitting
-
----
-
-## Abstract
-
-We explore **Adaptive Neural Branch Assistance (ANBA)**: keep a classic branch predictor for easy branches, and consult a *tiny* neural net only when the classic predictor is uncertain (and, in the safer design, only when the net is confident).
-
-In short ChampSim experiments on public SPEC CPU2017 traces:
-
-- Letting the net override whenever the classic predictor hesitates **hurts** accuracy on hard held-out workloads (about **−5 to −7 percentage points** vs bimodal).
-- Training with emphasis on classic mistakes + a **confidence gate** stops that self-own: we **match** classic bimodal on those same hard short runs (**~0 pp** delta).
-- We do **not** claim a stable IPC win over strong heuristics yet. A chaseable future (on-device / NPU residual + runtime adaptation) is framed as **hopeful but unoptimistic**: maybe **~1–3% IPC** if things go well — not a branch-prediction rewrite.
-
-All tables below are from real simulator runs (`fabricated: false` in repo JSON artifacts).
+**Repo:** [cpu-branch-prediction-research](https://github.com/abhijayhm/cpu-branch-prediction-research)  
+**Scope:** ChampSim side-study on SPEC CPU2017 traces (mostly warmup 100k / sim 200k–500k).  
+**Rule:** Tables use **measured** simulator output only (`fabricated: false` in `results/parsed/*`).
 
 ---
 
-## 1. Why bother (the fun hypothesis)
+## Executive summary
 
-Modern CPUs already have excellent predictors. The interesting question is not “can an NN classify branches?” but:
+We asked whether a **tiny neural assistant** can help **only where a classic predictor is uncertain**, with offline-trained INT8 MLPs, a residual specialist, a mini causal transformer (NN-T), and later an **online corrector on top of gshare**.
 
-> Can a **small** neural assistant help **specifically where a conventional predictor is uncertain**, especially with later on-device adaptation?
+| Claim | Result |
+|---|---|
+| Beat **bimodal** on hard held-out code with a **gated** residual MLP or NN-T | **Tie** (0.00 pp, 0 IPC) — safe |
+| Ungated hybrid on uncertain branches | **Large loss** (~−5 to −7 pp vs bimodal) |
+| Generalize frozen specialists to **unseen** programs | **Mostly fails** unless margin is so high the gate never overrides |
+| **Online** learning on **repeating** traces | Flat curves after epoch 1; **gshare** and **hashed_perceptron** dominate **bimodal** |
+| Our best vs **gshare** (online v2, held-out) | **+0.09 pp** on `641.leela` only; **no IPC win** anywhere |
+| vs **hashed_perceptron** (same v2 matrix) | **hashed_perceptron beats our hybrids** by **+0.04 to +3.55 pp** on every test trace |
 
-ANBA treats the NN as a **failover supporter**, not a replacement.
+**Bimodal was too weak** as the primary comparison for “did we beat a real CPU-style predictor.” Against **gshare** and **hashed_perceptron**, our gated offline nets **tie or lose**; the only measured win over gshare is **+0.09 pp** on leela.
+
+**Plausible next step (not built here):** an online corrector on **hashed_perceptron** misses (same gshare-hybrid pattern). Expect **tenths of a pp** at best if anything — speculative, not measured.
+
+---
+
+## Architecture (all phases)
 
 ```text
-branch → classic predictor
-            ├─ confident  → use classic
-            └─ uncertain  → tiny NN (only if confident) → else classic
-                 └─ optional online / future NPU adapt
+branch → classic base (bimodal, later gshare / hashed_perceptron)
+           ├─ confident (2-bit saturated) → classic
+           └─ uncertain → tiny NN (only if |logit| ≥ margin) → else classic
 ```
 
----
-
-## 2. What we built (2-hour-ish research incident energy)
-
-End-to-end in this repo:
-
-- ChampSim pin + baseline **bimodal**
-- Trace download (Zenodo SPEC2017 ChampSim traces)
-- Trace-level train/val/test splits (no leakage)
-- Tiny nets **NN-A / NN-B / NN-C**, INT8 export into C++ predictors
-- Modes: frozen NN, ungated hybrid, online, **residual hybrid**
-- Acceptance harness + hard-workload matrices
-
-**Labels:** training uses true branch outcomes (`taken`), never the classic predictor’s guess as the target. Classic mistakes are already “corrected” in the label because the label is reality.
+Training labels are **true `taken`**, not the classic prediction. Specialists emphasize **classic mispredictions** in the residual curriculum.
 
 ---
 
-## 3. Measured results (the honest ones)
+## Phase 1 — NN-A / NN-B / NN-C and residual gate
 
-### 3.1 Hard held-out short window (warmup 100k / sim 200k)
+**Models:** 32-feature ±1 vectors (16 PC bits + 16-bit GHR); NN-A (16 hidden), NN-B (32→8), NN-C perceptron; INT8 export to C++.
 
-Branch accuracy (%):
+**Hard held-out test** (`654.roms`, `648.exchange2`; warmup 100k / sim 200k; split `spec_residual_v1`):
 
-| Workload | Classic bimodal | Ungated hybrid | Residual + gate | Online |
-|---|---:|---:|---:|---:|
-| `654.roms` | **80.5** | 75.6 | **80.5** | 79.8 |
-| `648.exchange2` | **84.0** | 76.7 | **84.0** | 84.3 |
-
-IPC:
-
-| Workload | Classic | Ungated hybrid | Residual + gate | Online |
-|---|---:|---:|---:|---:|
-| roms | **1.51** | 1.37 | **1.51** | 1.49 |
-| exchange2 | **1.68** | 1.45 | **1.68** | 1.68 |
-
-**Punchline:** residual + confidence gate **ties** classic; ungated hybrid **loses**.
+| Workload | Bimodal acc / IPC | Ungated `anba_hybrid` | **Residual + gate (m=8)** |
+|---|---:|---:|---:|
+| roms | 80.48% / 1.507 | 75.58% / 1.367 | **80.48% / 1.507** |
+| exchange2 | 84.04% / 1.676 | 76.65% / 1.453 | **84.04% / 1.676** |
 
 ![Hard accuracy](figures/hard_accuracy.png)
 
 ![Hard IPC](figures/hard_ipc.png)
 
-![Deltas vs classic](figures/delta_vs_classic.png)
+![Δ vs bimodal (residual matrix)](figures/delta_vs_classic.png)
 
-### 3.2 Where a helper could matter
-
-On these hard traces, classic is wrong on roughly **~16–20%** of branches (the failover pool). Instrumented dumps showed ~**12%** disagreements (`predicted != taken`).
+Roughly **16–20%** of branches sit in the uncertain pool on these traces; instrumented dumps show ~**12%** `predicted ≠ taken` disagreement rate (failover opportunity, not captured IPC upside).
 
 ![Failover pool](figures/failover_pool.png)
 
-### 3.3 A friendlier smoke hint (not the hard-test claim)
+**Lesson:** Confidence **gating** turns a harmful ungated hybrid into a **bimodal tie**. No measured IPC gain on hard tests.
 
-On an easier short window (`649.fotonik3d`), **online** once showed roughly **~+5% IPC** vs bimodal. We treat that as a *hint*, not the headline for hard held-out evaluation.
-
----
-
-## 4. What we are *not* claiming
-
-- Not beating TAGE-class industrial predictors  
-- Not a measured NPU result  
-- Not a guaranteed multi‑percent product win  
-- Not “the dataset was flipped wrong” — we audited labels; they’re true outcomes  
+Artifact: `results/parsed/residual_matrix_summary.json`.
 
 ---
 
-## 5. Chaseable future (hopeful, unoptimistic)
+## Phase 2 — Mini transformer (NN-T)
 
-If a dedicated low-latency unit (e.g. tiny NPU path) handled **only worse/uncertain branches** with **runtime adaptation**:
+**NN-T:** 2-layer causal transformer (seq_len=64, d_model=48, 4 heads) over tokenized branch history (11-bit PC hash + taken; current branch = PC-only token). Same **residual curriculum** as the MLP specialist; val margin tuned on `631.deepsjeng` only.
 
-| Stance | Estimate |
-|---|---|
-| **Measured now** | **~0%** boost on hard short tests (tie) |
-| **Stable-ish chase target** | **~1–3% IPC** if adaptation + latency cooperate |
-| **Hype** | 5%+ — possible in a dream, **not** something to stand behind yet |
+**Offline val** (`train_residual_nn_t.json`): val accuracy **59.7%**; gated val replay **89.5%**; tuned logit margin **8.0** (override rate **39.4%**, precision **57.9%** on uncertain val branches).
 
-This is **scenario analysis**, not a corrected experimental table.
+**C++ parity bug and fix:** Early ChampSim NN-T logits did not match PyTorch export (token assembly / causal attention / bimodal table replay). We added **`tools/parity_transformer.py`** + **`tools/cpp_transformer_logit`** and fixed **bimodal counter replay** (saturated counter init consistent with ChampSim `fwcounter`). After parity, **margin was re-tuned to 20** for val-safe behavior; margin **8** on test causes harmful overrides (see unseen-programs gcc).
 
----
+**Held-out hard test** (100k/200k; `transformer_matrix_summary.json`):
 
-## 6. Reproducibility
+| Trace | Bimodal | Residual+gate | **NN-T+gate (m=20)** | Δ acc / IPC vs bimodal |
+|---|---:|---:|---:|---:|
+| `654.roms` | 80.48% / 1.507 | 80.48% / 1.507 | **80.48% / 1.507** | **0 / 0** |
+| `648.exchange2` | 84.04% / 1.676 | 84.04% / 1.676 | **84.04% / 1.676** | **0 / 0** |
 
-```bash
-make accept
-make hard-domain-matrix   # prior hard eval
-make residual-train
-make residual-matrix      # residual specialist eval
-```
+![NN-T Δ vs bimodal](figures/nn_t_hard_accuracy_delta.png)
 
-Artifacts: `results/parsed/*_summary.json` (`fabricated: false`).
+**Timing:** `anba_transformer_hybrid` ≈ **12 s**/trace (100k/200k roms). `nn_transformer_frozen` full window **>4 min** (aborted); 10k/20k smoke only.
+
+**Lesson:** NN-T + gate **matches** residual MLP + gate on hard test — **ties bimodal**, **no IPC win**.
 
 ---
 
-## 7. Closing
+## Phase 3 — Unseen programs
 
-This note is a **side-try**: a small neural failover idea, stress-tested quickly with ChampSim, Cursor cloud agents, and a coordinating assistant. The scientific win so far is methodological — **gating beats vibes**. The product win is still a chase.
+**Setup:** Frozen residual MLP and NN-T (no retrain). Eight SPEC candidates screened with **bimodal** (50k/50k); **four lowest** bimodal accuracies run at 100k/200k. Gate telemetry via `ANBA_GATE_STATS`.
 
----
+**Screening (bimodal acc %):** leela 85.03, gcc 94.62, xz 96.81, perlbench 98.13 (selected); xalancbmk/mcf/x264 higher; omnetpp trace missing.
 
-## Mini transformer try
+**Δ acc vs bimodal (pp)** on full matrix:
 
-**NN-T:** 2-layer causal transformer (seq_len=64, d_model=48, 4 heads) over tokenized recent branches (11-bit PC hash + taken; current branch uses PC-only token). Trained on the **same residual curriculum** as the MLP specialist (ordered instrumented traces; labels = true `taken`; val margin tuned only on `631.deepsjeng`).
+| Trace | Residual m8 | Residual m20 | NN-T m8 | **NN-T m20** |
+|---|---:|---:|---:|---:|
+| `641.leela` | −1.24 | −1.20 | −0.26 | **0.00** |
+| `602.gcc` | −0.02 | −0.02 | **−5.23** | **0.00** |
+| `657.xz` | −1.03 | −1.03 | 0.00 | **0.00** |
+| `600.perlbench` | +0.26 | +0.26 | +0.07 | **0.00** |
 
-**Offline val (not test):** val row accuracy **59.7%**; gated val replay accuracy **89.5%**; tuned logit margin **8.0** (override rate **39.4%**, precision **57.9%** on uncertain val branches). Artifact: `results/parsed/train_residual_nn_t.json`.
+**Lesson:** **Margin-20** NN-T + gate **ties bimodal** everywhere (zero overrides). **Margin-8** NN-T **destroys gcc** (~5 pp, override precision ≈1%). Frozen residual **overrides aggressively** on unseen code and **loses** on leela/xz despite high precision on gcc. **No IPC win.**
 
-**Held-out hard test (warmup 100k / sim 200k):**
-
-| Trace | Bimodal | Residual + gate | NN-T + gate | Δ acc vs bimodal (NN-T+gate) | Δ IPC |
-|---|---:|---:|---:|---:|---:|
-| `654.roms` | 80.48% / 1.507 | 80.48% / 1.507 | 80.48% / 1.507 | 0.00 pp | 0.000 |
-| `648.exchange2` | 84.04% / 1.676 | 84.04% / 1.676 | 84.04% / 1.676 | 0.00 pp | 0.000 |
-
-**NN-T frozen alone** at full windows was **not** completed in reasonable time (≈4+ min/trace vs ≈12 s for gated hybrid on roms); smoke runs use smaller windows and are **not** in the table above.
-
-![NN-T deltas vs bimodal](figures/nn_t_hard_accuracy_delta.png)
-
-**Honest read:** NN-T + gate **matches** bimodal on these hard held-out shorts — same as the residual MLP + gate. No measured IPC gain; no claim that the transformer beats the tiny MLP specialist on test.
+Artifact: `results/parsed/unseen_programs_matrix_summary.json`.
 
 ---
 
-## Unseen programs
+## Phase 4 — Online repeating tasks
 
-**Setup:** Frozen residual MLP and NN-T exports (no retrain). Workloads **outside** ANBA residual / hard-domain train·val·test (and outside easy-only `spec_hard_v1` train). Eight SPEC2017 candidates were screened with **bimodal only** (warmup 50k / sim 50k); we kept the **four lowest bimodal accuracies** for the full matrix (warmup 100k / sim 200k). `620.omnetpp` was unavailable during screening (Zenodo timeout). Gate telemetry (`ANBA_GATE_STATS`) is now emitted for **residual** hybrid as well as NN-T.
+### v1 (reset bimodal each epoch)
 
-**Bimodal screening (50k/50k):**
+K=5 replays, 100k/200k, cold 32-feat perceptron on **bimodal misses**, chooser vs **vote** aggregate. Compared to bimodal, residual m20, **gshare** (reset each run).
 
-| Trace | Bimodal acc % | MPKI | Selected |
-|---|---:|---:|:---:|
-| `641.leela_s-334B` | 85.03 | 24.92 | yes |
-| `602.gcc_s-734B` | 94.62 | 12.66 | yes |
-| `657.xz_s-56B` | 96.81 | 0.64 | yes |
-| `600.perlbench_s-1273B` | 98.13 | 2.54 | yes |
-| `623.xalancbmk_s-592B` | 98.92 | 3.98 | no |
-| `625.x264_s-20B` | 99.72 | 0.06 | no |
-| `605.mcf_s-1554B` | 100.00 | 0.00 | no |
-| `620.omnetpp_s-874B` | — | — | missing trace |
+![v1 Δ acc vs bimodal](figures/online_repeating_accuracy_delta.png)
 
-**Full comparison vs bimodal (100k/200k):** acc % / IPC; Δ acc in pp; override rate / precision on uncertain branches.
+**Δ acc vs bimodal (epoch 1 ≈ epoch 5):**
 
-| Trace | Bimodal | Residual m8 | Residual m20 | NN-T m8 | NN-T m20 |
-|---|---|---|---|---|---|
-| `641.leela` | 87.21 / 1.147 | 85.97 (−1.24) / 1.110 · ov 94% / prec 49% | 86.01 (−1.20) / 1.110 · ov 90% / prec 48% | 86.95 (−0.26) / 1.139 · ov 43% / prec 61% | **87.21 / 1.147** · ov 0% |
-| `602.gcc` | 94.69 / 0.496 | 94.67 (−0.02) / 0.496 · ov 100% / prec 98% | same Δ · ov 100% / prec 98% | 89.46 (−5.23) / 0.429 · ov 98% / prec **0.9%** | **94.69 / 0.496** · ov 0% |
-| `657.xz` | 96.87 / 2.112 | 95.84 (−1.03) / 2.112 · ov 100% / prec 67% | same Δ · ov 99% / prec 67% | 96.87 (0.00) / 2.112 · ov 33% / prec 100% | **96.87 / 2.112** · ov 0% |
-| `600.perlbench` | 97.83 / 2.052 | 98.09 (+0.26) / 2.056 · ov 50% / prec 71% | same Δ · ov 49% / prec 71% | 97.90 (+0.07) / 2.054 · ov 16% / prec 95% | **97.83 / 2.052** · ov 0% |
-
-Artifact: `results/parsed/unseen_programs_matrix_summary.json` (`fabricated: false`).
-
-**Honest read:** On genuinely unseen code, **margin-20 NN-T + gate ties bimodal** everywhere (zero overrides — same safe behavior as hard held-out test). **Margin-8 NN-T** can help slightly on leela/perlbench but **catastrophically hurts gcc** (≈5 pp, override precision ≈1%). The **residual MLP** overrides aggressively on unseen traces (often >90% of uncertain branches) and **loses** on leela/xz despite high override precision on gcc; it is **not** a safe generalizer without retraining. No consistent IPC win.
-
----
-
-## Online learning on repeating tasks
-
-**Scenario:** Each trace is replayed **K=5** times (warmup 100k / sim 200k per epoch). Bimodal tables and global history **reset every epoch**; a **cold-start 32-feature perceptron** (no offline weights) trains **only on bimodal mispredictions**, with weights + per-PC chooser state **checkpointed** across epochs. Aggregates: **tournament chooser** (`anba_online_repeat_chooser`) vs **bimodal-strength + logit vote** (`anba_online_repeat_vote`). Compared each epoch to **bimodal**, **frozen residual + gate (margin 20)**, and **gshare**. Traces: unseen four (`641.leela`, `602.gcc`, `657.xz`, `600.perlbench`) plus held-out `654.roms`, `648.exchange2`.
-
-![Online repeating Δ acc vs bimodal](figures/online_repeating_accuracy_delta.png)
-
-**Epoch-1 vs epoch-5 Δ acc vs bimodal (pp):**
-
-| Trace | gshare | Residual m20 | Online chooser | Online vote |
+| Trace | gshare | Residual m20 | Chooser | Vote (pre-fix) |
 |---|---:|---:|---:|---:|
 | `641.leela` | +1.49 | −1.20 | −0.24 | −1.54 |
 | `602.gcc` | +5.27 | −0.02 | +0.01 | −5.25 |
@@ -203,44 +127,66 @@ Artifact: `results/parsed/unseen_programs_matrix_summary.json` (`fabricated: fal
 | `654.roms` | +8.55 | −5.48 | −0.41 | −8.55 |
 | `648.exchange2` | +11.54 | −6.75 | −1.09 | −9.41 |
 
-(Values are **flat epoch 1→5** for every predictor: deterministic replays with reset bimodal; the online perceptron converges within the first epoch, so later epochs add no new supervision.)
+Flat curves: deterministic replay + bimodal reset; online weights saturate in epoch 1.
 
-**Telemetry (epoch 5, chooser):** override rate 2–49% on uncertain branches; override precision 64–90% on gcc/perlbench but **not** enough to beat bimodal on hard traces. Vote mode overrides more aggressively and **hurts** badly on `648.exchange2` / `654.roms` (precision ≈10–16%).
+Artifact: `results/parsed/online_repeating_summary.json`.
 
-Artifacts: `results/parsed/online_repeating_summary.json`, `online_repeating_runs.jsonl` (`fabricated: false`).
+### Vote mirror bug
 
-**Honest read:** Repeating the **same** short window does **not** produce a visible learning curve once epoch-1 online training saturates. **gshare** is the strong classic reference on these runs. **Online failed-only + chooser** is a small, safe nudge (≤0.4 pp) on some traces but **does not** close gaps on hard held-out code. **Vote** and **frozen residual** remain unsafe without domain match. No IPC win measured.
+`anba_online_repeat_vote` **gated** on `combined = bim_vote·4 + macc/2` but returned **`model_pred = (macc ≥ 0)`**. When C++ `macc/2` (truncate toward zero) disagrees with the combined sign, overrides invert the intended vote. Metric symptom: **Δ vs gshare ≈ 2·(Δ bimodal vs gshare)** (gcc vote **−10.46 pp** vs gshare with bimodal **−5.21 pp**). **Fixed:** `last_pred = vote_taken`. Test: `tests/test_online_vote_aggregate.py`. **Vote remains harmful** after fix (~99% override rate, &lt;1% precision on gcc).
 
----
+### v2 (persistent gshare + hybrid corrector)
 
-## Online repeating v2 (persistent gshare + hybrid corrector)
-
-**Scenario (v2):** **K=5** replays with **warmup 100k / sim 500k** per epoch. **No predictor reset** between epochs for `gshare_repeat`, `anba_gshare_online`, and legacy online chooser/vote checkpoints (`ANBA_PERSIST_STATE=1`, checkpoint v2). **Bimodal** and **hashed_perceptron** still reset each subprocess (ChampSim default). **Hyperparameters** for `anba_gshare_online` (chooser high/low, model margin, learn shift) are swept on **val only** (`631.deepsjeng`, epochs 1–2); test traces are untouched.
-
-**Hybrid (`anba_gshare_online`):** 14-bit **gshare** base; **64-feature** online perceptron (16 PC + 16 per-PC local + 32 global bits) trained **only on gshare mispredictions**; per-PC chooser + **hysteresis**; overrides only when chooser trust is high and `|macc| ≥ margin`.
-
-**Vote bug (root cause):** `anba_online_repeat_vote` gated overrides on **`combined = bim_vote·4 + macc/2`** but returned **`model_pred = (macc ≥ 0)`**. When truncating `macc/2` disagrees with the combined sign (e.g. weak bimodal + small negative `macc`), overrides flipped against the intended vote. Symptom on metrics: **Δ acc vs gshare ≈ 2·(Δ bimodal vs gshare)** (e.g. gcc **−10.46 pp** vs gshare with bimodal **−5.21 pp**). Fixed to **`last_pred = vote_taken`**. Unit test: `tests/test_online_vote_aggregate.py`. **After fix, vote is still harmful** on hard traces (≈99% override rate, &lt;1% precision on gcc) — the aggregate design is unsafe; the bug fix only aligns the override direction with the gate.
+K=5, **100k/500k**, **persistent** `gshare_repeat` + `anba_gshare_online` (64-feat perceptron on **gshare misses**, chooser + hysteresis). Hyperparams swept on **val** (`631.deepsjeng`, epochs 1–2) only. Baselines: bimodal, **gshare_repeat**, **hashed_perceptron**, chooser, vote (fixed).
 
 ![v2 Δ acc vs gshare](figures/online_repeating_v2_delta_gshare.png)
 
-**Δ branch accuracy vs gshare (pp), epoch 1 / epoch 5** (flat curves: deterministic replay + saturated online state):
+![v2 Δ acc vs bimodal (hybrid vs gshare)](figures/online_repeating_v2_delta_bimodal.png)
 
-| Trace | hashed_perc | hybrid | ol_chooser | ol_vote (fixed) |
+**Δ branch accuracy vs gshare (pp), final epoch:**
+
+| Trace | hashed_perceptron | **gshare-hybrid** | chooser | vote (fixed) |
 |---|---:|---:|---:|---:|
-| `641.leela` | +3.55 / +3.55 | **+0.09 / +0.09** | −1.07 / −1.07 | −2.98 / −2.98 |
-| `602.gcc` | +0.04 / +0.04 | **0.00 / 0.00** | −5.21 / −5.21 | −10.46 / −10.46 |
-| `657.xz` | +2.08 / +2.08 | 0.00 / 0.00 | −1.04 / −1.04 | −4.16 / −4.16 |
-| `600.perlbench` | +0.54 / +0.54 | −0.02 / −0.02 | −0.26 / −0.26 | −0.41 / −0.41 |
-| `654.roms` | +2.37 / +2.37 | −1.98 / −1.98 | −16.29 / −16.29 | −24.28 / −24.28 |
-| `648.exchange2` | +2.61 / +2.61 | −1.00 / −1.00 | −12.26 / −12.26 | −21.14 / −21.14 |
+| `641.leela` | +3.55 | **+0.09** | −1.07 | −2.98 |
+| `602.gcc` | +0.04 | **0.00** | −5.21 | −10.46 |
+| `657.xz` | +2.08 | 0.00 | −1.04 | −4.16 |
+| `600.perlbench` | +0.54 | −0.02 | −0.26 | −0.41 |
+| `654.roms` | +2.37 | −1.98 | −16.29 | −24.28 |
+| `648.exchange2` | +2.61 | −1.00 | −12.26 | −21.14 |
 
-**Δ vs bimodal (final epoch, hybrid):** leela **+0.97 pp**, gcc **+5.21 pp** (ties gshare), perlbench **+0.23 pp**; roms/exchange2 still far below bimodal because **gshare** itself wins there. **IPC:** hybrid matches gshare within **≤0.002** on all traces (no measurable IPC win).
+**IPC:** hybrid vs gshare within **≤0.002** on all traces — **no IPC win**.
 
-**Only gshare beat:** **`641.leela` +0.09 pp** accuracy (IPC tied at 1.20). Val tune best: **+0.19 pp** vs persistent gshare on deepsjeng epoch 2 (`ANBA_CHOOSER_HIGH=6`, `LOW=3`, `MARGIN=8`, `LEARN_SHIFT=0`).
+**Only win vs gshare:** `641.leela` **+0.09 pp** (IPC **1.20**, tied). Val tune best: **+0.19 pp** on deepsjeng epoch 2.
 
-**Hybrid telemetry (epoch 5):** override rate **≈0.3–1.0%** of branches when `|macc|≥margin`; override precision **68–92%** on leela/gcc/perlbench, lower on roms/exchange2.
+Artifacts: `results/parsed/online_repeating_v2_summary.json`, `online_tune_val.json`.
 
-Artifacts: `results/parsed/online_repeating_v2_summary.json`, `online_repeating_v2_runs.jsonl`, `online_tune_val.json` (`fabricated: false`).
+---
 
-**Verdict (3 lines):** (1) Persistent replay + gshare-base hybrid **does not hurt gcc** (ties gshare) and **edges gshare on leela by +0.09 pp** only. (2) **hashed_perceptron** remains much stronger on several traces but was not tuned online here. (3) **Bimodal+vote** stays broken at scale even after the combined-vote fix; use chooser or gshare-hybrid, not vote.
+## What we are not claiming
 
+- Beating industrial **TAGE** / tournament predictors  
+- Product **IPC** improvements (none measured)  
+- That **bimodal** alone is a strong baseline (it is not — **gshare** and **hashed_perceptron** are)  
+- Guaranteed gains from a future **hashed_perceptron + online corrector** (reasonable hypothesis, **not run**)
+
+---
+
+## Reproducibility
+
+```bash
+make traces champsim
+make residual-matrix          # Phase 1 residual gate
+bash experiments/transformer_matrix.sh   # Phase 2 NN-T hard test
+bash experiments/unseen_programs_matrix.sh
+bash experiments/online_repeating_matrix.sh   # v1
+bash experiments/online_repeating_v2.sh       # v2 + val tune
+python3 -m unittest tests/test_online_vote_aggregate.py
+```
+
+Charts: `python3 tools/make_transformer_chart.py`, `tools/make_online_repeating_charts_v2.py`, etc. (see `experiments/`).
+
+---
+
+## Closing
+
+The durable result is **methodological**: **confidence gating** and **strong classic baselines** matter more than architecture (MLP vs transformer). Measured wins over **gshare** are **+0.09 pp** on one trace; **hashed_perceptron** beats our hybrids everywhere in the v2 matrix. A serious corrector should sit on **hashed_perceptron**, not bimodal — expect **small** accuracy deltas if it works at all.
