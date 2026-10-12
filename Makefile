@@ -44,6 +44,8 @@ help:
 	@echo "  make residual-matrix    eval residual hybrid on held-out hard test traces"
 	@echo "  make transformer-train  train NN-T on residual curriculum + export"
 	@echo "  make transformer-matrix eval NN-T on held-out hard test traces"
+	@echo "  make unseen-screen      bimodal screen unseen SPEC candidates (weak bimodal)"
+	@echo "  make unseen-matrix      generalization matrix on screened unseen traces"
 	@echo "  make reproduce        run the implemented pipeline"
 	@echo "  make accept           print A1-A11 from artifacts"
 
@@ -177,6 +179,12 @@ transformer-train: residual-instrument
 transformer-matrix:
 	bash $(ROOT)/experiments/transformer_matrix.sh
 	-$(PY) $(ROOT)/tools/make_transformer_chart.py
+
+unseen-screen:
+	$(PY) $(ROOT)/tools/screen_unseen_bimodal.py
+
+unseen-matrix:
+	bash $(ROOT)/experiments/unseen_programs_matrix.sh
 
 extract:
 	$(PY) $(ROOT)/tools/extract_branches.py --trace $(TRACE)

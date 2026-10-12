@@ -152,3 +152,35 @@ This note is a **side-try**: a small neural failover idea, stress-tested quickly
 
 **Honest read:** NN-T + gate **matches** bimodal on these hard held-out shorts — same as the residual MLP + gate. No measured IPC gain; no claim that the transformer beats the tiny MLP specialist on test.
 
+---
+
+## Unseen programs
+
+**Setup:** Frozen residual MLP and NN-T exports (no retrain). Workloads **outside** ANBA residual / hard-domain train·val·test (and outside easy-only `spec_hard_v1` train). Eight SPEC2017 candidates were screened with **bimodal only** (warmup 50k / sim 50k); we kept the **four lowest bimodal accuracies** for the full matrix (warmup 100k / sim 200k). `620.omnetpp` was unavailable during screening (Zenodo timeout). Gate telemetry (`ANBA_GATE_STATS`) is now emitted for **residual** hybrid as well as NN-T.
+
+**Bimodal screening (50k/50k):**
+
+| Trace | Bimodal acc % | MPKI | Selected |
+|---|---:|---:|:---:|
+| `641.leela_s-334B` | 85.03 | 24.92 | yes |
+| `602.gcc_s-734B` | 94.62 | 12.66 | yes |
+| `657.xz_s-56B` | 96.81 | 0.64 | yes |
+| `600.perlbench_s-1273B` | 98.13 | 2.54 | yes |
+| `623.xalancbmk_s-592B` | 98.92 | 3.98 | no |
+| `625.x264_s-20B` | 99.72 | 0.06 | no |
+| `605.mcf_s-1554B` | 100.00 | 0.00 | no |
+| `620.omnetpp_s-874B` | — | — | missing trace |
+
+**Full comparison vs bimodal (100k/200k):** acc % / IPC; Δ acc in pp; override rate / precision on uncertain branches.
+
+| Trace | Bimodal | Residual m8 | Residual m20 | NN-T m8 | NN-T m20 |
+|---|---|---|---|---|---|
+| `641.leela` | 87.21 / 1.147 | 85.97 (−1.24) / 1.110 · ov 94% / prec 49% | 86.01 (−1.20) / 1.110 · ov 90% / prec 48% | 86.95 (−0.26) / 1.139 · ov 43% / prec 61% | **87.21 / 1.147** · ov 0% |
+| `602.gcc` | 94.69 / 0.496 | 94.67 (−0.02) / 0.496 · ov 100% / prec 98% | same Δ · ov 100% / prec 98% | 89.46 (−5.23) / 0.429 · ov 98% / prec **0.9%** | **94.69 / 0.496** · ov 0% |
+| `657.xz` | 96.87 / 2.112 | 95.84 (−1.03) / 2.112 · ov 100% / prec 67% | same Δ · ov 99% / prec 67% | 96.87 (0.00) / 2.112 · ov 33% / prec 100% | **96.87 / 2.112** · ov 0% |
+| `600.perlbench` | 97.83 / 2.052 | 98.09 (+0.26) / 2.056 · ov 50% / prec 71% | same Δ · ov 49% / prec 71% | 97.90 (+0.07) / 2.054 · ov 16% / prec 95% | **97.83 / 2.052** · ov 0% |
+
+Artifact: `results/parsed/unseen_programs_matrix_summary.json` (`fabricated: false`).
+
+**Honest read:** On genuinely unseen code, **margin-20 NN-T + gate ties bimodal** everywhere (zero overrides — same safe behavior as hard held-out test). **Margin-8 NN-T** can help slightly on leela/perlbench but **catastrophically hurts gcc** (≈5 pp, override precision ≈1%). The **residual MLP** overrides aggressively on unseen traces (often >90% of uncertain branches) and **loses** on leela/xz despite high override precision on gcc; it is **not** a safe generalizer without retraining. No consistent IPC win.
+

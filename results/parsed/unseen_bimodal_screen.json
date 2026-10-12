@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-12T10:22:43Z",
+  "split": "data/splits/spec_unseen_v1.json",
+  "warmup": 50000,
+  "sim": 50000,
+  "pick_n": 4,
+  "rows": [
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "workload": "657.xz",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 2.095,
+      "branch_accuracy_pct": 96.81,
+      "branch_mpki": 0.64,
+      "parse_ok": true
+    },
+    {
+      "trace": "623.xalancbmk_s-592B.champsimtrace.xz",
+      "workload": "623.xalancbmk",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 1.521,
+      "branch_accuracy_pct": 98.92,
+      "branch_mpki": 3.98,
+      "parse_ok": true
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "workload": "600.perlbench",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 2.15,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.54,
+      "parse_ok": true
+    },
+    {
+      "trace": "605.mcf_s-1554B.champsimtrace.xz",
+      "workload": "605.mcf",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 0.132,
+      "branch_accuracy_pct": 100.0,
+      "branch_mpki": 0.0,
+      "parse_ok": true
+    },
+    {
+      "trace": "625.x264_s-20B.champsimtrace.xz",
+      "workload": "625.x264",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 1.791,
+      "branch_accuracy_pct": 99.72,
+      "branch_mpki": 0.06,
+      "parse_ok": true
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "workload": "641.leela",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 0.881,
+      "branch_accuracy_pct": 85.03,
+      "branch_mpki": 24.92,
+      "parse_ok": true
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "workload": "602.gcc",
+      "warmup": 50000,
+      "sim": 50000,
+      "ipc": 0.4004,
+      "branch_accuracy_pct": 94.62,
+      "branch_mpki": 12.66,
+      "parse_ok": true
+    },
+    {
+      "trace": "620.omnetpp_s-874B.champsimtrace.xz",
+      "parse_ok": false,
+      "error": "missing trace"
+    }
+  ],
+  "ranked_by_bimodal_weakness": [
+    "641.leela_s-334B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "657.xz_s-56B.champsimtrace.xz",
+    "600.perlbench_s-1273B.champsimtrace.xz",
+    "623.xalancbmk_s-592B.champsimtrace.xz",
+    "625.x264_s-20B.champsimtrace.xz",
+    "605.mcf_s-1554B.champsimtrace.xz"
+  ],
+  "selected_traces": [
+    "641.leela_s-334B.champsimtrace.xz",
+    "602.gcc_s-734B.champsimtrace.xz",
+    "657.xz_s-56B.champsimtrace.xz",
+    "600.perlbench_s-1273B.champsimtrace.xz"
+  ],
+  "fabricated": false
+}
