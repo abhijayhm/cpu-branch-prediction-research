@@ -184,3 +184,30 @@ Artifact: `results/parsed/unseen_programs_matrix_summary.json` (`fabricated: fal
 
 **Honest read:** On genuinely unseen code, **margin-20 NN-T + gate ties bimodal** everywhere (zero overrides — same safe behavior as hard held-out test). **Margin-8 NN-T** can help slightly on leela/perlbench but **catastrophically hurts gcc** (≈5 pp, override precision ≈1%). The **residual MLP** overrides aggressively on unseen traces (often >90% of uncertain branches) and **loses** on leela/xz despite high override precision on gcc; it is **not** a safe generalizer without retraining. No consistent IPC win.
 
+---
+
+## Online learning on repeating tasks
+
+**Scenario:** Each trace is replayed **K=5** times (warmup 100k / sim 200k per epoch). Bimodal tables and global history **reset every epoch**; a **cold-start 32-feature perceptron** (no offline weights) trains **only on bimodal mispredictions**, with weights + per-PC chooser state **checkpointed** across epochs. Aggregates: **tournament chooser** (`anba_online_repeat_chooser`) vs **bimodal-strength + logit vote** (`anba_online_repeat_vote`). Compared each epoch to **bimodal**, **frozen residual + gate (margin 20)**, and **gshare**. Traces: unseen four (`641.leela`, `602.gcc`, `657.xz`, `600.perlbench`) plus held-out `654.roms`, `648.exchange2`.
+
+![Online repeating Δ acc vs bimodal](figures/online_repeating_accuracy_delta.png)
+
+**Epoch-1 vs epoch-5 Δ acc vs bimodal (pp):**
+
+| Trace | gshare | Residual m20 | Online chooser | Online vote |
+|---|---:|---:|---:|---:|
+| `641.leela` | +1.49 | −1.20 | −0.24 | −1.54 |
+| `602.gcc` | +5.27 | −0.02 | +0.01 | −5.25 |
+| `657.xz` | +0.26 | −1.03 | 0.00 | −1.03 |
+| `600.perlbench` | +0.30 | +0.26 | 0.00 | −0.04 |
+| `654.roms` | +8.55 | −5.48 | −0.41 | −8.55 |
+| `648.exchange2` | +11.54 | −6.75 | −1.09 | −9.41 |
+
+(Values are **flat epoch 1→5** for every predictor: deterministic replays with reset bimodal; the online perceptron converges within the first epoch, so later epochs add no new supervision.)
+
+**Telemetry (epoch 5, chooser):** override rate 2–49% on uncertain branches; override precision 64–90% on gcc/perlbench but **not** enough to beat bimodal on hard traces. Vote mode overrides more aggressively and **hurts** badly on `648.exchange2` / `654.roms` (precision ≈10–16%).
+
+Artifacts: `results/parsed/online_repeating_summary.json`, `online_repeating_runs.jsonl` (`fabricated: false`).
+
+**Honest read:** Repeating the **same** short window does **not** produce a visible learning curve once epoch-1 online training saturates. **gshare** is the strong classic reference on these runs. **Online failed-only + chooser** is a small, safe nudge (≤0.4 pp) on some traces but **does not** close gaps on hard held-out code. **Vote** and **frozen residual** remain unsafe without domain match. No IPC win measured.
+

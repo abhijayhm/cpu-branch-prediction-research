@@ -1,0 +1,3190 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-12T10:34:20Z",
+  "source": "results/parsed/online_repeating_runs.jsonl",
+  "curves": [
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 1.147,
+      "branch_accuracy_pct": 87.21,
+      "branch_mpki": 22.44,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "delta_acc_vs_bimodal_epoch": -1.2,
+      "delta_ipc_vs_bimodal_epoch": -0.037,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "delta_acc_vs_bimodal_epoch": -1.2,
+      "delta_ipc_vs_bimodal_epoch": -0.037,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "delta_acc_vs_bimodal_epoch": -1.2,
+      "delta_ipc_vs_bimodal_epoch": -0.037,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "delta_acc_vs_bimodal_epoch": -1.2,
+      "delta_ipc_vs_bimodal_epoch": -0.037,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 1.11,
+      "branch_accuracy_pct": 86.01,
+      "branch_mpki": 24.55,
+      "delta_acc_vs_bimodal_epoch": -1.2,
+      "delta_ipc_vs_bimodal_epoch": -0.037,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 6084,
+        "override_correct": 2935,
+        "override_rate": 0.8952,
+        "override_precision": 0.4824
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 1.21,
+      "branch_accuracy_pct": 88.7,
+      "branch_mpki": 19.84,
+      "delta_acc_vs_bimodal_epoch": 1.49,
+      "delta_ipc_vs_bimodal_epoch": 0.063,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 1.21,
+      "branch_accuracy_pct": 88.7,
+      "branch_mpki": 19.84,
+      "delta_acc_vs_bimodal_epoch": 1.49,
+      "delta_ipc_vs_bimodal_epoch": 0.063,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 1.21,
+      "branch_accuracy_pct": 88.7,
+      "branch_mpki": 19.84,
+      "delta_acc_vs_bimodal_epoch": 1.49,
+      "delta_ipc_vs_bimodal_epoch": 0.063,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 1.21,
+      "branch_accuracy_pct": 88.7,
+      "branch_mpki": 19.84,
+      "delta_acc_vs_bimodal_epoch": 1.49,
+      "delta_ipc_vs_bimodal_epoch": 0.063,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 1.21,
+      "branch_accuracy_pct": 88.7,
+      "branch_mpki": 19.84,
+      "delta_acc_vs_bimodal_epoch": 1.49,
+      "delta_ipc_vs_bimodal_epoch": 0.063,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 1.141,
+      "branch_accuracy_pct": 86.97,
+      "branch_mpki": 22.86,
+      "delta_acc_vs_bimodal_epoch": -0.24,
+      "delta_ipc_vs_bimodal_epoch": -0.006,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 3323,
+        "override_correct": 2138,
+        "override_rate": 0.489,
+        "override_precision": 0.6434
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 1.141,
+      "branch_accuracy_pct": 86.97,
+      "branch_mpki": 22.86,
+      "delta_acc_vs_bimodal_epoch": -0.24,
+      "delta_ipc_vs_bimodal_epoch": -0.006,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 3323,
+        "override_correct": 2138,
+        "override_rate": 0.489,
+        "override_precision": 0.6434
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 1.141,
+      "branch_accuracy_pct": 86.97,
+      "branch_mpki": 22.86,
+      "delta_acc_vs_bimodal_epoch": -0.24,
+      "delta_ipc_vs_bimodal_epoch": -0.006,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 3323,
+        "override_correct": 2138,
+        "override_rate": 0.489,
+        "override_precision": 0.6434
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 1.141,
+      "branch_accuracy_pct": 86.97,
+      "branch_mpki": 22.86,
+      "delta_acc_vs_bimodal_epoch": -0.24,
+      "delta_ipc_vs_bimodal_epoch": -0.006,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 3323,
+        "override_correct": 2138,
+        "override_rate": 0.489,
+        "override_precision": 0.6434
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 1.141,
+      "branch_accuracy_pct": 86.97,
+      "branch_mpki": 22.86,
+      "delta_acc_vs_bimodal_epoch": -0.24,
+      "delta_ipc_vs_bimodal_epoch": -0.006,
+      "gate_stats": {
+        "uncertain_branches": 6796,
+        "overrides": 3323,
+        "override_correct": 2138,
+        "override_rate": 0.489,
+        "override_precision": 0.6434
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 1.098,
+      "branch_accuracy_pct": 85.67,
+      "branch_mpki": 25.16,
+      "delta_acc_vs_bimodal_epoch": -1.54,
+      "delta_ipc_vs_bimodal_epoch": -0.049,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 3388,
+        "override_correct": 1530,
+        "override_rate": 0.4985,
+        "override_precision": 0.4516
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 1.098,
+      "branch_accuracy_pct": 85.67,
+      "branch_mpki": 25.16,
+      "delta_acc_vs_bimodal_epoch": -1.54,
+      "delta_ipc_vs_bimodal_epoch": -0.049,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 3388,
+        "override_correct": 1530,
+        "override_rate": 0.4985,
+        "override_precision": 0.4516
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 1.098,
+      "branch_accuracy_pct": 85.67,
+      "branch_mpki": 25.16,
+      "delta_acc_vs_bimodal_epoch": -1.54,
+      "delta_ipc_vs_bimodal_epoch": -0.049,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 3388,
+        "override_correct": 1530,
+        "override_rate": 0.4985,
+        "override_precision": 0.4516
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 1.098,
+      "branch_accuracy_pct": 85.67,
+      "branch_mpki": 25.16,
+      "delta_acc_vs_bimodal_epoch": -1.54,
+      "delta_ipc_vs_bimodal_epoch": -0.049,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 3388,
+        "override_correct": 1530,
+        "override_rate": 0.4985,
+        "override_precision": 0.4516
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 1.098,
+      "branch_accuracy_pct": 85.67,
+      "branch_mpki": 25.16,
+      "delta_acc_vs_bimodal_epoch": -1.54,
+      "delta_ipc_vs_bimodal_epoch": -0.049,
+      "gate_stats": {
+        "uncertain_branches": 6797,
+        "overrides": 3388,
+        "override_correct": 1530,
+        "override_rate": 0.4985,
+        "override_precision": 0.4516
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.69,
+      "branch_mpki": 12.57,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "delta_acc_vs_bimodal_epoch": -0.02,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "delta_acc_vs_bimodal_epoch": -0.02,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "delta_acc_vs_bimodal_epoch": -0.02,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "delta_acc_vs_bimodal_epoch": -0.02,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.67,
+      "branch_mpki": 12.61,
+      "delta_acc_vs_bimodal_epoch": -0.02,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3818,
+        "override_correct": 3756,
+        "override_rate": 0.9987,
+        "override_precision": 0.9838
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 0.6223,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.1,
+      "delta_acc_vs_bimodal_epoch": 5.27,
+      "delta_ipc_vs_bimodal_epoch": 0.1262,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 0.6223,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.1,
+      "delta_acc_vs_bimodal_epoch": 5.27,
+      "delta_ipc_vs_bimodal_epoch": 0.1262,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 0.6223,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.1,
+      "delta_acc_vs_bimodal_epoch": 5.27,
+      "delta_ipc_vs_bimodal_epoch": 0.1262,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 0.6223,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.1,
+      "delta_acc_vs_bimodal_epoch": 5.27,
+      "delta_ipc_vs_bimodal_epoch": 0.1262,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 0.6223,
+      "branch_accuracy_pct": 99.96,
+      "branch_mpki": 0.1,
+      "delta_acc_vs_bimodal_epoch": 5.27,
+      "delta_ipc_vs_bimodal_epoch": 0.1262,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.7,
+      "branch_mpki": 12.55,
+      "delta_acc_vs_bimodal_epoch": 0.01,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 39,
+        "override_correct": 35,
+        "override_rate": 0.0102,
+        "override_precision": 0.8974
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 3827,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.7,
+      "branch_mpki": 12.55,
+      "delta_acc_vs_bimodal_epoch": 0.01,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 39,
+        "override_correct": 35,
+        "override_rate": 0.0102,
+        "override_precision": 0.8974
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 3827,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.7,
+      "branch_mpki": 12.55,
+      "delta_acc_vs_bimodal_epoch": 0.01,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 39,
+        "override_correct": 35,
+        "override_rate": 0.0102,
+        "override_precision": 0.8974
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 3827,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.7,
+      "branch_mpki": 12.55,
+      "delta_acc_vs_bimodal_epoch": 0.01,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 39,
+        "override_correct": 35,
+        "override_rate": 0.0102,
+        "override_precision": 0.8974
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 3827,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 0.4961,
+      "branch_accuracy_pct": 94.7,
+      "branch_mpki": 12.55,
+      "delta_acc_vs_bimodal_epoch": 0.01,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 39,
+        "override_correct": 35,
+        "override_rate": 0.0102,
+        "override_precision": 0.8974
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 3827,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.44,
+      "branch_mpki": 25.0,
+      "delta_acc_vs_bimodal_epoch": -5.25,
+      "delta_ipc_vs_bimodal_epoch": -0.0676,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3775,
+        "override_correct": 27,
+        "override_rate": 0.9874,
+        "override_precision": 0.0072
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 3826,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.44,
+      "branch_mpki": 25.0,
+      "delta_acc_vs_bimodal_epoch": -5.25,
+      "delta_ipc_vs_bimodal_epoch": -0.0676,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3775,
+        "override_correct": 27,
+        "override_rate": 0.9874,
+        "override_precision": 0.0072
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 3826,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.44,
+      "branch_mpki": 25.0,
+      "delta_acc_vs_bimodal_epoch": -5.25,
+      "delta_ipc_vs_bimodal_epoch": -0.0676,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3775,
+        "override_correct": 27,
+        "override_rate": 0.9874,
+        "override_precision": 0.0072
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 3826,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.44,
+      "branch_mpki": 25.0,
+      "delta_acc_vs_bimodal_epoch": -5.25,
+      "delta_ipc_vs_bimodal_epoch": -0.0676,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3775,
+        "override_correct": 27,
+        "override_rate": 0.9874,
+        "override_precision": 0.0072
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 3826,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 0.4285,
+      "branch_accuracy_pct": 89.44,
+      "branch_mpki": 25.0,
+      "delta_acc_vs_bimodal_epoch": -5.25,
+      "delta_ipc_vs_bimodal_epoch": -0.0676,
+      "gate_stats": {
+        "uncertain_branches": 3823,
+        "overrides": 3775,
+        "override_correct": 27,
+        "override_rate": 0.9874,
+        "override_precision": 0.0072
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 3826,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "delta_acc_vs_bimodal_epoch": -1.03,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "delta_acc_vs_bimodal_epoch": -1.03,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "delta_acc_vs_bimodal_epoch": -1.03,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "delta_acc_vs_bimodal_epoch": -1.03,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 95.84,
+      "branch_mpki": 0.83,
+      "delta_acc_vs_bimodal_epoch": -1.03,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 197,
+        "override_correct": 131,
+        "override_rate": 0.9899,
+        "override_precision": 0.665
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 97.93,
+      "branch_mpki": 0.415,
+      "delta_acc_vs_bimodal_epoch": 1.06,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 97.93,
+      "branch_mpki": 0.415,
+      "delta_acc_vs_bimodal_epoch": 1.06,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 97.93,
+      "branch_mpki": 0.415,
+      "delta_acc_vs_bimodal_epoch": 1.06,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 97.93,
+      "branch_mpki": 0.415,
+      "delta_acc_vs_bimodal_epoch": 1.06,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 97.93,
+      "branch_mpki": 0.415,
+      "delta_acc_vs_bimodal_epoch": 1.06,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 13,
+        "override_correct": 12,
+        "override_rate": 0.0653,
+        "override_precision": 0.9231
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 13,
+        "override_correct": 12,
+        "override_rate": 0.0653,
+        "override_precision": 0.9231
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 13,
+        "override_correct": 12,
+        "override_rate": 0.0653,
+        "override_precision": 0.9231
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 13,
+        "override_correct": 12,
+        "override_rate": 0.0653,
+        "override_precision": 0.9231
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 2.112,
+      "branch_accuracy_pct": 96.87,
+      "branch_mpki": 0.625,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 13,
+        "override_correct": 12,
+        "override_rate": 0.0653,
+        "override_precision": 0.9231
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 2.107,
+      "branch_accuracy_pct": 93.76,
+      "branch_mpki": 1.245,
+      "delta_acc_vs_bimodal_epoch": -3.11,
+      "delta_ipc_vs_bimodal_epoch": -0.005,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 182,
+        "override_correct": 6,
+        "override_rate": 0.9146,
+        "override_precision": 0.033
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 2.107,
+      "branch_accuracy_pct": 93.76,
+      "branch_mpki": 1.245,
+      "delta_acc_vs_bimodal_epoch": -3.11,
+      "delta_ipc_vs_bimodal_epoch": -0.005,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 182,
+        "override_correct": 6,
+        "override_rate": 0.9146,
+        "override_precision": 0.033
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 2.107,
+      "branch_accuracy_pct": 93.76,
+      "branch_mpki": 1.245,
+      "delta_acc_vs_bimodal_epoch": -3.11,
+      "delta_ipc_vs_bimodal_epoch": -0.005,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 182,
+        "override_correct": 6,
+        "override_rate": 0.9146,
+        "override_precision": 0.033
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 2.107,
+      "branch_accuracy_pct": 93.76,
+      "branch_mpki": 1.245,
+      "delta_acc_vs_bimodal_epoch": -3.11,
+      "delta_ipc_vs_bimodal_epoch": -0.005,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 182,
+        "override_correct": 6,
+        "override_rate": 0.9146,
+        "override_precision": 0.033
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 2.107,
+      "branch_accuracy_pct": 93.76,
+      "branch_mpki": 1.245,
+      "delta_acc_vs_bimodal_epoch": -3.11,
+      "delta_ipc_vs_bimodal_epoch": -0.005,
+      "gate_stats": {
+        "uncertain_branches": 199,
+        "overrides": 182,
+        "override_correct": 6,
+        "override_rate": 0.9146,
+        "override_precision": 0.033
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 202,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.95,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "delta_acc_vs_bimodal_epoch": 0.26,
+      "delta_ipc_vs_bimodal_epoch": 0.004,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "delta_acc_vs_bimodal_epoch": 0.26,
+      "delta_ipc_vs_bimodal_epoch": 0.004,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "delta_acc_vs_bimodal_epoch": 0.26,
+      "delta_ipc_vs_bimodal_epoch": 0.004,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "delta_acc_vs_bimodal_epoch": 0.26,
+      "delta_ipc_vs_bimodal_epoch": 0.004,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 2.056,
+      "branch_accuracy_pct": 98.09,
+      "branch_mpki": 2.605,
+      "delta_acc_vs_bimodal_epoch": 0.26,
+      "delta_ipc_vs_bimodal_epoch": 0.004,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 473,
+        "override_correct": 337,
+        "override_rate": 0.4891,
+        "override_precision": 0.7125
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 2.075,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.55,
+      "delta_acc_vs_bimodal_epoch": 0.3,
+      "delta_ipc_vs_bimodal_epoch": 0.023,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 2.075,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.55,
+      "delta_acc_vs_bimodal_epoch": 0.3,
+      "delta_ipc_vs_bimodal_epoch": 0.023,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 2.075,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.55,
+      "delta_acc_vs_bimodal_epoch": 0.3,
+      "delta_ipc_vs_bimodal_epoch": 0.023,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 2.075,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.55,
+      "delta_acc_vs_bimodal_epoch": 0.3,
+      "delta_ipc_vs_bimodal_epoch": 0.023,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 2.075,
+      "branch_accuracy_pct": 98.13,
+      "branch_mpki": 2.55,
+      "delta_acc_vs_bimodal_epoch": 0.3,
+      "delta_ipc_vs_bimodal_epoch": 0.023,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.955,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 49,
+        "override_correct": 46,
+        "override_rate": 0.0507,
+        "override_precision": 0.9388
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.955,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 49,
+        "override_correct": 46,
+        "override_rate": 0.0507,
+        "override_precision": 0.9388
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.955,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 49,
+        "override_correct": 46,
+        "override_rate": 0.0507,
+        "override_precision": 0.9388
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.955,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 49,
+        "override_correct": 46,
+        "override_rate": 0.0507,
+        "override_precision": 0.9388
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 2.052,
+      "branch_accuracy_pct": 97.83,
+      "branch_mpki": 2.955,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 49,
+        "override_correct": 46,
+        "override_rate": 0.0507,
+        "override_precision": 0.9388
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 2.038,
+      "branch_accuracy_pct": 97.79,
+      "branch_mpki": 3.01,
+      "delta_acc_vs_bimodal_epoch": -0.04,
+      "delta_ipc_vs_bimodal_epoch": -0.014,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 563,
+        "override_correct": 289,
+        "override_rate": 0.5822,
+        "override_precision": 0.5133
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 2.038,
+      "branch_accuracy_pct": 97.79,
+      "branch_mpki": 3.01,
+      "delta_acc_vs_bimodal_epoch": -0.04,
+      "delta_ipc_vs_bimodal_epoch": -0.014,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 563,
+        "override_correct": 289,
+        "override_rate": 0.5822,
+        "override_precision": 0.5133
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 2.038,
+      "branch_accuracy_pct": 97.79,
+      "branch_mpki": 3.01,
+      "delta_acc_vs_bimodal_epoch": -0.04,
+      "delta_ipc_vs_bimodal_epoch": -0.014,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 563,
+        "override_correct": 289,
+        "override_rate": 0.5822,
+        "override_precision": 0.5133
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 2.038,
+      "branch_accuracy_pct": 97.79,
+      "branch_mpki": 3.01,
+      "delta_acc_vs_bimodal_epoch": -0.04,
+      "delta_ipc_vs_bimodal_epoch": -0.014,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 563,
+        "override_correct": 289,
+        "override_rate": 0.5822,
+        "override_precision": 0.5133
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 2.038,
+      "branch_accuracy_pct": 97.79,
+      "branch_mpki": 3.01,
+      "delta_acc_vs_bimodal_epoch": -0.04,
+      "delta_ipc_vs_bimodal_epoch": -0.014,
+      "gate_stats": {
+        "uncertain_branches": 967,
+        "overrides": 563,
+        "override_correct": 289,
+        "override_rate": 0.5822,
+        "override_precision": 0.5133
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 1050,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 1.507,
+      "branch_accuracy_pct": 80.48,
+      "branch_mpki": 31.63,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 1.364,
+      "branch_accuracy_pct": 75.0,
+      "branch_mpki": 40.51,
+      "delta_acc_vs_bimodal_epoch": -5.48,
+      "delta_ipc_vs_bimodal_epoch": -0.143,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 9061,
+        "override_correct": 4629,
+        "override_rate": 0.965,
+        "override_precision": 0.5109
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 1.364,
+      "branch_accuracy_pct": 75.0,
+      "branch_mpki": 40.51,
+      "delta_acc_vs_bimodal_epoch": -5.48,
+      "delta_ipc_vs_bimodal_epoch": -0.143,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 9061,
+        "override_correct": 4629,
+        "override_rate": 0.965,
+        "override_precision": 0.5109
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 1.364,
+      "branch_accuracy_pct": 75.0,
+      "branch_mpki": 40.51,
+      "delta_acc_vs_bimodal_epoch": -5.48,
+      "delta_ipc_vs_bimodal_epoch": -0.143,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 9061,
+        "override_correct": 4629,
+        "override_rate": 0.965,
+        "override_precision": 0.5109
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 1.364,
+      "branch_accuracy_pct": 75.0,
+      "branch_mpki": 40.51,
+      "delta_acc_vs_bimodal_epoch": -5.48,
+      "delta_ipc_vs_bimodal_epoch": -0.143,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 9061,
+        "override_correct": 4629,
+        "override_rate": 0.965,
+        "override_precision": 0.5109
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 1.364,
+      "branch_accuracy_pct": 75.0,
+      "branch_mpki": 40.51,
+      "delta_acc_vs_bimodal_epoch": -5.48,
+      "delta_ipc_vs_bimodal_epoch": -0.143,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 9061,
+        "override_correct": 4629,
+        "override_rate": 0.965,
+        "override_precision": 0.5109
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 2.119,
+      "branch_accuracy_pct": 96.28,
+      "branch_mpki": 6.03,
+      "delta_acc_vs_bimodal_epoch": 15.8,
+      "delta_ipc_vs_bimodal_epoch": 0.612,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 2.119,
+      "branch_accuracy_pct": 96.28,
+      "branch_mpki": 6.03,
+      "delta_acc_vs_bimodal_epoch": 15.8,
+      "delta_ipc_vs_bimodal_epoch": 0.612,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 2.119,
+      "branch_accuracy_pct": 96.28,
+      "branch_mpki": 6.03,
+      "delta_acc_vs_bimodal_epoch": 15.8,
+      "delta_ipc_vs_bimodal_epoch": 0.612,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 2.119,
+      "branch_accuracy_pct": 96.28,
+      "branch_mpki": 6.03,
+      "delta_acc_vs_bimodal_epoch": 15.8,
+      "delta_ipc_vs_bimodal_epoch": 0.612,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 2.119,
+      "branch_accuracy_pct": 96.28,
+      "branch_mpki": 6.03,
+      "delta_acc_vs_bimodal_epoch": 15.8,
+      "delta_ipc_vs_bimodal_epoch": 0.612,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 1.495,
+      "branch_accuracy_pct": 80.07,
+      "branch_mpki": 32.3,
+      "delta_acc_vs_bimodal_epoch": -0.41,
+      "delta_ipc_vs_bimodal_epoch": -0.012,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 1838,
+        "override_correct": 1259,
+        "override_rate": 0.1957,
+        "override_precision": 0.685
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 1.495,
+      "branch_accuracy_pct": 80.07,
+      "branch_mpki": 32.3,
+      "delta_acc_vs_bimodal_epoch": -0.41,
+      "delta_ipc_vs_bimodal_epoch": -0.012,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 1838,
+        "override_correct": 1259,
+        "override_rate": 0.1957,
+        "override_precision": 0.685
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 1.495,
+      "branch_accuracy_pct": 80.07,
+      "branch_mpki": 32.3,
+      "delta_acc_vs_bimodal_epoch": -0.41,
+      "delta_ipc_vs_bimodal_epoch": -0.012,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 1838,
+        "override_correct": 1259,
+        "override_rate": 0.1957,
+        "override_precision": 0.685
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 1.495,
+      "branch_accuracy_pct": 80.07,
+      "branch_mpki": 32.3,
+      "delta_acc_vs_bimodal_epoch": -0.41,
+      "delta_ipc_vs_bimodal_epoch": -0.012,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 1838,
+        "override_correct": 1259,
+        "override_rate": 0.1957,
+        "override_precision": 0.685
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 1.495,
+      "branch_accuracy_pct": 80.07,
+      "branch_mpki": 32.3,
+      "delta_acc_vs_bimodal_epoch": -0.41,
+      "delta_ipc_vs_bimodal_epoch": -0.012,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 1838,
+        "override_correct": 1259,
+        "override_rate": 0.1957,
+        "override_precision": 0.685
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 1.288,
+      "branch_accuracy_pct": 71.93,
+      "branch_mpki": 45.47,
+      "delta_acc_vs_bimodal_epoch": -8.55,
+      "delta_ipc_vs_bimodal_epoch": -0.219,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 6081,
+        "override_correct": 976,
+        "override_rate": 0.6476,
+        "override_precision": 0.1605
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 1.288,
+      "branch_accuracy_pct": 71.93,
+      "branch_mpki": 45.47,
+      "delta_acc_vs_bimodal_epoch": -8.55,
+      "delta_ipc_vs_bimodal_epoch": -0.219,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 6081,
+        "override_correct": 976,
+        "override_rate": 0.6476,
+        "override_precision": 0.1605
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 1.288,
+      "branch_accuracy_pct": 71.93,
+      "branch_mpki": 45.47,
+      "delta_acc_vs_bimodal_epoch": -8.55,
+      "delta_ipc_vs_bimodal_epoch": -0.219,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 6081,
+        "override_correct": 976,
+        "override_rate": 0.6476,
+        "override_precision": 0.1605
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 1.288,
+      "branch_accuracy_pct": 71.93,
+      "branch_mpki": 45.47,
+      "delta_acc_vs_bimodal_epoch": -8.55,
+      "delta_ipc_vs_bimodal_epoch": -0.219,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 6081,
+        "override_correct": 976,
+        "override_rate": 0.6476,
+        "override_precision": 0.1605
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 1.288,
+      "branch_accuracy_pct": 71.93,
+      "branch_mpki": 45.47,
+      "delta_acc_vs_bimodal_epoch": -8.55,
+      "delta_ipc_vs_bimodal_epoch": -0.219,
+      "gate_stats": {
+        "uncertain_branches": 9390,
+        "overrides": 6081,
+        "override_correct": 976,
+        "override_rate": 0.6476,
+        "override_precision": 0.1605
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 9429,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 1,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 2,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 3,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 4,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch": 5,
+      "ipc": 1.676,
+      "branch_accuracy_pct": 84.04,
+      "branch_mpki": 21.5,
+      "delta_acc_vs_bimodal_epoch": 0.0,
+      "delta_ipc_vs_bimodal_epoch": 0.0,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 1,
+      "ipc": 1.462,
+      "branch_accuracy_pct": 77.29,
+      "branch_mpki": 30.59,
+      "delta_acc_vs_bimodal_epoch": -6.75,
+      "delta_ipc_vs_bimodal_epoch": -0.214,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 6611,
+        "override_correct": 3185,
+        "override_rate": 0.9651,
+        "override_precision": 0.4818
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 2,
+      "ipc": 1.462,
+      "branch_accuracy_pct": 77.29,
+      "branch_mpki": 30.59,
+      "delta_acc_vs_bimodal_epoch": -6.75,
+      "delta_ipc_vs_bimodal_epoch": -0.214,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 6611,
+        "override_correct": 3185,
+        "override_rate": 0.9651,
+        "override_precision": 0.4818
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 3,
+      "ipc": 1.462,
+      "branch_accuracy_pct": 77.29,
+      "branch_mpki": 30.59,
+      "delta_acc_vs_bimodal_epoch": -6.75,
+      "delta_ipc_vs_bimodal_epoch": -0.214,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 6611,
+        "override_correct": 3185,
+        "override_rate": 0.9651,
+        "override_precision": 0.4818
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 4,
+      "ipc": 1.462,
+      "branch_accuracy_pct": 77.29,
+      "branch_mpki": 30.59,
+      "delta_acc_vs_bimodal_epoch": -6.75,
+      "delta_ipc_vs_bimodal_epoch": -0.214,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 6611,
+        "override_correct": 3185,
+        "override_rate": 0.9651,
+        "override_precision": 0.4818
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch": 5,
+      "ipc": 1.462,
+      "branch_accuracy_pct": 77.29,
+      "branch_mpki": 30.59,
+      "delta_acc_vs_bimodal_epoch": -6.75,
+      "delta_ipc_vs_bimodal_epoch": -0.214,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 6611,
+        "override_correct": 3185,
+        "override_rate": 0.9651,
+        "override_precision": 0.4818
+      },
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 1,
+      "ipc": 2.196,
+      "branch_accuracy_pct": 95.58,
+      "branch_mpki": 5.955,
+      "delta_acc_vs_bimodal_epoch": 11.54,
+      "delta_ipc_vs_bimodal_epoch": 0.52,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 2,
+      "ipc": 2.196,
+      "branch_accuracy_pct": 95.58,
+      "branch_mpki": 5.955,
+      "delta_acc_vs_bimodal_epoch": 11.54,
+      "delta_ipc_vs_bimodal_epoch": 0.52,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 3,
+      "ipc": 2.196,
+      "branch_accuracy_pct": 95.58,
+      "branch_mpki": 5.955,
+      "delta_acc_vs_bimodal_epoch": 11.54,
+      "delta_ipc_vs_bimodal_epoch": 0.52,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 4,
+      "ipc": 2.196,
+      "branch_accuracy_pct": 95.58,
+      "branch_mpki": 5.955,
+      "delta_acc_vs_bimodal_epoch": 11.54,
+      "delta_ipc_vs_bimodal_epoch": 0.52,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch": 5,
+      "ipc": 2.196,
+      "branch_accuracy_pct": 95.58,
+      "branch_mpki": 5.955,
+      "delta_acc_vs_bimodal_epoch": 11.54,
+      "delta_ipc_vs_bimodal_epoch": 0.52,
+      "gate_stats": null,
+      "online_epoch_stats": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 1,
+      "ipc": 1.649,
+      "branch_accuracy_pct": 82.95,
+      "branch_mpki": 22.97,
+      "delta_acc_vs_bimodal_epoch": -1.09,
+      "delta_ipc_vs_bimodal_epoch": -0.027,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 3024,
+        "override_correct": 2160,
+        "override_rate": 0.4415,
+        "override_precision": 0.7143
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 2,
+      "ipc": 1.649,
+      "branch_accuracy_pct": 82.95,
+      "branch_mpki": 22.97,
+      "delta_acc_vs_bimodal_epoch": -1.09,
+      "delta_ipc_vs_bimodal_epoch": -0.027,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 3024,
+        "override_correct": 2160,
+        "override_rate": 0.4415,
+        "override_precision": 0.7143
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 3,
+      "ipc": 1.649,
+      "branch_accuracy_pct": 82.95,
+      "branch_mpki": 22.97,
+      "delta_acc_vs_bimodal_epoch": -1.09,
+      "delta_ipc_vs_bimodal_epoch": -0.027,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 3024,
+        "override_correct": 2160,
+        "override_rate": 0.4415,
+        "override_precision": 0.7143
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 4,
+      "ipc": 1.649,
+      "branch_accuracy_pct": 82.95,
+      "branch_mpki": 22.97,
+      "delta_acc_vs_bimodal_epoch": -1.09,
+      "delta_ipc_vs_bimodal_epoch": -0.027,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 3024,
+        "override_correct": 2160,
+        "override_rate": 0.4415,
+        "override_precision": 0.7143
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch": 5,
+      "ipc": 1.649,
+      "branch_accuracy_pct": 82.95,
+      "branch_mpki": 22.97,
+      "delta_acc_vs_bimodal_epoch": -1.09,
+      "delta_ipc_vs_bimodal_epoch": -0.027,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 3024,
+        "override_correct": 2160,
+        "override_rate": 0.4415,
+        "override_precision": 0.7143
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 1,
+      "ipc": 1.379,
+      "branch_accuracy_pct": 74.63,
+      "branch_mpki": 34.17,
+      "delta_acc_vs_bimodal_epoch": -9.41,
+      "delta_ipc_vs_bimodal_epoch": -0.297,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 4186,
+        "override_correct": 404,
+        "override_rate": 0.6111,
+        "override_precision": 0.0965
+      },
+      "online_epoch_stats": {
+        "epoch": 1,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 2,
+      "ipc": 1.379,
+      "branch_accuracy_pct": 74.63,
+      "branch_mpki": 34.17,
+      "delta_acc_vs_bimodal_epoch": -9.41,
+      "delta_ipc_vs_bimodal_epoch": -0.297,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 4186,
+        "override_correct": 404,
+        "override_rate": 0.6111,
+        "override_precision": 0.0965
+      },
+      "online_epoch_stats": {
+        "epoch": 2,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 3,
+      "ipc": 1.379,
+      "branch_accuracy_pct": 74.63,
+      "branch_mpki": 34.17,
+      "delta_acc_vs_bimodal_epoch": -9.41,
+      "delta_ipc_vs_bimodal_epoch": -0.297,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 4186,
+        "override_correct": 404,
+        "override_rate": 0.6111,
+        "override_precision": 0.0965
+      },
+      "online_epoch_stats": {
+        "epoch": 3,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 4,
+      "ipc": 1.379,
+      "branch_accuracy_pct": 74.63,
+      "branch_mpki": 34.17,
+      "delta_acc_vs_bimodal_epoch": -9.41,
+      "delta_ipc_vs_bimodal_epoch": -0.297,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 4186,
+        "override_correct": 404,
+        "override_rate": 0.6111,
+        "override_precision": 0.0965
+      },
+      "online_epoch_stats": {
+        "epoch": 4,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch": 5,
+      "ipc": 1.379,
+      "branch_accuracy_pct": 74.63,
+      "branch_mpki": 34.17,
+      "delta_acc_vs_bimodal_epoch": -9.41,
+      "delta_ipc_vs_bimodal_epoch": -0.297,
+      "gate_stats": {
+        "uncertain_branches": 6850,
+        "overrides": 4186,
+        "override_correct": 404,
+        "override_rate": 0.6111,
+        "override_precision": 0.0965
+      },
+      "online_epoch_stats": {
+        "epoch": 5,
+        "train_updates": 6901,
+        "uncertain_branches": 0,
+        "overrides": 0,
+        "override_correct": 0,
+        "override_rate": 0.0,
+        "override_precision": 0.0
+      }
+    }
+  ],
+  "epoch1_vs_final": [
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 97.83,
+      "final_epoch": 5,
+      "final_acc": 97.83,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": 1050,
+      "final_override_rate": 0.0507,
+      "final_override_precision": 0.9388
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 97.79,
+      "final_epoch": 5,
+      "final_acc": 97.79,
+      "delta_acc_epoch1_vs_bimodal": -0.04,
+      "delta_acc_final_vs_bimodal": -0.04,
+      "final_train_updates": 1050,
+      "final_override_rate": 0.5822,
+      "final_override_precision": 0.5133
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 98.09,
+      "final_epoch": 5,
+      "final_acc": 98.09,
+      "delta_acc_epoch1_vs_bimodal": 0.26,
+      "delta_acc_final_vs_bimodal": 0.26,
+      "final_train_updates": null,
+      "final_override_rate": 0.4891,
+      "final_override_precision": 0.7125
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 97.83,
+      "final_epoch": 5,
+      "final_acc": 97.83,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "600.perlbench_s-1273B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 98.13,
+      "final_epoch": 5,
+      "final_acc": 98.13,
+      "delta_acc_epoch1_vs_bimodal": 0.3,
+      "delta_acc_final_vs_bimodal": 0.3,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 94.7,
+      "final_epoch": 5,
+      "final_acc": 94.7,
+      "delta_acc_epoch1_vs_bimodal": 0.01,
+      "delta_acc_final_vs_bimodal": 0.01,
+      "final_train_updates": 3827,
+      "final_override_rate": 0.0102,
+      "final_override_precision": 0.8974
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 89.44,
+      "final_epoch": 5,
+      "final_acc": 89.44,
+      "delta_acc_epoch1_vs_bimodal": -5.25,
+      "delta_acc_final_vs_bimodal": -5.25,
+      "final_train_updates": 3826,
+      "final_override_rate": 0.9874,
+      "final_override_precision": 0.0072
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 94.67,
+      "final_epoch": 5,
+      "final_acc": 94.67,
+      "delta_acc_epoch1_vs_bimodal": -0.02,
+      "delta_acc_final_vs_bimodal": -0.02,
+      "final_train_updates": null,
+      "final_override_rate": 0.9987,
+      "final_override_precision": 0.9838
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 94.69,
+      "final_epoch": 5,
+      "final_acc": 94.69,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "602.gcc_s-734B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 99.96,
+      "final_epoch": 5,
+      "final_acc": 99.96,
+      "delta_acc_epoch1_vs_bimodal": 5.27,
+      "delta_acc_final_vs_bimodal": 5.27,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 86.97,
+      "final_epoch": 5,
+      "final_acc": 86.97,
+      "delta_acc_epoch1_vs_bimodal": -0.24,
+      "delta_acc_final_vs_bimodal": -0.24,
+      "final_train_updates": 6901,
+      "final_override_rate": 0.489,
+      "final_override_precision": 0.6434
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 85.67,
+      "final_epoch": 5,
+      "final_acc": 85.67,
+      "delta_acc_epoch1_vs_bimodal": -1.54,
+      "delta_acc_final_vs_bimodal": -1.54,
+      "final_train_updates": 6901,
+      "final_override_rate": 0.4985,
+      "final_override_precision": 0.4516
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 86.01,
+      "final_epoch": 5,
+      "final_acc": 86.01,
+      "delta_acc_epoch1_vs_bimodal": -1.2,
+      "delta_acc_final_vs_bimodal": -1.2,
+      "final_train_updates": null,
+      "final_override_rate": 0.8952,
+      "final_override_precision": 0.4824
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 87.21,
+      "final_epoch": 5,
+      "final_acc": 87.21,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "641.leela_s-334B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 88.7,
+      "final_epoch": 5,
+      "final_acc": 88.7,
+      "delta_acc_epoch1_vs_bimodal": 1.49,
+      "delta_acc_final_vs_bimodal": 1.49,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 82.95,
+      "final_epoch": 5,
+      "final_acc": 82.95,
+      "delta_acc_epoch1_vs_bimodal": -1.09,
+      "delta_acc_final_vs_bimodal": -1.09,
+      "final_train_updates": 6901,
+      "final_override_rate": 0.4415,
+      "final_override_precision": 0.7143
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 74.63,
+      "final_epoch": 5,
+      "final_acc": 74.63,
+      "delta_acc_epoch1_vs_bimodal": -9.41,
+      "delta_acc_final_vs_bimodal": -9.41,
+      "final_train_updates": 6901,
+      "final_override_rate": 0.6111,
+      "final_override_precision": 0.0965
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 77.29,
+      "final_epoch": 5,
+      "final_acc": 77.29,
+      "delta_acc_epoch1_vs_bimodal": -6.75,
+      "delta_acc_final_vs_bimodal": -6.75,
+      "final_train_updates": null,
+      "final_override_rate": 0.9651,
+      "final_override_precision": 0.4818
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 84.04,
+      "final_epoch": 5,
+      "final_acc": 84.04,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "648.exchange2_s-1699B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 95.58,
+      "final_epoch": 5,
+      "final_acc": 95.58,
+      "delta_acc_epoch1_vs_bimodal": 11.54,
+      "delta_acc_final_vs_bimodal": 11.54,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 80.07,
+      "final_epoch": 5,
+      "final_acc": 80.07,
+      "delta_acc_epoch1_vs_bimodal": -0.41,
+      "delta_acc_final_vs_bimodal": -0.41,
+      "final_train_updates": 9429,
+      "final_override_rate": 0.1957,
+      "final_override_precision": 0.685
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 71.93,
+      "final_epoch": 5,
+      "final_acc": 71.93,
+      "delta_acc_epoch1_vs_bimodal": -8.55,
+      "delta_acc_final_vs_bimodal": -8.55,
+      "final_train_updates": 9429,
+      "final_override_rate": 0.6476,
+      "final_override_precision": 0.1605
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 75.0,
+      "final_epoch": 5,
+      "final_acc": 75.0,
+      "delta_acc_epoch1_vs_bimodal": -5.48,
+      "delta_acc_final_vs_bimodal": -5.48,
+      "final_train_updates": null,
+      "final_override_rate": 0.965,
+      "final_override_precision": 0.5109
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 80.48,
+      "final_epoch": 5,
+      "final_acc": 80.48,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "654.roms_s-1021B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 96.28,
+      "final_epoch": 5,
+      "final_acc": 96.28,
+      "delta_acc_epoch1_vs_bimodal": 15.8,
+      "delta_acc_final_vs_bimodal": 15.8,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_chooser",
+      "epoch1_acc": 96.87,
+      "final_epoch": 5,
+      "final_acc": 96.87,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": 202,
+      "final_override_rate": 0.0653,
+      "final_override_precision": 0.9231
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_online_repeat_vote",
+      "epoch1_acc": 93.76,
+      "final_epoch": 5,
+      "final_acc": 93.76,
+      "delta_acc_epoch1_vs_bimodal": -3.11,
+      "delta_acc_final_vs_bimodal": -3.11,
+      "final_train_updates": 202,
+      "final_override_rate": 0.9146,
+      "final_override_precision": 0.033
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "anba_residual_hybrid",
+      "epoch1_acc": 95.84,
+      "final_epoch": 5,
+      "final_acc": 95.84,
+      "delta_acc_epoch1_vs_bimodal": -1.03,
+      "delta_acc_final_vs_bimodal": -1.03,
+      "final_train_updates": null,
+      "final_override_rate": 0.9899,
+      "final_override_precision": 0.665
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "bimodal",
+      "epoch1_acc": 96.87,
+      "final_epoch": 5,
+      "final_acc": 96.87,
+      "delta_acc_epoch1_vs_bimodal": 0.0,
+      "delta_acc_final_vs_bimodal": 0.0,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    },
+    {
+      "trace": "657.xz_s-56B.champsimtrace.xz",
+      "predictor": "gshare",
+      "epoch1_acc": 97.93,
+      "final_epoch": 5,
+      "final_acc": 97.93,
+      "delta_acc_epoch1_vs_bimodal": 1.06,
+      "delta_acc_final_vs_bimodal": 1.06,
+      "final_train_updates": null,
+      "final_override_rate": null,
+      "final_override_precision": null
+    }
+  ],
+  "fabricated": false
+}
